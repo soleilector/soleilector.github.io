@@ -2,8 +2,6 @@
 <head>
     <meta charset='UTF-8'>
     <!-- PYSCRIPT -->
-    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython_stdlib.min.js"></script>
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     
@@ -50,25 +48,8 @@
     <footer> <!-- BEGIN FOOTER -->
         <p>This is a footer</p>
     </footer> <!-- END FOOTER -->
-    <py-config type="toml">
-        [[fetch]]
-        files = ['./misalmon/main.py']
-    </py-config>
-    <script type="mpy">
-        import os
-        import sys
-        #import main
+    <script type="py" src="./mainpy.py" config="./config_misalmon.json">
 
-        from pyscript import document
-
-        print('Hello World')
-        print( sys.path )
-        print( os.getcwd() )
-
-        def HTML(text):
-            return text.replace("{{", "<").replace("}}", ">")
-
-        document.body.append(str(sys.path))
     </script>
     <!--
     <script type="py" src="./drawpage.py" config="./pyscript.json"></script>
