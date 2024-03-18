@@ -11,7 +11,7 @@
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     -->
     <title>
-        MichiganKing - All About the King Salmon
+        MichiganChinook - All About the King Salmon
     </title>
 </head>
 <body id = "writePageBox">
@@ -53,7 +53,9 @@
         <p>This is a footer</p>
     </footer> <!-- END FOOTER -->
     <py-config type="toml">
-        packages = ["drawpage"]
+        [[fetch]]
+        from = ""
+        files = ['drawpage.py']
     </py-config>
     <script type="mpy">
         import drawpage
