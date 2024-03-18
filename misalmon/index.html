@@ -52,11 +52,14 @@
     </footer> <!-- END FOOTER -->
     <py-config type="toml">
         [[fetch]]
-        files = ['./drawpage.py']
+        files = ['./misalmon/main.py']
     </py-config>
     <script type="mpy">
         import os
         import sys
+        #import main
+
+        from pyscript import document
 
         print('Hello World')
         print( sys.path )
@@ -65,10 +68,7 @@
         def HTML(text):
             return text.replace("{{", "<").replace("}}", ">")
 
-        from pyscript import document
-        document.body.append(HTML("{{br}}Huh{{br}}"))
-        document.body.append(os.getcwd()+HTML("{{/br}}"))
-        document.body.append("Hello from PyScript")
+        document.body.append(str(sys.path))
     </script>
     <!--
     <script type="py" src="./drawpage.py" config="./pyscript.json"></script>
