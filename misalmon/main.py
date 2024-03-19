@@ -2,7 +2,7 @@ from pyscript import document
 
 beginLayout = ""
 endLayout = ""
-STYLING = """<style>
+STYLING = """{{style}}
     /* NOTE TO SELF
         Setting width to 100%, then setting padding or margin of that object will extend it that size beyond 100%
             instead of setting padding inside to 50px!!!
@@ -180,42 +180,42 @@ STYLING = """<style>
         footer p {
             padding:50px;
         }
-    </style>"""
-HEADER = """<header>
-        <div class='header'> <!-- HEADER DIV -->
-            <div class='logo'> <!-- LOGO -->
-                <h1>{website_title}</h1> <!-- LOGO HEADER -->
-            </div>
-            <div class='nav'> <!-- BEGIN NAVIGATION HEADER -->
-                <ul class='nav' id="navlinks"> <!-- NAVIGATION LINKS -->
+    {{/style}}"""
+HEADER = """{{header}}
+        {{div class='header'}} {{!-- HEADER DIV --}}
+            {{div class='logo'}} {{!-- LOGO --}}
+                {{h1}}{website_title}{{/h1}} {{!-- LOGO HEADER --}}
+            {{/div}}
+            {{div class='nav'}} {{!-- BEGIN NAVIGATION HEADER --}}
+                {{ul class='nav' id="navlinks"}} {{!-- NAVIGATION LINKS --}}
                     {nav_links}
-                </ul>
-            </div> <!-- END NAVIGATION HEADER -->
-            <div class='headerImg'> <!-- BEGIN HEADER IMG-->
-                <img src='{header_image}'/> <!-- HEADER IMAGE -->
-            </div> <!-- END HEADER IMG -->
-        </div>
-    </header>"""
+                {{/ul}}
+            {{/div}} {{!-- END NAVIGATION HEADER --}}
+            {{div class='headerImg'}} {{!-- BEGIN HEADER IMG--}}
+                {{img src='{header_image}'/}} {{!-- HEADER IMAGE --}}
+            {{/div}} {{!-- END HEADER IMG --}}
+        {{/div}}
+    {{/header}}"""
 NAV_LINKS = {
     "Home": "home_py.html",
     "Lifecycle": "lifecycle.html",
     "Conservation": "conservation"
 }
 CONTENT = """
-<div class="content"> <!-- BEGIN CONTENT -->
-        <div class="breadcrumbs">
-            <p>Index / Lifecycle</p>
-        </div>
-        <div class="page_content">
-            <h2>{page_title}</h2>
+{{div class="content"}} {{!-- BEGIN CONTENT --}}
+        {{div class="breadcrumbs"}}
+            {{p}}Index / Lifecycle{{/p}}
+        {{/div}}
+        {{div class="page_content"}}
+            {{h2}}{page_title}{{/h2}}
             {page_content}
-        </div>
-    </div> 
+        {{/div}}
+    {{/div}} 
 """
 FOOTER = """
-<footer> <!-- BEGIN FOOTER -->
-        <p>{text}</p>
-    </footer> <!-- END FOOTER -->
+{{footer}} {{!-- BEGIN FOOTER --}}
+        {{p}}{text}{{/p}}
+    {{/footer}} {{!-- END FOOTER --}}
 """
 WEBPAGE_EXTENSION = "html"
 HEADER_IMAGE = "header.jpg"
@@ -236,28 +236,28 @@ def getStyling():
 def getContent():
     content_formatted = CONTENT.format(
         page_title="Index",
-        page_content="""<p>This is some content. Maybe you should go ahead and
-                click this <button>in-text button</button> to see what it does.</p>
-            <button>Click Me!</button><br>
-            <h3>Centered buttons</h3>
-            <p>The below <i>div</i> displays a row of 3 centered buttons...</p>
-            <div class="btnCntr">
-                <button>BTN</button>
-                <button>BTN</button>
-                <button>BTN</button>
-            </div>
-            <table class="general">
-                <tr>
-                    <th colspan="3">
+        page_content="""{{p}}This is some content. Maybe you should go ahead and
+                click this {{button}}in-text button{{/button}} to see what it does.{{/p}}
+            {{button}}Click Me!{{/button}}{{br}}
+            {{h3}}Centered buttons{{/h3}}
+            {{p}}The below {{i}}div{{/i}} displays a row of 3 centered buttons...{{/p}}
+            {{div class="btnCntr"}}
+                {{button}}BTN{{/button}}
+                {{button}}BTN{{/button}}
+                {{button}}BTN{{/button}}
+            {{/div}}
+            {{table class="general"}}
+                {{tr}}
+                    {{th colspan="3"}}
                         Table Heading
-                    </th>
-                </tr>
-                <tr>
-                    <td>Row 1</td>
-                    <td>Row 2</td>
-                    <td>Row 3</td>
-                </tr>
-            </table>"""
+                    {{/th}}
+                {{/tr}}
+                {{tr}}
+                    {{td}}Row 1{{/td}}
+                    {{td}}Row 2{{/td}}
+                    {{td}}Row 3{{/td}}
+                {{/tr}}
+            {{/table}}"""
     )
 
     return content_formatted
@@ -288,9 +288,9 @@ def getNavLinks():
         str += "LINK STRING STUFF"
     str += ""
 
-    return """<li><a href='#'>Home</a></li>
-                    <li><a href='#'>Lifecycle</a></li>
-                    <li><a href='#'>Conservation</a></li>"""  # DEFAULT 4 TESTING
+    return """{{li}}{{a href='#'}}Home{{/a}}{{/li}}
+                    {{li}}{{a href='#'}}Lifecycle{{/a}}{{/li}}
+                    {{li}}{{a href='#'}}Conservation{{/a}}{{/li}}"""  # DEFAULT 4 TESTING
 
 
 def getHeaderImage():
@@ -304,7 +304,7 @@ def getWebsiteTitle():
 def getPage(): #getpagename, argument based on ending of page
     """
         works if you add:
-                <py-script src="NAME_OF_PYTHON_FILE.py"></py-script>
+                {{py-script src="NAME_OF_PYTHON_FILE.py"}}{{/py-script}}
             to webpage html fil
     """
     bodyStr = getStyling() + getHeader() + getContent() + getFooter()
@@ -312,7 +312,7 @@ def getPage(): #getpagename, argument based on ending of page
 
 
 def HTML(text):
-    return text.replace("{{","<").replace("}}",">")
+    return text.replace("{{","{{").replace("}}","}}")
 
 
 #document.body.append(getPage())
