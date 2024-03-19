@@ -1,4 +1,5 @@
 from pyscript import document
+
 beginLayout = ""
 endLayout = ""
 STYLING = """<style>
@@ -12,12 +13,12 @@ STYLING = """<style>
         *, html {
             margin:0;
             padding:0;
-            
+
         }
         body {
             width:100%;
         }
-        
+
         /* HEADER STUFF */
         header {
             width:100%;
@@ -47,12 +48,12 @@ STYLING = """<style>
             font-weight:bold;
             color:white;
         }
-        
+
         /* NAVIGATION */
         div.header div.nav {
            width:100%;
         }
-        
+
         div.header div.nav ul.nav {
             list-style-type:none; # prevents styling
             margin:0px;
@@ -76,7 +77,7 @@ STYLING = """<style>
         div.header div.nav ul.nav li a:hover {
             background:cadetblue;
         }
-        
+
         /* CONTENT */
         div.content {
             padding-top:10px;
@@ -93,7 +94,7 @@ STYLING = """<style>
             color:cadetblue;
             padding-left:20px;
         }
-        
+
         /* COMMON ELEMENTS */
         div.content div.page_content h2 {
             width:80%;
@@ -118,7 +119,7 @@ STYLING = """<style>
             padding-top:10px;
             line-height:0.7;
         }
-        
+
         /* BUTTONS */
         div.content div.page_content button {
             border-radius:5%;
@@ -141,17 +142,17 @@ STYLING = """<style>
         div.content div.page_content div.btnCntr {
             width:80%;
             margin:auto;
-            
+
             /* BEGIN_A use this instead of display:block to center items in a row */
             display:flex;
             justify-content: center; /* center, space-around, space-between */
             /* END_A */
         }
         div.content div.page_content div.btnCntr button {
-            
+
         }
 
-        
+
         table.general {
             background:white;
             margin:20px;
@@ -166,7 +167,7 @@ STYLING = """<style>
         table.general td {
             padding:10px;
         }
-        
+
         /* FOOTER STUFF */
         footer {
             width:100%;
@@ -196,9 +197,9 @@ HEADER = """<header>
         </div>
     </header>"""
 NAV_LINKS = {
-    "Home" : "home_py.html",
-    "Lifecycle" : "lifecycle.html",
-    "Conservation" : "conservation"
+    "Home": "home_py.html",
+    "Lifecycle": "lifecycle.html",
+    "Conservation": "conservation"
 }
 CONTENT = """
 <div class="content"> <!-- BEGIN CONTENT -->
@@ -211,10 +212,15 @@ CONTENT = """
         </div>
     </div> 
 """
-
+FOOTER = """
+<footer> <!-- BEGIN FOOTER -->
+        <p>{text}</p>
+    </footer> <!-- END FOOTER -->
+"""
 WEBPAGE_EXTENSION = "html"
 HEADER_IMAGE = "header.jpg"
 WEBSITE_TITLE = "MichiganSalmon"
+
 
 def formLink(page_name):
     extension = WEBPAGE_EXTENSION
@@ -224,10 +230,13 @@ def formLink(page_name):
 
     return (page_name + extension)
 
+def getStyling():
+    return STYLING
+
 def getContent():
     content_formatted = CONTENT.format(
         page_title="Index",
-        page_content = """<p>This is some content. Maybe you should go ahead and
+        page_content="""<p>This is some content. Maybe you should go ahead and
                 click this <button>in-text button</button> to see what it does.</p>
             <button>Click Me!</button><br>
             <h3>Centered buttons</h3>
@@ -253,20 +262,27 @@ def getContent():
 
     return content_formatted
 
+
 def getHeader():
     headerFormatted = HEADER.format(
-        nav_links = getNavLinks(),
-        header_image = getHeaderImage(),
-        website_title = getWebsiteTitle()
+        nav_links=getNavLinks(),
+        header_image=getHeaderImage(),
+        website_title=getWebsiteTitle()
     )
 
     return headerFormatted
 
+def getFooter():
+    footer_formatted = FOOTER.format(text="This is a footer")
+
+    return footer_formatted
+
 def drawStyling():
     print(STYLING)
 
+
 def getNavLinks():
-    str=""
+    str = ""
 
     for linkName in NAV_LINKS:
         str += "LINK STRING STUFF"
@@ -274,23 +290,26 @@ def getNavLinks():
 
     return """<li><a href='#'>Home</a></li>
                     <li><a href='#'>Lifecycle</a></li>
-                    <li><a href='#'>Conservation</a></li>""" #DEFAULT 4 TESTING
+                    <li><a href='#'>Conservation</a></li>"""  # DEFAULT 4 TESTING
+
 
 def getHeaderImage():
     return "header.jpg"
 
+
 def getWebsiteTitle():
     return "MichiganChinook"
 
-def drawPage():
+
+def getPage(): #getpagename, argument based on ending of page
     """
         works if you add:
                 <py-script src="NAME_OF_PYTHON_FILE.py"></py-script>
             to webpage html fil
     """
-    bodyStr = ""
-    #pyscript.write("writePageBox","") MAKE SURE TO IMPORT THIS MODULE!!!
+    bodyStr = getStyling() + getHeader() + getContent() + getFooter()
+    return bodyStr
+
 
 print("HUH")
-document.body.append("PLSSSS")
-document.body.append()
+document.body.append(getPage())
