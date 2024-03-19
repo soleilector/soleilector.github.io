@@ -1,6 +1,5 @@
-import requests
-
 import pyscript
+
 beginLayout = ""
 endLayout = ""
 STYLING = """
@@ -26,18 +25,11 @@ def getStyling():
     return STYLING
 
 def getContent(pgName): # get the contents of a page
-    response = requests.get(CONTENT_URL+"pgName"+".txt")
-
-    if response != None:
-        page_content = response.text
-
-        content_formatted = CONTENT.format(
-            page_title="Index",
-            page_content = page_content
-        )
-
-        return content_formatted
-    else: return "<p>Nothing is written here...</p>"
+    page_content = ""
+    that  = pyscript.fetch(CONTENT_URL+pgName+".txt")
+    print("COME HERE===>>"+str(that))
+    
+    return "<p>Nothing is written here...</p>"
 
 def getHeader():
     headerFormatted = HEADER.format(
