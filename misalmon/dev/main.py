@@ -68,7 +68,7 @@ FOOTER = """
 """
 WEBPAGE_EXTENSION = "html"
 HEADER_IMAGE = "header.jpg"
-WEBSITE_TITLE = "MichiganSalmon"
+WEBSITE_TITLE = "MichiganChinook"
 URL = "https://soleilector.github.io/misalmon/dev"
 CONTENT_URL = "https://soleilector.github.io/misalmon/content/"
 
@@ -119,27 +119,42 @@ def getNavLinks():
 
 
 def getHeaderImage():
-    return "header.jpg"
+    return "../header.jpg"
 
 
 def getWebsiteTitle():
-    return "MichiganChinook"
+    return WEBSITE_TITLE
 
+def capTitle(titleStr):
+    words = titleStr.split(" ") # Split into a list, seperated by spaces
+    newStr = "" # holds reconstructed string
+    wordCt = 0 # counts words to identify which to add spaces after
+    
+    for word in words: # for each word in words array
+        newStr += word[:1].upper() + word[1:] # capitalize first letter in the word
+    
+        wordCt += 1 # add word count
+        if wordCt < len(words): # if the word of an id after this current word is not the last 
+            newStr += " " # add a space to the reconstructed word
+    
+    return newStr
 
-def getPage(pgName=None): #getpagename, argument based on ending of page
+def getPage(pgName='Not Found'): #getpagename, argument based on ending of page
     """
         works if you add:
                 <py-script src="NAME_OF_PYTHON_FILE.py"></py-script>
             to webpage html fil
     """
+    
     bodyStr = getStyling() + getHeader() + getContent(pgName) + getFooter()
     return bodyStr
 
-def pageFromContent(pgContent):
-    pgName = 'index'
-    print(pgContent)
+def pageFromContent(pgName='index',pgContent):
+    # capitalize first letter of page's name
+    pgName = capTitle(pgName)
+    
+    # generate page's html
     bodyStr = getStyling() + getHeader() + CONTENT.format(page_title=pgName, page_content=pgContent) + getFooter()
-    print("BODY FULL")
-    print(bodyStr)
+    
     return bodyStr
     
