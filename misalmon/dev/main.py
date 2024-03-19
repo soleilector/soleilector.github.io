@@ -1,16 +1,70 @@
 import pyscript
 
-beginLayout = ""
-endLayout = ""
 STYLING = """
+<!-- TEMPLATE CSS -->
+    <link rel="stylesheet" href="styling.css"> <!-- Template stylesheet-->
+    <!-- Bootstrap Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     """
 HEADER = """<header>
+        <div class='header'> <!-- HEADER DIV -->
+            <div class='logo'> <!-- LOGO -->
+                <h1>{website_title}</h1> <!-- LOGO HEADER -->
+            </div>
+            <div class='nav'> <!-- BEGIN NAVIGATION HEADER -->
+                <ul class='nav' id="navlinks"> <!-- NAVIGATION LINKS -->
+                    {nav_links}
+                </ul>
+            </div> <!-- END NAVIGATION HEADER -->
+            <div class='headerImg'> <!-- BEGIN HEADER IMG-->
+                <img src='{header_image}'/> <!-- HEADER IMAGE -->
+            </div> <!-- END HEADER IMG -->
+        </div>
     </header>"""
 NAV_LINKS = {
+    "Home": "home_py.html",
+    "Lifecycle": "lifecycle.html",
+    "Conservation": "conservation"
 }
 CONTENT = """
+<div class="content"> <!-- BEGIN CONTENT -->
+        <div class="breadcrumbs">
+            <p>Index / Lifecycle</p>
+        </div>
+        <div class="page_content">
+            <h2>{page_title}</h2>
+            {page_content}
+        </div>
+    </div> 
 """
+PAGE_CONTENT = {
+    "index" : """<p>This is some content. Maybe you should go ahead and
+                click this <button>in-text button</button> to see what it does.</p>
+            <button>Click Me!</button><br>
+            <h3>Centered buttons</h3>
+            <p>The below <i>div</i> displays a row of 3 centered buttons...</p>
+            <div class="btnCntr">
+                <button>BTN</button>
+                <button>BTN</button>
+                <button>BTN</button>
+            </div>
+            <table class="general">
+                <tr>
+                    <th colspan="3">
+                        Table Heading
+                    </th>
+                </tr>
+                <tr>
+                    <td>Row 1</td>
+                    <td>Row 2</td>
+                    <td>Row 3</td>
+                </tr>
+            </table>"""
+}
 FOOTER = """
+<footer> <!-- BEGIN FOOTER -->
+        <p>{text}</p>
+    </footer> <!-- END FOOTER -->
 """
 WEBPAGE_EXTENSION = "html"
 HEADER_IMAGE = "header.jpg"
@@ -25,11 +79,14 @@ def getStyling():
     return STYLING
 
 def getContent(pgName): # get the contents of a page
-    page_content = ""
-    that  = fetch(CONTENT_URL+pgName+".txt")
-    print("COME HERE===>>"+str(that))
-    
-    return "<p>Nothing is written here...</p>"
+    if "pgName" in PAGE_CONTENT:
+        thisContent = PAGE_CONTENT[pgName]
+        
+        contentFormatted = CONTENT.format(
+            page_title="Index",
+            page_content = thisContent
+        )
+    else: return "<p>Nothing is written here...</p>"
 
 def getHeader():
     headerFormatted = HEADER.format(
@@ -77,3 +134,10 @@ def getPage(pgName): #getpagename, argument based on ending of page
     """
     bodyStr = getStyling() + getHeader() + getContent(pgName) + getFooter()
     return bodyStr
+
+def pageFromContent(pgContent):
+    pgName = 'index'
+
+    bodyStr = getStyling() + getHeader() + CONTENT.format(page_title=pgNam, page_content=pgContent) + getFooter()
+    return bodyStr
+    
