@@ -137,7 +137,9 @@ def getPage(pgName): #getpagename, argument based on ending of page
 
 def pageFromContent(pgContent):
     pgName = 'index'
-
+    print(pgContent)
     bodyStr = getStyling() + getHeader() + CONTENT.format(page_title=pgName, page_content=pgContent) + getFooter()
+    print("BODY FULL")
+    print(bodyStr)
     return bodyStr
     
