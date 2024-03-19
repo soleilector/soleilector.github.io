@@ -1,6 +1,4 @@
 from pyscript import document
-document.body.append("PLSSSS")
-
 beginLayout = ""
 endLayout = ""
 STYLING = """<style>
@@ -292,3 +290,7 @@ def drawPage():
     """
     bodyStr = ""
     #pyscript.write("writePageBox","") MAKE SURE TO IMPORT THIS MODULE!!!
+
+print("HUH")
+document.body.append("PLSSSS")
+document.body.append()
