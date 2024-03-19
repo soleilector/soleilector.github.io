@@ -1,3 +1,4 @@
+print("AM I WORKING?")
 
 beginLayout = ""
 endLayout = ""
@@ -214,7 +215,7 @@ CONTENT = """
 
 WEBPAGE_EXTENSION = "html"
 HEADER_IMAGE = "header.jpg"
-WEBSITE_TITLE = "MichiganChinook"
+WEBSITE_TITLE = "MichiganSalmon"
 
 def formLink(page_name):
     extension = WEBPAGE_EXTENSION
