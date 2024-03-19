@@ -27,12 +27,13 @@
 </head>
 <body>
     <div id="out"></div>
-    <py-script>
-import js
+    <py-script src="main.py">
+        import main
+        import js
 
-html = "<div><strong>foo</strong></div>"
-out = Element("out")
-out.element.innerHTML = html
+        html = "<div><strong>foo</strong></div>"
+        out = Element("out")
+        out.element.innerHTML = html
     </py-script>
 </body>
 </html>
