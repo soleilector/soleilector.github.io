@@ -6,8 +6,11 @@
 </head>
 <body id="writePageBox">
      <script>
-        var CONTENT_URL = '../content/index.txt';
-        var storedText;
+        var url = window.location.pathname; // Get url of current webpage
+        var filename = url.substring(url.lastIndexOf('/')+1,a.lastIndexOf('.')) // Get filename of current webpage
+        
+        var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
+        var storedText; // to store the page's contents as text
 
         fetch(CONTENT_URL)
           .then(function(response) {
@@ -19,23 +22,22 @@
     <py-config>
         [[fetch]]
         files=['./main.py']
-        packages=['requests']
     </py-config>
-    <py-script>
-        import main
+    <script type='py'>
+        import main # import our main python page
         import js # necessary to display rendered html properly, as pyscript decodes it
-        from js import document as Doc
-        from js import storedText as this_content
+        from js import document as Doc # get the webpage as a document object
+        from js import storedText as this_content # import page's content variable
+        from js import filename # import filename variable
 
-        thisPage = Doc.getElementById('writePageBox')
+        print("PAGE FILENAME: "+filename) # testing
+
+        thisPage = Doc.getElementById('writePageBox') # get the element where we will write this text
         
         if this_content != None: # if the contents of this variable is not null (the page was found)
-            html = '<div><strong>foo</strong></div>'
-            
-            #thisPage.innerHTML = main.getPage('index')
-            thisPage.innerHTML = main.pageFromContent(this_content)
+            thisPage.innerHTML = main.pageFromContent(filename,this_content)
         else: # if the page's contents were null
-            thisPage.innerHTML = main.getPage('index') # retreives a default page content
-    </py-script>
+            thisPage.innerHTML = main.getPage() # retreives a default page content;
+    </script>
 </body>
 </html>
