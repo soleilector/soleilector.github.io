@@ -35,7 +35,7 @@
         thisPage = Doc.getElementById('writePageBox') # get the element where we will write this text
         
         if this_content != None: # if the contents of this variable is not null (the page was found)
-            thisPage.innerHTML = main.pageFromContent(filename,this_content)
+            thisPage.innerHTML = main.pageFromContent(this_content,fileName)
         else: # if the page's contents were null
             thisPage.innerHTML = main.getPage() # retreives a default page content;
     </script>
