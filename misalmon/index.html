@@ -16,7 +16,8 @@
 
         html = '<div><strong>foo</strong></div>'
         thisPage = Doc.getElementById('writePageBox')
-        thisPage.innerHTML = html
+        #thisPage.innerHTML = html
+        thisPage.innerHTML = main.getPage()
     </py-script>
 </body>
 </html>
