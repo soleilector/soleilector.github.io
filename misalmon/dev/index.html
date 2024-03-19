@@ -7,7 +7,7 @@
 <body id="writePageBox">
      <script>
         var url = window.location.pathname; // Get url of current webpage
-        var filename = url.substring(url.lastIndexOf('/')+1,a.lastIndexOf('.')) // Get filename of current webpage
+        var filename = url.substring(url.lastIndexOf('/')+1,url.lastIndexOf('.')) // Get filename of current webpage
         
         var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
         var storedText; // to store the page's contents as text
