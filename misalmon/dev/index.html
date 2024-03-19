@@ -25,7 +25,8 @@
         import main
         import js # necessary to display rendered html properly, as pyscript decodes it
         from js import document as Doc
-
+        from js import storedText as this_content
+        
         html = '<div><strong>foo</strong></div>'
         thisPage = Doc.getElementById('writePageBox')
         #thisPage.innerHTML = main.getPage('index')
