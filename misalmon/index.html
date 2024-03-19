@@ -37,8 +37,8 @@
         from js import document as Doc
 
         html = '<div><strong>foo</strong></div>'
-        out = Doc.getElementById('writePageBox')
-        out.element.innerHTML = html
+        thisPage = Doc.getElementById('writePageBox')
+        thisPage.innerHTML = html
     </py-script>
 </body>
 </html>
