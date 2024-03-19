@@ -1,4 +1,5 @@
-print("AM I WORKING?")
+from pyscript import document
+document.body.append("PLSSSS")
 
 beginLayout = ""
 endLayout = ""
