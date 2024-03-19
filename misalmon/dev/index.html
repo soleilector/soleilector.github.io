@@ -31,6 +31,8 @@
         from js import filename # import filename variable
 
         print("PAGE FILENAME: "+filename) # testing
+        if not ("." in filename):
+            fileName = 'index'
 
         thisPage = Doc.getElementById('writePageBox') # get the element where we will write this text
         
