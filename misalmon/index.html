@@ -4,7 +4,17 @@
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 <body id="writePageBox">
-    <div id="out"></div>
+    <script>
+        var CONTENT_URL = '../CONTENT/index.txt';
+        var storedText;
+
+        fetch(CONTENT_URL)
+          .then(function(response) {
+            response.text().then(function(text) {
+              storedText = text;
+            });
+          });
+    </script>
     <py-config>
         [[fetch]]
         files=['./main.py']
@@ -14,10 +24,13 @@
         import js
         from js import document as Doc
 
+        this_content = js.storedText
+
         html = '<div><strong>foo</strong></div>'
         thisPage = Doc.getElementById('writePageBox')
         #thisPage.innerHTML = html
-        thisPage.innerHTML = main.getPage()
+        #thisPage.innerHTML = main.getPage()
+        thisPage.innerHTML = main.pageFromContent(this_content)
     </py-script>
 </body>
 </html>
