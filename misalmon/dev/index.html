@@ -31,7 +31,9 @@
         from js import filename # import filename variable
 
         print("PAGE FILENAME: "+filename) # testing
-        if not ("." in filename):
+        if not ("." in filename): # causes error otherwise as github allows directories to refer to their index.html when just directory is entered
+        # ex: /dev/ can bring /dev/index.html's content
+            print("NO DOT in filename[%s]" % filename)
             fileName = 'index'
 
         thisPage = Doc.getElementById('writePageBox') # get the element where we will write this text
