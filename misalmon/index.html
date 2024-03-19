@@ -27,12 +27,17 @@
 </head>
 <body>
     <div id="out"></div>
-    <py-script src="main.py">
+    <py-config>
+        [[fetch]]
+        files=['./main.py']
+    </py-config>
+    <py-script>
         import main
         import js
+        from js import document as Doc
 
-        html = "<div><strong>foo</strong></div>"
-        out = Element("out")
+        html = '<div><strong>foo</strong></div>'
+        out = Doc.getElementById('writePageBox')
         out.element.innerHTML = html
     </py-script>
 </body>
