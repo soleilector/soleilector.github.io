@@ -2,7 +2,7 @@ import pyscript
 
 STYLING = """
 <!-- TEMPLATE CSS -->
-    <link rel="stylesheet" href="styling.css"> <!-- Template stylesheet-->
+    <link rel="stylesheet" href="../styling.css"> <!-- Template stylesheet-->
     <!-- Bootstrap Icon CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     """
@@ -79,7 +79,7 @@ def getStyling():
     return STYLING
 
 def getContent(pgName): # get the contents of a page
-    if "pgName" in PAGE_CONTENT:
+    if pgName in PAGE_CONTENT:
         thisContent = PAGE_CONTENT[pgName]
         
         contentFormatted = CONTENT.format(
@@ -126,7 +126,7 @@ def getWebsiteTitle():
     return "MichiganChinook"
 
 
-def getPage(pgName): #getpagename, argument based on ending of page
+def getPage(pgName=None): #getpagename, argument based on ending of page
     """
         works if you add:
                 <py-script src="NAME_OF_PYTHON_FILE.py"></py-script>
