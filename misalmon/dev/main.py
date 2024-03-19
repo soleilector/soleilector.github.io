@@ -149,7 +149,7 @@ def getPage(pgName='Not Found'): #getpagename, argument based on ending of page
     bodyStr = getStyling() + getHeader() + getContent(pgName) + getFooter()
     return bodyStr
 
-def pageFromContent(pgName='index',pgContent):
+def pageFromContent(pgContent,pgName='index'):
     # capitalize first letter of page's name
     pgName = capTitle(pgName)
     
