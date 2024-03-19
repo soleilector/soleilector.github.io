@@ -317,3 +317,9 @@ def HTML(text):
 #document.body.append(getPage())
 
 pyscript.display(getPage(),target="writePageBox")
+
+print( HTML("{{h1}}Hello{{/h1}}") )
+
+pyscript.write("writePageBox", HTML("{{h1}}Hello{{/h1}}") )
+
+document.getElementById("writePageBox").innerHTML = HTML("{{h1}}Hello{{/h1}}")
