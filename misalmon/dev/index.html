@@ -26,11 +26,16 @@
         import js # necessary to display rendered html properly, as pyscript decodes it
         from js import document as Doc
         from js import storedText as this_content
-        
-        html = '<div><strong>foo</strong></div>'
+
         thisPage = Doc.getElementById('writePageBox')
-        #thisPage.innerHTML = main.getPage('index')
-        thisPage.innerHTML = main.pageFromContent(this_content)
+        
+        if this_content != None: # if the contents of this variable is not null (the page was found)
+            html = '<div><strong>foo</strong></div>'
+            
+            #thisPage.innerHTML = main.getPage('index')
+            thisPage.innerHTML = main.pageFromContent(this_content)
+        else: # if the page's contents were null
+            thisPage.innerHTML = main.getPage('index') # retreives a default page content
     </py-script>
 </body>
 </html>
