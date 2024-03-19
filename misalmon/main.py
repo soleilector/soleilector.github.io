@@ -317,4 +317,4 @@ def HTML(text):
 
 #document.body.append(getPage())
 
-document.getElementById("writePageBox").innerHTML = HTML(getPage())
+print(HTML(getPage()))
