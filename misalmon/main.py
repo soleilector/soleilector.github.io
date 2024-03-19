@@ -311,5 +311,10 @@ def getPage(): #getpagename, argument based on ending of page
     return bodyStr
 
 
-print("HUH")
-document.body.append(getPage())
+def HTML(text):
+    return text.replace("{{","<").replace("}}",">")
+
+
+#document.body.append(getPage())
+
+document.getElementById("writePageBox").innerHTML = HTML(getPage())
