@@ -26,7 +26,7 @@ def getStyling():
 
 def getContent(pgName): # get the contents of a page
     page_content = ""
-    that  = pyscript.fetch(CONTENT_URL+pgName+".txt")
+    that  = fetch(CONTENT_URL+pgName+".txt")
     print("COME HERE===>>"+str(that))
     
     return "<p>Nothing is written here...</p>"
