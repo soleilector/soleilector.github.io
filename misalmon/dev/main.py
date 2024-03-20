@@ -79,6 +79,8 @@ def getStyling():
     return STYLING
 
 def getContent(pgName): # get the contents of a page
+    contentFormatted = ""
+    
     if pgName in PAGE_CONTENT:
         thisContent = PAGE_CONTENT[pgName]
         
@@ -86,7 +88,13 @@ def getContent(pgName): # get the contents of a page
             page_title="Index",
             page_content = thisContent
         )
-    else: return "<p>Nothing is written here...</p>"
+    else:
+        contentFormatted = CONTENT.format(
+            page_title = "Index",
+            page_content = "<p>Nothing is written here</p>"
+        )
+        
+    return contentFormatted
 
 def getHeader():
     headerFormatted = HEADER.format(
