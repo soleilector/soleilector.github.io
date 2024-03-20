@@ -5,10 +5,17 @@
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 <body id="writePageBox">
+    <span id='pageName'>index</span>
      <script>
         var url = window.location.pathname; // Get url of current webpage
+        console.log("PAGE URL (JAVASCRIPT):"+document.URL)
         var filename = url.substring(url.lastIndexOf('/')+1,url.lastIndexOf('.')) // Get filename of current webpage
         
+         if (filename.includes("/")){ // this page was found through a url with a directory only (/misalmon/dev/) instead of with page filename (/misalmon/dev/index.html)
+             console.log("filename from URL is just directory, using manually document name instead")
+             filename = document.getElementById("pageName").innerHTML
+         }
+         
         var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
         var storedText; // to store the page's contents as text
 
