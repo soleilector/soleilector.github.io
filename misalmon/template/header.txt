@@ -1,0 +1,15 @@
+<header>
+  <div class='header'> <!-- HEADER DIV -->
+      <div class='logo'> <!-- LOGO -->
+          <h1>{website_title}</h1> <!-- LOGO HEADER -->
+      </div>
+      <div class='nav'> <!-- BEGIN NAVIGATION HEADER -->
+          <ul class='nav' id="navlinks"> <!-- NAVIGATION LINKS -->
+              {nav_links}
+          </ul>
+      </div> <!-- END NAVIGATION HEADER -->
+      <div class='headerImg'> <!-- BEGIN HEADER IMG-->
+          <img src='{header_image}'/> <!-- HEADER IMAGE -->
+      </div> <!-- END HEADER IMG -->
+  </div>
+</header>
