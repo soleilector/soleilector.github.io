@@ -4,11 +4,10 @@
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
+<span id='pageName'>index</span>
 <body id="writePageBox">
-    <span id='pageName'>index</span>
      <script>
         var url = window.location.pathname; // Get url of current webpage
-        console.log("PAGE URL (JAVASCRIPT):"+document.URL)
         var filename = url.substring(url.lastIndexOf('/')+1,url.lastIndexOf('.')) // Get filename of current webpage
         
          if (filename.includes("/")){ // this page was found through a url with a directory only (/misalmon/dev/) instead of with page filename (/misalmon/dev/index.html)
@@ -37,6 +36,7 @@
         from js import storedText as this_content # import page's content variable
         from js import filename # import filename variable
 
+        print("PG:"+Doc.URL)
         print("PAGE FILENAME: "+filename) # testing
         if not ("." in filename): # causes error otherwise as github allows directories to refer to their index.html when just directory is entered
         # ex: /dev/ can bring /dev/index.html's content
