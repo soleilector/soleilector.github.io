@@ -85,12 +85,12 @@ def getContent(pgName): # get the contents of a page
         thisContent = PAGE_CONTENT[pgName]
         
         contentFormatted = CONTENT.format(
-            page_title="Index",
+            page_title = pgName,
             page_content = thisContent
         )
     else:
         contentFormatted = CONTENT.format(
-            page_title = "Index",
+            page_title = pgName,
             page_content = "<p>Nothing is written here</p>"
         )
         
