@@ -1,0 +1,3 @@
+<footer> <!-- BEGIN FOOTER -->
+  <p>{text}</p>
+</footer> <!-- END FOOTER -->
