@@ -154,6 +154,10 @@ def pageFromContent(pgContent,pgName='index'):
     pgName = capTitle(pgName)
     
     # generate page's html
+    content_formatted = CONTENT.format(
+        page_title = pgName,
+        page_content = pgContent
+    )
     bodyStr = getStyling() + getHeader() + CONTENT.format(page_title=pgName, page_content=pgContent) + getFooter()
     
     return bodyStr
