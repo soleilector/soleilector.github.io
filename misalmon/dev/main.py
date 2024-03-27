@@ -72,6 +72,18 @@ WEBSITE_TITLE = "MichiganChinook"
 URL = "https://soleilector.github.io/misalmon/dev"
 CONTENT_URL = "https://soleilector.github.io/misalmon/content/"
 
+paths = {
+    "media" : "/media/",
+    "images" : "/media/images/",
+    "videos" : "/media/videos/",
+}
+
+def setPath(pathName,pathPath):
+    paths[pathName] = pathPath
+
+def getFileUrl(fileName,pathFolderName):
+    return paths[pathFolderName] + fileName
+
 def formLink(page_name):
     return (page_name + WEBPAGE_EXTENSION)
 
@@ -110,10 +122,6 @@ def getFooter(temp_footer=FOOTER):
 
     return footer_formatted
 
-def drawStyling():
-    print(STYLING)
-
-
 def getNavLinks():
     str = ""
 
@@ -127,7 +135,8 @@ def getNavLinks():
 
 
 def getHeaderImage():
-    return "../header.jpg"
+    #return "../media/images/header.jpg"
+    return getFileUrl("header.jpg","images")
 
 
 def getWebsiteTitle():
