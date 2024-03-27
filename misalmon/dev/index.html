@@ -27,7 +27,7 @@
          filename = document.getElementById("pageName").innerHTML
         }
 
-        console.log("FILENAME JS: "+fileName)
+        console.log("FILENAME JS: "+filename)
 
         fetch(CONTENT_URL)
           .then(function(response) {
@@ -84,7 +84,7 @@
         if not ("." in filename): # causes error otherwise as github allows directories to refer to their index.html when just directory is entered
             # ex: /dev/ can bring /dev/index.html's content
             #print("NO DOT in filename[%s]" % filename)
-            fileName = 'index'
+            filename = 'index'
         """
         
         print("HEADER STUFF:\n%s" % tempHeader)
@@ -93,9 +93,9 @@
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
             if dynamicTemplate == True:    
-                thisPage.innerHTML = main.pageFromContent(this_content,fileName,tempHeader,tempContent,tempFooter)
+                thisPage.innerHTML = main.pageFromContent(this_content,filename,tempHeader,tempContent,tempFooter)
             else:
-                thisPage.innerHTML = main.pageFromContent(this_content,fileName) # creates a page from default static template embedded in python file
+                thisPage.innerHTML = main.pageFromContent(this_content,filename) # creates a page from default static template embedded in python file
         else: # if the page's contents were null
             thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
     </script>
