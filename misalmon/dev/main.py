@@ -96,8 +96,8 @@ def getContent(pgName): # get the contents of a page
         
     return contentFormatted
 
-def getHeader():
-    headerFormatted = HEADER.format(
+def getHeader(temp_header=HEADER):
+    headerFormatted = temp_header.format(
         nav_links=getNavLinks(),
         header_image=getHeaderImage(),
         website_title=getWebsiteTitle()
@@ -105,8 +105,8 @@ def getHeader():
 
     return headerFormatted
 
-def getFooter():
-    footer_formatted = FOOTER.format(text="This is a footer")
+def getFooter(temp_footer=FOOTER):
+    footer_formatted = temp_footer.format(text="This is a footer")
 
     return footer_formatted
 
@@ -157,16 +157,21 @@ def getPage(pgName='Not Found'): #getpagename, argument based on ending of page
     bodyStr = getStyling() + getHeader() + getContent(pgName) + getFooter()
     return bodyStr
 
-def pageFromContent(pgContent,pgName='index'):
+def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CONTENT,temp_footer=FOOTER):
     # capitalize first letter of page's name
     pgName = capTitle(pgName)
     
     # generate page's html
-    content_formatted = CONTENT.format(
-        page_title = pgName,
-        page_content = pgContent
+   content_formatted = temp_content.format(
+        page_title=pgName,
+        page_content=pgContent
     )
-    bodyStr = getStyling() + getHeader() + CONTENT.format(page_title=pgName, page_content=pgContent) + getFooter()
+
+    header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
+    footer_formatted = getFooter(temp_footer) # uses default static template embedded in file if no argument
+        
+    
+    bodyStr = getStyling() + header_formatted + content_formatted + footer_formatted
     
     return bodyStr
     
