@@ -22,9 +22,9 @@
         var TEMPLATE_FOOTER_URL = '../template/footer.txt'
         var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
 
-        var temp_header; // stores template for header section
-        var temp_footer; // stores template for footer section
-        var temp_content; // stores template for content section
+        var tempHeader; // stores template for header section
+        var tempFooter; // stores template for footer section
+        var tempContent; // stores template for content section
         var storedText; // to store the page's contents as text
 
         fetch(CONTENT_URL)
@@ -38,22 +38,22 @@
           .then(function(response) {
             console.log("RESPONSE:"+response)
             console.log("RESPONSE TEXT: "+response.text)
-            response.text().then(function(header_text) {
-              storedText = header_text;
+            response.text().then(function(headerText) {
+              tempHeader = headerText;
             });
           });
 
          fetch(TEMPLATE_CONTENT_URL)
           .then(function(response) {
-            response.text().then(function(content_text) {
-              storedText = content_text;
+            response.text().then(function(contentText) {
+              tempContent = contentText;
             });
           });
 
          fetch(TEMPLATE_FOOTER_URL)
           .then(function(response) {
-            response.text().then(function(footer_text) {
-              storedText = footer_text;
+            response.text().then(function(footerText) {
+              tempFooter = footerText;
             });
           });
 
@@ -71,7 +71,9 @@
         from js import storedText as this_content # import page's content variable
         from js import filename # import filename variable
 
-        from js import 
+        from js import tempHeader
+        from js import tempContent
+        from js import tempFooter
 
         dynamicTemplate = False
         """
@@ -88,7 +90,7 @@
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
             if dynamicTemplate == True:    
-                thisPage.innerHTML = main.pageFromContent(this_content,fileName,js.temp_header,js.temp_content,js.temp_footer)
+                thisPage.innerHTML = main.pageFromContent(this_content,fileName,tempHeader,tempContent,tempFooter)
             else:
                 thisPage.innerHTML = main.pageFromContent(this_content,fileName) # creates a page from default static template embedded in python file
         else: # if the page's contents were null
