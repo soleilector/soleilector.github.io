@@ -1,185 +1,5 @@
 import pyscript
-beginLayout = ""
-endLayout = ""
-STYLING = """<style>
-    /* NOTE TO SELF
-        Setting width to 100%, then setting padding or margin of that object will extend it that size beyond 100%
-            instead of setting padding inside to 50px!!!
 
-
-    */
-        /* STRUCTURAL CSS */
-        *, html {
-            margin:0;
-            padding:0;
-
-        }
-        body {
-            width:100%;
-        }
-
-        /* HEADER STUFF */
-        header {
-            width:100%;
-            text-align:center;
-            margin:0;
-            padding:0;
-        }
-        header div.header { 
-            margin:0px;
-            padding:px;
-            width:100%;
-        }
-        header div.header div.headerImg {
-            width:100%;
-            background:green;
-        }
-        header div.header div.headerImg img {
-            background:gray;
-            width:100%;
-        }
-        header div.header div.logo {
-            background:darkslategray;
-            padding-top:10px;
-            padding-bottom:10px;
-        }
-        header div.header div.logo h1 {
-            font-weight:bold;
-            color:white;
-        }
-
-        /* NAVIGATION */
-        div.header div.nav {
-           width:100%;
-        }
-
-        div.header div.nav ul.nav {
-            list-style-type:none; # prevents styling
-            margin:0px;
-            width:100%;
-            display:inline-block; /* keeps from overflowing */
-            background:black;
-        }
-        div.header div.nav ul.nav li {
-            display:inline-block; /* Horizontally aligns list elemenets */
-            font-weight:bold;
-        }
-        div.header div.nav ul.nav li a {
-            display:block;
-            color:black;
-            text-align:center; 
-            padding:10px;
-            background:black;
-            color:white;
-            text-align:center;
-        }
-        div.header div.nav ul.nav li a:hover {
-            background:cadetblue;
-        }
-
-        /* CONTENT */
-        div.content {
-            padding-top:10px;
-            paddng-bottom:10px;
-            width:100%;
-        }
-        div.content div.page_content {
-            min-height:600px;
-            width:100%;
-            background:white;
-        }
-        div.content div.breadcrumbs {
-            font-weight:bold;
-            color:cadetblue;
-            padding-left:20px;
-        }
-
-        /* COMMON ELEMENTS */
-        div.content div.page_content h2 {
-            width:80%;
-            margin:auto;
-            padding-top:20px;
-            margin-bottom:20px;
-            text-align:center;
-            color:darkslategray;
-            text-transform:lowercase;
-            border-bottom:5px solid darkslategray;
-        }
-        div.content div.page_content h3 {
-            padding-left:10px;
-            padding-top:20px;
-            padding-bottom:10px;
-            text-transform:lowercase;
-            color:darkslategray;
-        }
-        div.content div.page_content p {
-            padding-left:20px;
-            padding-bottom:10px;
-            padding-top:10px;
-            line-height:0.7;
-        }
-
-        /* BUTTONS */
-        div.content div.page_content button {
-            border-radius:5%;
-            background:darkslategray;
-            color:white;
-            padding:20px;
-            text-align:center;
-            margin:10px;
-            font-weight:bold;
-            border:0px;
-        }
-        div.content div.page_content p button {
-            padding:10px;
-            margin: 5px;
-        }
-        div.content div.page_content button:hover {
-            background:olive;
-            color:white;
-        }
-        div.content div.page_content div.btnCntr {
-            width:80%;
-            margin:auto;
-
-            /* BEGIN_A use this instead of display:block to center items in a row */
-            display:flex;
-            justify-content: center; /* center, space-around, space-between */
-            /* END_A */
-        }
-        div.content div.page_content div.btnCntr button {
-
-        }
-
-
-        table.general {
-            background:white;
-            margin:20px;
-        }
-        table.general th {
-            border-bottom:gray dotted 2px;
-            min-width:300px;
-            text-align:left;
-            padding:10px;
-            font-style:italic;
-        }
-        table.general td {
-            padding:10px;
-        }
-
-        /* FOOTER STUFF */
-        footer {
-            width:100%;
-            text-align:center;
-            background:darkslategray;
-            color:white;
-            font-weight:bold;
-            margin:0px;
-        }
-        footer p {
-            padding:50px;
-        }
-    </style>"""
 HEADER = """<header>
         <div class='header'> <!-- HEADER DIV -->
             <div class='logo'> <!-- LOGO -->
@@ -216,9 +36,10 @@ FOOTER = """
         <p>{text}</p>
     </footer> <!-- END FOOTER -->
 """
+
 WEBPAGE_EXTENSION = "html"
-HEADER_IMAGE = "header.jpg"
-WEBSITE_TITLE = "MichiganSalmon"
+HEADER_IMAGE = "../media/images/header.jpg"
+WEBSITE_TITLE = "MichiganChinook"
 
 
 def formLink(page_name):
@@ -230,7 +51,12 @@ def formLink(page_name):
     return (page_name + extension)
 
 def getStyling():
-    return STYLING
+    return """
+    <!-- TEMPLATE CSS -->
+        <link rel="stylesheet" href="../styling.css"> <!-- Template stylesheet-->
+        <!-- Bootstrap Icon CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    """
 
 def getContent():
     content_formatted = CONTENT.format(
@@ -276,10 +102,6 @@ def getFooter():
 
     return footer_formatted
 
-def drawStyling():
-    print(STYLING)
-
-
 def getNavLinks():
     str = ""
 
@@ -293,11 +115,11 @@ def getNavLinks():
 
 
 def getHeaderImage():
-    return "header.jpg"
+    return HEADER_IMAGE
 
 
 def getWebsiteTitle():
-    return "MichiganChinook"
+    return WEBSITE_TITLE
 
 
 def getPage(): #getpagename, argument based on ending of page
@@ -308,16 +130,3 @@ def getPage(): #getpagename, argument based on ending of page
     """
     bodyStr = getStyling() + getHeader() + getContent() + getFooter()
     return bodyStr
-
-
-def HTML(text):
-    return text.replace("<","<").replace(">",">")
-
-
-#document.body.append(getPage())
-
-#pyscript.display(getPage(),target="writePageBox")
-
-#print( HTML("{{h1}}Hello{{/h1}}") )
-
-#document.getElementById("writePageBox").innerHTML = HTML("{{h1}}Hello{{/h1}}")
