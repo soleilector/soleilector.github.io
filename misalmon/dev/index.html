@@ -20,12 +20,11 @@
         var TEMPLATE_HEADER_URL = '../template/content.txt"
         var TEMPLATE_CONTENT_URL = '../template/header.txt"
         var TEMPLATE_FOOTER_URL = '../template/footer.txt"
-            
         var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
 
-        var temp_header;
-        var temp_footer;
-        var temp_content;
+        var temp_header; // stores template for header section
+        var temp_footer; // stores template for footer section
+        var temp_content; // stores template for content section
         var storedText; // to store the page's contents as text
 
         fetch(CONTENT_URL)
@@ -37,32 +36,33 @@
 
          fetch(TEMPLATE_HEADER_URL)
           .then(function(response) {
-            response.text().then(function(text) {
-              temp_header = text;
+            response.text().then(function(header_text) {
+              temp_header = header_text;
             });
           });
 
          fetch(TEMPLATE_CONTENT_URL)
           .then(function(response) {
-            response.text().then(function(text) {
-              temp_content = text;
+            response.text().then(function(content_text) {
+              temp_content = content_text;
             });
           });
 
          fetch(TEMPLATE_FOOTER_URL)
           .then(function(response) {
-            response.text().then(function(text) {
-              temp_footer = text;
+            response.text().then(function(footer_text) {
+              temp_footer = footer_text;
             });
           });
     </script>
     <py-config>
         [[fetch]]
         files=['./main.py']
+        packages=['js']
     </py-config>
     <script type='py'>
         import main # import our main python page
-        # import js # necessary to display rendered html properly, as pyscript decodes it
+        import js # necessary to display rendered html properly, as pyscript decodes it
         
         from js import document as Doc # get the webpage as a document object
         from js import storedText as this_content # import page's content variable
