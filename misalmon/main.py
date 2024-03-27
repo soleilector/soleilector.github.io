@@ -53,7 +53,7 @@ def formLink(page_name):
 def getStyling():
     return """
     <!-- TEMPLATE CSS -->
-        <link rel="stylesheet" href="../styling.css"> <!-- Template stylesheet-->
+        <link rel="stylesheet" href="styling.css"> <!-- Template stylesheet-->
         <!-- Bootstrap Icon CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     """
