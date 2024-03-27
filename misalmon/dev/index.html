@@ -58,19 +58,18 @@
     <py-config>
         [[fetch]]
         files=['./main.py']
-        packages=['js']
     </py-config>
     <script type='py'>
         import main # import our main python page
         import js # necessary to display rendered html properly, as pyscript decodes it
         
-        from js import document as Doc # get the webpage as a document object
-        from js import storedText as this_content # import page's content variable
-        from js import filename # import filename variable
+        #from js import document as Doc # get the webpage as a document object
+        #from js import storedText as this_content # import page's content variable
+        #from js import filename # import filename variable
         
-        from js import temp_header as TEMP_HEADER
-        from js import temp_content as TEMP_CONTENT
-        from js import temp_footer as TEMP_FOOTER
+        from js import temp_header as temp_header
+        from js import temp_content as temp_content
+        from js import temp_footer as temp_footer
 
         dynamicTemplate = True
 
@@ -82,12 +81,13 @@
             fileName = 'index'
         """
         
-        #this_content = js.storedText
-        thisPage = Doc.getElementById('writePageBox') # get the element where we will write this text
+        print("HEADER STUFF:\n%s" % temp_header)
+        this_content = js.storedText
+        thisPage = js.document.getElementById('writePageBox') # get the element where we will write this text
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
             if dynamicTemplate == True:    
-                thisPage.innerHTML = main.pageFromContent(this_content,fileName,TEMP_HEADER,TEMP_CONTENT,TEMP_FOOTER)
+                thisPage.innerHTML = main.pageFromContent(this_content,fileName,js.temp_header,js.temp_content,js.temp_footer)
             else:
                 thisPage.innerHTML = main.pageFromContent(this_content,fileName) # creates a page from default static template embedded in python file
         else: # if the page's contents were null
