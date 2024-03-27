@@ -162,15 +162,10 @@ def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CON
     pgName = capTitle(pgName)
     
     # generate page's html
-   content_formatted = temp_content.format(
-        page_title=pgName,
-        page_content=pgContent
-    )
-
+    content_formatted = temp_content.format(page_title=pgName,page_content=pgContent)
     header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
     footer_formatted = getFooter(temp_footer) # uses default static template embedded in file if no argument
-        
-    
+    print("AAAAGH")
     bodyStr = getStyling() + header_formatted + content_formatted + footer_formatted
     
     return bodyStr
