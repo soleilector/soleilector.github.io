@@ -12,10 +12,6 @@
      <script>        
         var url = window.location.pathname; // Get url of current webpage
         var filename = url.substring(url.lastIndexOf('/')+1,url.lastIndexOf('.')) // Get filename of current webpage
-        
-         if (filename.includes("/")){ // this page was found through a url with a directory only (/misalmon/dev/) instead of with page filename (/misalmon/dev/index.html)
-             filename = document.getElementById("pageName").innerHTML
-         }
 
         var TEMPLATE_HEADER_URL = '../template/content.txt'
         var TEMPLATE_CONTENT_URL = '../template/header.txt'
@@ -26,6 +22,12 @@
         var tempFooter; // stores template for footer section
         var tempContent; // stores template for content section
         var storedText; // to store the page's contents as text
+
+        if (filename.includes("/")){ // this page was found through a url with a directory only (/misalmon/dev/) instead of with page filename (/misalmon/dev/index.html)
+         filename = document.getElementById("pageName").innerHTML
+        }
+
+        console.log("FILENAME JS: "+fileName)
 
         fetch(CONTENT_URL)
           .then(function(response) {
@@ -77,7 +79,8 @@
 
         dynamicTemplate = False
         """
-        #print("PAGE FILENAME: "+filename) # testing
+        
+        print("PAGE FILENAME: "+filename) # testing
         if not ("." in filename): # causes error otherwise as github allows directories to refer to their index.html when just directory is entered
             # ex: /dev/ can bring /dev/index.html's content
             #print("NO DOT in filename[%s]" % filename)
@@ -85,7 +88,7 @@
         """
         
         print("HEADER STUFF:\n%s" % tempHeader)
-        this_content = js.storedText
+        #this_content = js.storedText
         thisPage = js.document.getElementById('writePageBox') # get the element where we will write this text
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
