@@ -34,43 +34,22 @@
             });
           });
 
-         fetch(TEMPLATE_HEADER_URL)
-          .then(function(response) {
-            response.text().then(function(header_text) {
-              temp_header = header_text;
-            });
-          });
-
-         fetch(TEMPLATE_CONTENT_URL)
-          .then(function(response) {
-            response.text().then(function(content_text) {
-              temp_content = content_text;
-            });
-          });
-
-         fetch(TEMPLATE_FOOTER_URL)
-          .then(function(response) {
-            response.text().then(function(footer_text) {
-              temp_footer = footer_text;
-            });
-          });
-
          print("JAVASCRIPT_HEADER:"+temp_header)
     </script>
     <py-config>
         [[fetch]]
         files=['./main.py']
+        packages=['waiting']
     </py-config>
     <script type='py'>
         import main # import our main python page
         import js # necessary to display rendered html properly, as pyscript decodes it
         
-        #from js import document as Doc # get the webpage as a document object
-        #from js import storedText as this_content # import page's content variable
-        #from js import filename # import filename variable
+        from js import document as Doc # get the webpage as a document object
+        from js import storedText as this_content # import page's content variable
+        from js import filename # import filename variable
 
-        dynamicTemplate = True
-        filename = js.filename
+        dynamicTemplate = False
         """
         #print("PAGE FILENAME: "+filename) # testing
         if not ("." in filename): # causes error otherwise as github allows directories to refer to their index.html when just directory is entered
