@@ -13,6 +13,10 @@
         var url = window.location.pathname; // Get url of current webpage
         var filename = url.substring(url.lastIndexOf('/')+1,url.lastIndexOf('.')) // Get filename of current webpage
 
+        if (filename.includes("/")){ // this page was found through a url with a directory only (/misalmon/dev/) instead of with page filename (/misalmon/dev/index.html)
+         filename = document.getElementById("pageName").innerHTML
+        }
+        
         var TEMPLATE_HEADER_URL = '../template/content.txt'
         var TEMPLATE_CONTENT_URL = '../template/header.txt'
         var TEMPLATE_FOOTER_URL = '../template/footer.txt'
@@ -22,10 +26,6 @@
         var tempFooter; // stores template for footer section
         var tempContent; // stores template for content section
         var storedText; // to store the page's contents as text
-
-        if (filename.includes("/")){ // this page was found through a url with a directory only (/misalmon/dev/) instead of with page filename (/misalmon/dev/index.html)
-         filename = document.getElementById("pageName").innerHTML
-        }
 
         console.log("FILENAME JS: "+filename)
 
