@@ -5,11 +5,11 @@
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 <body id="writePageBox">
-    <div class="loading">
+    <div style="display:flex;justify-content:center;height:100vh;"> <!-- BEGIN LOADING BOX -->
         <img src='../media/images/loading.gif'/>
-        <span id='pageName'>index</span>
+        <span style="display:none;" id='pageName'>index</span> <!-- END LOADING BOX -->
     </div>
-    <script src="../src/js/main.js">
+    <script src="../src/js/main.js"></script>
     <py-config>
         [[fetch]]
         files=['./main.py']
