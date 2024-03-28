@@ -70,19 +70,23 @@ WEBPAGE_EXTENSION = "html"
 HEADER_IMAGE = "header.jpg"
 WEBSITE_TITLE = "MichiganChinook"
 URL = "https://soleilector.github.io/misalmon/dev"
-CONTENT_URL = "https://soleilector.github.io/misalmon/content/"
+ROOT = "https://soleilector.github.io/misalmon"
 
 paths = {
-    "media" : "/media/",
-    "images" : "/media/images/",
-    "videos" : "/media/videos/",
+    "media" : "media/",
+    "images" : "media/images/",
+    "videos" : "media/videos/",
+    "content" : "content/",
+    "root" : "https://soleilector.github.io/misalmon/",
+    "url" : "https://soleilector.github.io/misalmon/dev/"
 }
 
 def setPath(pathName,pathPath):
+    global paths
     paths[pathName] = pathPath
 
 def getFileUrl(fileName,pathFolderName):
-    return paths[pathFolderName] + fileName
+    return paths["root"] + paths[pathFolderName] + fileName
 
 def formLink(page_name):
     return (page_name + WEBPAGE_EXTENSION)
