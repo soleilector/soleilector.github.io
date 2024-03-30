@@ -15,7 +15,7 @@ var tempFooter; // stores template for footer section
 var tempContent; // stores template for content section
 var storedText; // to store the page's contents as text
 
-//console.log("FILENAME JS: "+filename)
+console.log("FILENAME JS: "+filename)
 
 fetch(CONTENT_URL)
 .then(function(response) {
