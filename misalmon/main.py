@@ -1,5 +1,11 @@
 import pyscript
 
+STYLING = """
+<!-- TEMPLATE CSS -->
+    <link rel="stylesheet" href="styling.css"> <!-- Template stylesheet-->
+    <!-- Bootstrap Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    """
 HEADER = """<header>
         <div class='header'> <!-- HEADER DIV -->
             <div class='logo'> <!-- LOGO -->
@@ -31,37 +37,8 @@ CONTENT = """
         </div>
     </div> 
 """
-FOOTER = """
-<footer> <!-- BEGIN FOOTER -->
-        <p>{text}</p>
-    </footer> <!-- END FOOTER -->
-"""
-
-WEBPAGE_EXTENSION = "html"
-HEADER_IMAGE = "../media/images/header.jpg"
-WEBSITE_TITLE = "MichiganChinook"
-
-
-def formLink(page_name):
-    extension = WEBPAGE_EXTENSION
-
-    if WEBPAGE_EXTENSION != None and WEBPAGE_EXTENSION != "":
-        extension = "." + WEBPAGE_EXTENSION
-
-    return (page_name + extension)
-
-def getStyling():
-    return """
-    <!-- TEMPLATE CSS -->
-        <link rel="stylesheet" href="styling.css"> <!-- Template stylesheet-->
-        <!-- Bootstrap Icon CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    """
-
-def getContent():
-    content_formatted = CONTENT.format(
-        page_title="Index",
-        page_content="""<p>This is some content. Maybe you should go ahead and
+PAGE_CONTENT = {
+    "index" : """<p>This is some content. Maybe you should go ahead and
                 click this <button>in-text button</button> to see what it does.</p>
             <button>Click Me!</button><br>
             <h3>Centered buttons</h3>
@@ -83,13 +60,60 @@ def getContent():
                     <td>Row 3</td>
                 </tr>
             </table>"""
-    )
+}
+FOOTER = """
+<footer> <!-- BEGIN FOOTER -->
+        <p>{text}</p>
+    </footer> <!-- END FOOTER -->
+"""
+WEBPAGE_EXTENSION = "html"
+HEADER_IMAGE = "header.jpg"
+WEBSITE_TITLE = "MichiganChinook"
+URL = "https://soleilector.github.io/misalmon/dev"
+ROOT = "https://soleilector.github.io/misalmon"
 
-    return content_formatted
+paths = {
+    "media" : "media/",
+    "images" : "media/images/",
+    "videos" : "media/videos/",
+    "content" : "content/",
+    "root" : "https://soleilector.github.io/misalmon/",
+    "url" : "https://soleilector.github.io/misalmon/dev/"
+}
 
+def setPath(pathName,pathPath):
+    global paths
+    paths[pathName] = pathPath
 
-def getHeader():
-    headerFormatted = HEADER.format(
+def getFileUrl(fileName,pathFolderName):
+    return paths["root"] + paths[pathFolderName] + fileName
+
+def formLink(page_name):
+    return (page_name + WEBPAGE_EXTENSION)
+
+def getStyling():
+    return STYLING
+
+def getContent(pgName): # get the contents of a page
+    contentFormatted = ""
+    
+    if pgName in PAGE_CONTENT:
+        thisContent = PAGE_CONTENT[pgName]
+        
+        contentFormatted = CONTENT.format(
+            page_title = pgName,
+            page_content = thisContent
+        )
+    else:
+        contentFormatted = CONTENT.format(
+            page_title = pgName,
+            page_content = "<p>Nothing is written here</p>"
+        )
+        
+    return contentFormatted
+
+def getHeader(temp_header=HEADER):
+    headerFormatted = temp_header.format(
         nav_links=getNavLinks(),
         header_image=getHeaderImage(),
         website_title=getWebsiteTitle()
@@ -97,8 +121,8 @@ def getHeader():
 
     return headerFormatted
 
-def getFooter():
-    footer_formatted = FOOTER.format(text="This is a footer")
+def getFooter(temp_footer=FOOTER):
+    footer_formatted = temp_footer.format(text="This is a footer")
 
     return footer_formatted
 
@@ -115,18 +139,47 @@ def getNavLinks():
 
 
 def getHeaderImage():
-    return HEADER_IMAGE
+    #return "media/images/header.jpg"
+    return getFileUrl("header.jpg","images")
 
 
 def getWebsiteTitle():
     return WEBSITE_TITLE
 
+def capTitle(titleStr):
+    words = titleStr.split(" ") # Split into a list, seperated by spaces
+    newStr = "" # holds reconstructed string
+    wordCt = 0 # counts words to identify which to add spaces after
+    
+    for word in words: # for each word in words array
+        newStr += word[:1].upper() + word[1:] # capitalize first letter in the word
+    
+        wordCt += 1 # add word count
+        if wordCt < len(words): # if the word of an id after this current word is not the last 
+            newStr += " " # add a space to the reconstructed word
+    
+    return newStr
 
-def getPage(): #getpagename, argument based on ending of page
+def getPage(pgName='Not Found'): #getpagename, argument based on ending of page
     """
         works if you add:
                 <py-script src="NAME_OF_PYTHON_FILE.py"></py-script>
             to webpage html fil
     """
-    bodyStr = getStyling() + getHeader() + getContent() + getFooter()
+    
+    bodyStr = getStyling() + getHeader() + getContent(pgName) + getFooter()
     return bodyStr
+
+def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CONTENT,temp_footer=FOOTER):
+    # capitalize first letter of page's name
+    pgName = capTitle(pgName)
+    
+    # generate page's html
+    content_formatted = temp_content.format(page_title=pgName,page_content=pgContent)
+    header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
+    footer_formatted = getFooter(temp_footer) # uses default static template embedded in file if no argument
+    print("AAAAGH")
+    bodyStr = getStyling() + header_formatted + content_formatted + footer_formatted
+    
+    return bodyStr
+    
