@@ -1,177 +1,323 @@
 /* NOTE TO SELF
-        Setting width to 100%, then setting padding or margin of that object will extend it that size beyond 100%
-            instead of setting padding inside to 50px!!!
+    Setting width to 100%, then setting padding or margin of that object will extend it that size beyond 100%
+        instead of setting padding inside to 50px!!!
+    Display:flex, jutisfy-content:center only works with padding set!
+    img is inline by default, has space after it.
+        set to display:block to get rid of
 
+*/
+    /* STRUCTURAL CSS */
+    *, html {
+        margin:0;
+        padding:0;
+        
+    }
+    body {
+        width:100%;
+    }
+    a {
+        text-decoration:none;
+    }
+    
+    /* LOADING AND LOADER ELEMENTS */
+    div.loading {
+        width:100%;
+        height:100%;
+        display:flex;
+        justify-content:center;
+        padding:25%;
+    }
+    span#pageName {
+           visibility: hidden;
+    }
+    
+    /* HEADER STUFF */
+    header {
+        width:100%;
+        text-align:center;
+        margin:0;
+        padding:0;
+    }
+    header div.header { 
+        margin:0px;
+        padding:px;
+        width:100%;
+        background:darkslategray;
+    }
+    header div.header div.headerImg {
+        width:100%;
+        background:green;
+    }
+    header div.header div.headerImg img {
+        background:gray;
+        width:100%;
+    }
+    header div.header div.logo {
+        background:darkslategray;
+        padding-top:10px;
+        padding-bottom:10px;
+        display:inline-block;
+    }
+    header div.header div.logo h1 {
+        font-weight:bold;
+        color:white;
+    }
+    div.logo h1 a {
+        color:white;
+    }
+    
+    /* NAVIGATION */
+    div.header div.nav {
+       width:100%;
+    }
+    
+    div.header div.nav ul.nav {
+        list-style-type:none; # prevents styling
+        margin:0px;
+        width:100%;
+        display:inline-block; /* keeps from overflowing */
+        background:black;
+    }
+    div.header div.nav ul.nav li {
+        display:inline-block; /* Horizontally aligns list elemenets */
+        font-weight:bold;
+    }
+    div.header div.nav ul.nav li a {
+        display:block;
+        color:black;
+        text-align:center; 
+        padding:10px;
+        background:black;
+        color:white;
+        text-align:center;
+    }
+    div.header div.nav ul.nav li a:hover {
+        background:cadetblue;
+    }
+    
+    /* CONTENT */
+    div.page_content blockquote { /* BLOCKQUOTE STYLING */
+        padding:10px;
+        width:50%;
+        margin:auto;
+    }
+    div.page_content div.header_video { /* HEADER VIDEO */
+        width:90%;
+        margin:auto;
+    }
+    
+    div.info_box { /* INFORMATION BOXES */
+        width:75%;
+        margin:5px;
+        margin:auto;
+        display:flex;
+        justify-content:center;
+    }
+    
+    div.page_content {
+        min-height:600px;
+        width:100%;
+        background:white;
+        padding-bottom:30px;
+    }
+    
+    div.content div.breadcrumbs { /* BREADCRUMBS */
+        font-weight:bold;
+        color:cadetblue;
+        padding-left:20px;
+    }
+    
+    div.content {
+        padding-top:10px;
+        paddng-bottom:10px;
+        width:100%;
+    }
+    
+    /* COMMON ELEMENTS */
+    div.content div.page_content h2 { /* BEGIN HEADERS */
+        width:80%;
+        margin:auto;
+        padding-top:20px;
+        margin-bottom:20px;
+        text-align:center;
+        color:darkslategray;
+        text-transform:lowercase;
+        border-bottom:5px solid darkslategray;
+    }
+    div.content div.page_content h3 { /* END HEADERS */
+        padding-left:10px;
+        padding-top:20px;
+        padding-bottom:10px;
+        text-transform:lowercase;
+        color:darkslategray;
+    }
+    div.content div.page_content p {
+        padding-left:20px;
+        padding-bottom:10px;
+        padding-top:10px;
+        line-height:1.25;
+    }
+    
+    /* BUTTONS */
+    div.content div.page_content button {
+        border-radius:5%;
+        background:darkslategray;
+        color:white;
+        padding:20px;
+        text-align:center;
+        margin:10px;
+        font-weight:bold;
+        border:0px;
+    }
+    div.content div.page_content button a {
+        color:white;
+    }
+    div.content div.page_content p button {
+        padding:10px;
+        margin: 5px;
+    }
+    div.content div.page_content button:hover {
+        background:olive;
+        color:white;
+    }
+    div.content div.page_content div.btnCntr {
+        width:80%;
+        margin:auto;
+        
+        /* BEGIN_A use this instead of display:block to center items in a row */
+        display:flex;
+        justify-content: center; /* center, space-around, space-between */
+        /* END_A */
+    }
+    
+    /* TOOLTIPS */
+    .tooltip:not(button) { /* underlining would ruin button aesthetic */
+        border-bottom: dotted 3px darkslategray; 
+    }
+    .tooltip .tooltipText {
+        visibility:hidden;
+        background:black;
+        color:white;
+        position:absolute;
+        z-index:1;
+        min-width:200px;
+        width:auto;
+        left:-40%; /* positions on x axis relative to wrapper */
+        bottom:30px; /* raises it */
+        right:0; /* idk, but it is essential */
+        padding:10px;
+        text-align:center;
+        border-radius: 8%;
+        font-weight:normal;
+        line-height:1.25;
+    }
+    button.tooltip .tooltipText {
+        visibility:hidden;
+        background:black;
+        color:white;
+        position:absolute;
+        z-index:1;
+        width:auto;
+        left:-0%; /* positions on x axis relative to wrapper */
+        bottom:50px; /* raises it */
+        right:0; /* idk, but it is essential */
+        padding:10px;
+        text-align:center;
+        border-radius: 8%;
+    }
+    .tooltip {
+        position:relative; /* essential for making children relatively positioned */
+    }
+    .tooltip:hover .tooltipText {
+        visibility:visible;
+    }
+    
 
-    */
-        /* STRUCTURAL CSS */
-        *, html {
-            margin:0;
-            padding:0;
+       /* TABLES */
+    table.general {
+        background:white;
+        margin:20px;
+    }
+    table.general th {
+        border-bottom:gray dotted 2px;
+        min-width:300px;
+        text-align:left;
+        padding:10px;
+        font-style:italic;
+    }
+    table.general td {
+        padding:10px;
+    }
+    
+    /* SLIDESHOWS */
+    .slideshowContainer {
+        width:100%;
+        background-position:center;
+        background-size:contain;
+    }
+    .slideshow img {
+        width:100%;
+        height:100%;
+        display:block;
+    }
+    .slideshow.fade {
+        position:relative;
+    }
+    .slideInfo {
+        width:25%;
+        position:absolute;
+        z-index:1;
+        left:65%;
+        bottom:15%;
+        width:30%;
+        min-width:150px;
+        max-width:400px;
+        height:30%;
+        background:black;
+        color:white;
+        border-radius:3%;
+        overflow:auto;
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .slideInfo::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 3s;
+    }
 
-        }
-        body {
+    @keyframes fade {
+      from {opacity: 0} /* from transparent to full opacity */
+      to {opacity: 1}
+    }
+        
+    /* FOOTER STUFF */
+    footer {
+        width:100%;
+        text-align:center;
+        background:darkslategray;
+        color:white;
+        font-weight:bold;
+        margin:0px;
+    }
+    footer p {
+        padding:50px;
+    }
+    
+    @media all and (max-width: 800px) { /* mobile version */
+        .slideInfo {
+            position:static;
             width:100%;
+            max-width:100vh;
         }
-
-        /* HEADER STUFF */
-        header {
-            width:100%;
-            text-align:center;
-            margin:0;
-            padding:0;
+        .slideshowContainer {
+            background-size:cover;
         }
-        header div.header { 
-            margin:0px;
-            padding:px;
-            width:100%;
-        }
-        header div.header div.headerImg {
-            width:100%;
-            background:green;
-        }
-        header div.header div.headerImg img {
-            background:gray;
-            width:100%;
-        }
-        header div.header div.logo {
-            background:darkslategray;
-            padding-top:10px;
-            padding-bottom:10px;
-        }
-        header div.header div.logo h1 {
-            font-weight:bold;
-            color:white;
-        }
-
-        /* NAVIGATION */
-        div.header div.nav {
-           width:100%;
-        }
-
-        div.header div.nav ul.nav {
-            list-style-type:none; # prevents styling
-            margin:0px;
-            width:100%;
-            display:inline-block; /* keeps from overflowing */
-            background:black;
-        }
-        div.header div.nav ul.nav li {
-            display:inline-block; /* Horizontally aligns list elemenets */
-            font-weight:bold;
-        }
-        div.header div.nav ul.nav li a {
-            display:block;
-            color:black;
-            text-align:center; 
-            padding:10px;
-            background:black;
-            color:white;
-            text-align:center;
-        }
-        div.header div.nav ul.nav li a:hover {
-            background:cadetblue;
-        }
-
-        /* CONTENT */
-        div.content {
-            padding-top:10px;
-            paddng-bottom:10px;
-            width:100%;
-        }
-        div.content div.page_content {
-            min-height:600px;
-            width:100%;
-            background:white;
-        }
-        div.content div.breadcrumbs {
-            font-weight:bold;
-            color:cadetblue;
-            padding-left:20px;
-        }
-
-        /* COMMON ELEMENTS */
-        div.content div.page_content h2 {
-            width:80%;
-            margin:auto;
-            padding-top:20px;
-            margin-bottom:20px;
-            text-align:center;
-            color:darkslategray;
-            text-transform:lowercase;
-            border-bottom:5px solid darkslategray;
-        }
-        div.content div.page_content h3 {
-            padding-left:10px;
-            padding-top:20px;
-            padding-bottom:10px;
-            text-transform:lowercase;
-            color:darkslategray;
-        }
-        div.content div.page_content p {
-            padding-left:20px;
-            padding-bottom:10px;
-            padding-top:10px;
-            line-height:0.7;
-        }
-
-        /* BUTTONS */
-        div.content div.page_content button {
-            border-radius:5%;
-            background:darkslategray;
-            color:white;
-            padding:20px;
-            text-align:center;
-            margin:10px;
-            font-weight:bold;
-            border:0px;
-        }
-        div.content div.page_content p button {
-            padding:10px;
-            margin: 5px;
-        }
-        div.content div.page_content button:hover {
-            background:olive;
-            color:white;
-        }
-        div.content div.page_content div.btnCntr {
-            width:80%;
-            margin:auto;
-
-            /* BEGIN_A use this instead of display:block to center items in a row */
-            display:flex;
-            justify-content: center; /* center, space-around, space-between */
-            /* END_A */
-        }
-        div.content div.page_content div.btnCntr button {
-
-        }
-
-
-        table.general {
-            background:white;
-            margin:20px;
-        }
-        table.general th {
-            border-bottom:gray dotted 2px;
-            min-width:300px;
-            text-align:left;
-            padding:10px;
-            font-style:italic;
-        }
-        table.general td {
-            padding:10px;
-        }
-
-        /* FOOTER STUFF */
-        footer {
-            width:100%;
-            text-align:center;
-            background:darkslategray;
-            color:white;
-            font-weight:bold;
-            margin:0px;
-        }
-        footer p {
-            padding:50px;
-        }
+    }
