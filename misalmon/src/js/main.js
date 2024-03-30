@@ -5,10 +5,10 @@ if (filename.includes("/")){ // this page was found through a url with a directo
 filename = document.getElementById("pageName").innerHTML
 }
 
-var TEMPLATE_HEADER_URL = '../template/header.txt'
-var TEMPLATE_CONTENT_URL = '../template/content.txt'
-var TEMPLATE_FOOTER_URL = '../template/footer.txt'
-var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
+var TEMPLATE_HEADER_URL = 'template/header.txt'
+var TEMPLATE_CONTENT_URL = 'template/content.txt'
+var TEMPLATE_FOOTER_URL = 'template/footer.txt'
+var CONTENT_URL = 'content/' + filename + ".txt"; // Get the content for this webpage
 
 var tempHeader; // stores template for header section
 var tempFooter; // stores template for footer section
