@@ -1,0 +1,238 @@
+<h2>lifecycle of the chinook salmon</h2> <!-- here is the header -->
+<div class="info_box video"> <!-- BEGIN info box -->
+    <div class="media">
+        <video autoplay muted loop>
+            <source src="video/lifecycle_header.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="text">
+        <h3>From egg to spawn...</h3>
+        <p>
+            <i>
+                Chinook salmon start out their lives in rivers, before eventually migrating their way to the ocean.
+                 This is where they will live out their lives until sexual maturity.
+                 After which, they make the perilous journey back to the waters of their birth to spawn.
+            </i>
+        </p>
+        <a href="index.html"><button>General Information</button></a>
+    </div>
+</div>
+<h2 class="no_und">Predators</h2>
+<div id="slideshowContainer" class="slideshowContainer"> <!-- BEGIN slideshow container -->
+    <div class="slideshow fade"> <!-- BEGIN slide -->
+        <img src="predators/seal.jpg">
+        <div class='slideInfo fade'>
+            <p>
+                Sea lions consume approximately 13,000 salmon for every 100 seals within an area. These predators often find them by hunting in tributuaries and lowland rivers.
+                    Recently, migrating seal populations have been threatening already endangered populations of salmon, 
+                    which were already highly stressed from human endeavers.
+                <cite>Oregon Department of Fish and Wildlife</cite>
+            </p>
+        </div>
+    </div> <!-- END slide -->
+    
+    <div class="slideshow fade"> <!-- BEGIN slide -->
+        <img src="predators/orca.jpg">
+        <div class='slideInfo fade'>
+            <p>
+                For southern resident killer whales, Chinook salmon make up 80% of their diet. As the largest salmon of the Pacific species,
+                    consuming 18-25 daily allows these orcas to satiate their high energy needs.
+                    The endangerment of these orcas have been largely due to various human activities, including the endangerment
+                        of their primary food source.
+                <cite>NOAA Fisheries, WildOrca.org</cite>
+            </p>
+        </div>
+    </div> <!-- END slide -->
+    
+    <div class="slideshow fade"> <!-- BEGIN slide -->
+        <img src="predators/humans.jpg">
+        <div class='slideInfo fade'>
+            <p>
+                Humans have endangered the Chinook salmon populations through various behaviors, including overfishing and habitat destruction 
+                    through development and redirection of water sources.
+                 Additionally, humans actively engaged in the overexpenditure and pollution of water sources in which Chinook salmon live and breed.
+                <cite>National Wildlife Federation</cite>
+            </p>
+        </div>
+    </div> <!-- END slide -->
+    
+    <div class="slideshow fade"> <!-- BEGIN slide -->
+        <img src="predators/fish.jpg">
+        <div class='slideInfo fade'>
+            <p>
+                As a keystone species, the Chinook salmon is responsible for feeding a wide variety of wildlife throughout the stages of their lifecycle.
+                 Some of these predators include other fish, such as whiting and mackerel.
+                <cite>NOAA Fisheries</cite>
+            </p>
+        </div>
+    </div> <!-- END slide -->
+</div>
+
+<!--
+<button style="margin:auto;width:10%;" onclick="nextSlide();reloadSlides();">Next Slide</button>
+-->
+<div>
+    <h2 class="no_und">prey</h2>
+    <div class="row">
+        <div>
+            <img src="prey/amphipod.jpg"/>
+            <h3>crustaceans</h3>
+            <p>
+                <i>gammarus roselli; scud</i>
+            </p>
+        </div>
+        <div>
+            <img src="prey/herring.jpg"/>
+            <h3>other fish</h3>
+            <p>
+                <i>herring </i>
+            </p>
+        </div>
+        <div>
+            <img src="prey/squid.jpg"/>
+            <h3>squid</h3>
+            <p>
+                <i>master armhook squid </i>
+            </p>
+        </div>
+    </div>
+    <!-- reposition to better spot
+    <cite>NOAA Fisheries, Columbia River Fish and Wildlife Conservation Office</cite>
+    -->
+</div>
+
+
+<div> <!-- overarching timeline container -->
+    <h2 class="left no_und">the story begins...</h2>
+    <p>Click a lifecycle stage to learn more in-depth information!</p>
+    
+    <!-- BEGIN timeline -->
+    <div class="timelineContainer"> <!-- timeline container -->
+        <!-- reserves space on webpage for overlaying timeline items -->
+        <div class="reserve">
+            <!-- background bar -->
+            <div class="bar">&nbsp;</div>
+        </div>
+        <!-- timeline item container -->
+        <div class="itemContainer">
+            <!-- timeline items -->
+            <div class="item"> <!-- parr -->
+                <a href="#showParr">
+                    <img name="#tab#showParr" src="lifecycle/a.jpg"/>
+                </a>
+            </div>
+            <div class="item"> <!-- smolt -->
+                <a href="#showSmolt">
+                    <img name="#tab#showSmolt" src="lifecycle/b.jpg"/>
+                </a>
+            </div>
+            <div class="item"> <!-- adult -->
+                <a href="#showAdult">
+                    <img name="#tab#showAdult" src="lifecycle/c.jpg"/>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#showSpawn">
+                    <img name="#tab#showSpawn" src="lifecycle/d.jpg"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END timeline -->
+    
+    <!-- TABBED BOX -->
+    <div class="tabInfoContainer"> <!-- BEGIN tabInfo Container -->
+        <div class="tabInfo fade quick" id="#tab#showParr" style="height:100%;width:100%;"> <!-- BEGIN tabInfo -->
+            <div class="info_box video">
+                
+                <div class="text">
+                    <h3>hatching <i>parr</i></h3>
+                    <p>
+                        <i>
+                            Salmon eggs incubate in freshwater sources for 8 to 12 weeks without the protection of their bearers.
+                             Upon hatching from their eggs, baby salmon (a.k.a. "parr") absorb their yolk sacs. This period lasts for a couple
+                             of days as the yolk is consumed; henceforth, the salmon parr begin to hunt for richer food sources. (i.e. aquatic insects).
+                        </i>
+                    </p>
+                    <!-- <a href="index.html"><button>General Information</button></a> -->
+                </div>
+                <div class="media"> <!-- BEGIN HEADER VIDEO -->
+                    <video autoplay muted loop>
+                        <source src="video/lifecycle_parr.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div> <!-- END tabInfo -->
+        
+        
+        <div class="tabInfo fade quick" id="#tab#showSmolt" style="height:100%;width:100%;"> <!-- BEGIN tabInfo -->
+            <div class="info_box video">
+                <div class="text">
+                    <h3>becoming <i>smolt</i></h3>
+                    <p>
+                        <i>
+                            Chinook salmon spend their early lives in freshwater, this period lasting from a couple of days to an arduous three years.
+                             At some point, the salmon decides to migrate to saltwater sources, their coloration turning from brown to silver to help
+                             them camouflage under the blue darkness of the ocean.
+                        </i>
+                    </p>
+                    <!-- <a href="index.html"><button>General Information</button></a> -->
+                </div>
+                <div class="media"> <!-- BEGIN HEADER VIDEO -->
+                    <video autoplay muted loop>
+                        <source src="video/lifecycle_smolt.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div> <!-- END tabInfo -->
+        
+        <div class="tabInfo fade quick" id="#tab#showSpawn" style="height:100%;width:100%;"> <!-- BEGIN tabInfo -->
+            <div class="info_box video">
+                <div class="text">
+                    <h3><i>spawning</i>: the end</h3>
+                    <p>
+                        <i>
+                            During spawning season, salmon begin to migrate back to the freshwater sources in which they were born, traversing rivers
+                             and climbing waterfalls. Their colors shift from brown to a bright red over time as thousands of eggs are laid and covered
+                             with a layer of gravel. They begin to rot alive, as the stressful journey abrupt lack of salt begin to take their toll.
+                        </i>
+                    </p>
+                    <!-- <a href="index.html"><button>General Information</button></a> -->
+                </div>
+                <div class="media"> <!-- BEGIN HEADER VIDEO -->
+                    <video autoplay muted loop>
+                        <source src="video/lifecycle_spawn.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div> <!-- END tabInfo -->
+        
+        <div class="tabInfo fade quick" id="#tab#showAdult" style="height:100%;width:100%;"> <!-- BEGIN tabInfo -->
+            <div class="info_box video">
+                <div class="text">
+                    <h3><i>adult</i> life</h3>
+                    <p>
+                        <i>
+                            In a period of 1 - 7 years, the salmon reach sexual maturity, becoming adults capable of reproduction.
+                             This new diet of the salmon, consisting of smaller species of fish and squid, supplies the salmon with the nutrients they
+                             require to grow and sustain the ecosystems that depend on them for survival.
+                        </i>
+                    </p>
+                    <!-- <a href="index.html"><button>General Information</button></a> -->
+                </div>
+                <div class="media"> <!-- BEGIN HEADER VIDEO -->
+                    <video autoplay muted loop>
+                        <source src="video/lifecycle_adult.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div> <!-- END tabInfo -->
+    </div>
+
+    <script src="dynamicPage.js"></script>
+</div>
