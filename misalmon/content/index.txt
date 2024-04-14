@@ -1,0 +1,72 @@
+<h2>the chinook salmon</h2>
+<div class='header_video'> <!-- BEGIN header video -->
+    <video style='width:100%;' autoplay muted loop>
+        <source src="video/homepage_video_final.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div> <!-- END header video -->
+<h3>about the king...</h3>
+<p style='margin:auto;text-align:center;'>An important keystone species from which millions of humans, and
+    thousands of other numerous species, find sustenance and prosperity. This ecological treasure is now an endangered species, with only 473,000 adult salmon left in the entire world (US EPA).</p>
+<h3 style='text-align:center;width:90%;margin:auto;'>Fast Facts</h3>
+<div class='info_box'> <!-- BEGIN info box -->
+    <img src='lifecycle.webp' style='width:25%;height:50%;'/>
+    <p> <!-- Information text -->
+        <i>The largest of all salmon species...</i><br>
+        <b>Other names:</b> King salmon, Black mouth salmon<br>
+        <b>Prey:</b> Other fish, amphipods, crustaceans, insects<br>
+        <b>Predators:</b> Orcas, sealons, sharks, seals, birds, other fish<br>
+        <b>Length:</b> 3 to 4.9 feet<br>
+        <b>Weight:</b> 3 to 130 lbs<br>
+        <b>Habitat:</b> Freshwater streams, estuaries, wetlands, oceans<br><br>
+        <button><a href='lifecycle.html'>Learn more!</a></button>
+    </p>
+</div> <!-- END info box -->
+
+<blockquote style="padding:10px;width:50%;margin:auto;" cite="http://www.worldwildlife.org/who/index.html"> <!-- BEGIN blockquote -->
+    <i>
+        Because salmon die after spawning, their carcasses also provide abundant food and nutrients to plants and animals, including tiny aquatic insects and other invertebrates that in turn provide food for other animals.<br>
+    </i>
+    <cite>US EPA</cite>
+</blockquote> <!-- END blockquote -->
+
+<p> <!-- BEGIN paragraph -->
+    <table class="general" style="margin:auto;">
+        <tr>
+            <th colspan="3">
+                Chinook Salmon Population Decline
+            </th>
+        </tr>
+        <tr>
+            <td>~950,000</td>
+            <td>~650,000</td>
+            <td>~400,000</td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><b>1984</b></td>
+            <td style="text-align:center"><b>1990</b></td>
+            <td style="text-align:center"><b>2018</b></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:center;"><sub><a href="https://www.epa.gov/salish-sea/chinook-salmon">Figures accurate as of <del>2023</del> 2024.</a></sub></td>
+        </tr>
+    </table>
+</p> <!-- END paragraph -->
+<h3><i class="bi bi-shield"></i> contact the united states environment protection agency (e.p.a.)</h3>
+<p> <!-- BEGIN paragraph -->
+    Report sightings of chinook salmon in your era to help track populations and boost conservation efforts.
+</p> <!-- END paragraph -->
+<div class='info_box' style='width:90%;'> <!-- BEGIN info box -->
+    <div style="display:inline;padding-right:20px;">
+        <address>
+            US EPA Region 5<br>
+            77 W. Jackson Blvd<br>
+            Mail Code RE-19J<br>
+            Chicago, IL 60604-3590<br>
+        </address>
+        <a href='https://www.epa.gov/salish-sea/chinook-salmon'>
+            <button>US EPA Website</button>
+        </a>
+    </div>
+    <img src='reportepa2.jpg' style='width:25%;height:50%;clip-path:circle(33%);'/>
+</div> <!-- END info box -->
