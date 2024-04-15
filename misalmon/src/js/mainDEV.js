@@ -65,6 +65,7 @@ fetch(TEMPLATE_FOOTER_URL)
 fetch(SCRIPTS_URL)
 .then(function(response) {
   response.text().then(function(fetchedScripts) {
+    console.log("SCRIPTS: "+fetchedScripts)
     setInnerHtml(scriptsDiv,fetchedScripts)
   });
 });
