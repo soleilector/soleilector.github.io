@@ -1,14 +1,4 @@
 window.addEventListener('load', function () {
-    /* BEGIN chart */
-    let charts = {}
-    let foundCharts = document.getElementsByClassName("chartContainer")
-
-
-    for (chartId=0;chartId < foundCharts.length;charts++) {
-        
-    }
-
-    /* END chart */
 
     /* BEGIN tabbed Boxes *///** catalogs and navigates tabbed boxes on webpage
     let tabBoxes = {}
