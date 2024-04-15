@@ -75,7 +75,7 @@ ROOT = "https://soleilector.github.io/misalmon"
 paths = {
     "media" : "media/",
     "images" : "media/images/",
-    "videos" : "media/videos/",
+    "videos" : "media/video/",
     "content" : "content/",
     "root" : "https://soleilector.github.io/misalmon/",
     "scripts" : "src/js/",
