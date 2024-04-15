@@ -263,3 +263,6 @@ function initSlideShows(){
         autoSlide(ssId)
     }
 }
+
+initTabbedBoxes()
+initinitSlideShows()
