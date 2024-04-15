@@ -267,4 +267,4 @@ function initSlideShows(){
 }
 
 initTabbedBoxes()
-initinitSlideShows()
+initSlideShows()
