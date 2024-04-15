@@ -109,7 +109,7 @@ def transformPathKeys(str): # substitutes pathkeys with their associated paths
             # print(beginning)
             # print(ending)
     
-            fullPath = paths[root] + paths[pathName]
+            fullPath = paths["root"] + paths[pathName]
             newStr = beginning + fullPath + ending  # reform string with replaced path
             #print(newStr)
     
