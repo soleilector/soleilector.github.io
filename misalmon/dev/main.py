@@ -141,7 +141,7 @@ def getContent(pgName): # get the contents of a page
         )
 
     # begin changes
-    contentFormatted = transformPathKeys(contentFormatted)
+    contentFormatted = transformPathKeys(contentFormatted) + getScripts()
     # end changes
         
     return contentFormatted
@@ -163,7 +163,7 @@ def getFooter(temp_footer=FOOTER):
     footerFormatted = temp_footer.format(text="This is a footer")
 
     # begin changes
-    footerFormatted = transformPathKeys(footerFormatted) + getScripts()
+    footerFormatted = transformPathKeys(footerFormatted)
     # end changes
     
     return footerFormatted
@@ -217,7 +217,7 @@ def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CON
     pgName = capTitle(pgName)
     
     # generate page's html
-    content_formatted =  transformPathKeys(temp_content.format(page_title=pgName,page_content=pgContent))
+    content_formatted =  transformPathKeys(temp_content.format(page_title=pgName,page_content=pgContent)) + getScripts()
     header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
     footer_formatted = getFooter(temp_footer) # uses default static template embedded in file if no argument
     print("AAAAGH")
