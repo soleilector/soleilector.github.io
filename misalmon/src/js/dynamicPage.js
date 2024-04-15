@@ -264,4 +264,4 @@ window.addEventListener('load', function () {
             autoSlide(ssId)
         }
     }
-}
+})
