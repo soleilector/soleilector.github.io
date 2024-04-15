@@ -21,7 +21,7 @@ let scriptsDiv = document.getElementById("scripts")
 
 //console.log("FILENAME JS: "+filename)
 
-function setInnerHtml(elm, html) { # allows scripts tags to be set to inner html, but also be able to run at the same time
+function setInnerHtml(elm, html) { // allows scripts tags to be set to inner html, but also be able to run at the same time
   elm.innerHTML = html;
   Array.from(elm.querySelectorAll("script")).forEach(oldScript => {
     const newScript = document.createElement("script");
