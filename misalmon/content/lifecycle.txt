@@ -2,7 +2,7 @@
 <div class="info_box video"> <!-- BEGIN info box -->
     <div class="media">
         <video autoplay muted loop>
-            <source src="video/lifecycle_header.mp4" type="video/mp4">
+            <source src="{videos}lifecycle_header.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -21,7 +21,7 @@
 <h2 class="no_und">Predators</h2>
 <div id="slideshowContainer" class="slideshowContainer"> <!-- BEGIN slideshow container -->
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="predators/seal.jpg">
+        <img src="{images}predators/seal.jpg">
         <div class='slideInfo fade'>
             <p>
                 Sea lions consume approximately 13,000 salmon for every 100 seals within an area. These predators often find them by hunting in tributuaries and lowland rivers.
@@ -33,7 +33,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="predators/orca.jpg">
+        <img src="{images}predators/orca.jpg">
         <div class='slideInfo fade'>
             <p>
                 For southern resident killer whales, Chinook salmon make up 80% of their diet. As the largest salmon of the Pacific species,
@@ -46,7 +46,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="predators/humans.jpg">
+        <img src="{images}predators/humans.jpg">
         <div class='slideInfo fade'>
             <p>
                 Humans have endangered the Chinook salmon populations through various behaviors, including overfishing and habitat destruction 
@@ -58,7 +58,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="predators/fish.jpg">
+        <img src="{images}predators/fish.jpg">
         <div class='slideInfo fade'>
             <p>
                 As a keystone species, the Chinook salmon is responsible for feeding a wide variety of wildlife throughout the stages of their lifecycle.
@@ -76,21 +76,21 @@
     <h2 class="no_und">prey</h2>
     <div class="row">
         <div>
-            <img src="prey/amphipod.jpg"/>
+            <img src="{images}prey/amphipod.jpg"/>
             <h3>crustaceans</h3>
             <p>
                 <i>gammarus roselli; scud</i>
             </p>
         </div>
         <div>
-            <img src="prey/herring.jpg"/>
+            <img src="{images}prey/herring.jpg"/>
             <h3>other fish</h3>
             <p>
                 <i>herring </i>
             </p>
         </div>
         <div>
-            <img src="prey/squid.jpg"/>
+            <img src="{images}prey/squid.jpg"/>
             <h3>squid</h3>
             <p>
                 <i>master armhook squid </i>
@@ -159,7 +159,7 @@
                 </div>
                 <div class="media"> <!-- BEGIN HEADER VIDEO -->
                     <video autoplay muted loop>
-                        <source src="video/lifecycle_parr.mp4" type="video/mp4">
+                        <source src="{videos}lifecycle_parr.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -182,7 +182,7 @@
                 </div>
                 <div class="media"> <!-- BEGIN HEADER VIDEO -->
                     <video autoplay muted loop>
-                        <source src="video/lifecycle_smolt.mp4" type="video/mp4">
+                        <source src="{videos}lifecycle_smolt.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -204,7 +204,7 @@
                 </div>
                 <div class="media"> <!-- BEGIN HEADER VIDEO -->
                     <video autoplay muted loop>
-                        <source src="video/lifecycle_spawn.mp4" type="video/mp4">
+                        <source src="{videos}lifecycle_spawn.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -226,13 +226,11 @@
                 </div>
                 <div class="media"> <!-- BEGIN HEADER VIDEO -->
                     <video autoplay muted loop>
-                        <source src="video/lifecycle_adult.mp4" type="video/mp4">
+                        <source src="{videos}lifecycle_adult.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
         </div> <!-- END tabInfo -->
     </div>
-
-    <script src="dynamicPage.js"></script>
 </div>
