@@ -5,7 +5,7 @@ if (filename.includes("/")){ // this page was found through a url with a directo
 filename = document.getElementById("pageName").innerHTML
 }
 
-var SCRIPT_URL = "../content/scripts.js"
+var SCRIPT_URL = "../content/scripts.txt"
 var TEMPLATE_HEADER_URL = '../template/header.txt'
 var TEMPLATE_CONTENT_URL = '../template/content.txt'
 var TEMPLATE_FOOTER_URL = '../template/footer.txt'
