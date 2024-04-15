@@ -160,13 +160,13 @@ def getHeader(temp_header=HEADER):
     return headerFormatted
 
 def getFooter(temp_footer=FOOTER):
-    footer_formatted = temp_footer.format(text="This is a footer")
+    footerFormatted = temp_footer.format(text="This is a footer")
 
     # begin changes
-    footer_formatted = transformPathKeys(footerFormatted)
+    footerFormatted = transformPathKeys(footerFormatted)
     # end changes
     
-    return footer_formatted
+    return footerFormatted
 
 def getNavLinks(): # note: change to read from list later
     str = ""
