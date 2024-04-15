@@ -88,6 +88,31 @@ def setPath(pathName,pathPath):
 def getFileUrl(fileName,pathFolderName):
     return paths["root"] + paths[pathFolderName] + fileName
 
+def transformPathKeys(str): # substitutes pathkeys with their associated paths
+    newStr = str
+    
+    for pathName in paths:
+    pathKey = "{"+pathName+"}"
+
+    while pathKey in newStr: # continues to replace path keys of this value while it exists in this string
+        pos = newStr.find(pathKey)
+        
+        # print(subKey)
+        # print(pos)
+        # print(newStr[pos:])
+        
+        beginning = newStr[:pos]  # # text before the path to be replaced
+        ending = newStr[pos + len(pathKey):]  # text after the path to be replaced
+        
+        # print(beginning)
+        # print(ending)
+
+        fullPath = paths[root] + paths[pathName]
+        newStr = beginning + fullPath + ending  # reform string with replaced path
+        #print(newStr)
+    
+    return newStr
+
 def formLink(page_name):
     return (page_name + WEBPAGE_EXTENSION)
 
@@ -109,6 +134,10 @@ def getContent(pgName): # get the contents of a page
             page_title = pgName,
             page_content = "<p>Nothing is written here</p>"
         )
+
+    # begin changes
+        contentFormatted = transformPathKeys(contentFormatted)
+    # end changes
         
     return contentFormatted
 
@@ -119,14 +148,20 @@ def getHeader(temp_header=HEADER):
         website_title=getWebsiteTitle()
     )
 
+    # begin changes
+        headerFormatted = transformPathKeys(headerFormatted)
+    # end changes
+
     return headerFormatted
 
 def getFooter(temp_footer=FOOTER):
     footer_formatted = temp_footer.format(text="This is a footer")
 
+    footer_formatted = transformPathKeys(footerFormatted)
+
     return footer_formatted
 
-def getNavLinks():
+def getNavLinks(): # note: change to read from list later
     str = ""
 
     for linkName in NAV_LINKS:
