@@ -5,20 +5,11 @@
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 <body id="writePageBox">
-     <script>
-        var url = window.location.pathname; // Get url of current webpage
-        var filename = url.substring(url.lastIndexOf('/')+1,url.lastIndexOf('.')) // Get filename of current webpage
-        
-        var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
-        var storedText; // to store the page's contents as text
-
-        fetch(CONTENT_URL)
-          .then(function(response) {
-            response.text().then(function(text) {
-              storedText = text;
-            });
-          });
-    </script>
+    <div style="display:flex;justify-content:center;height:100vh;"> <!-- BEGIN LOADING BOX -->
+        <img style="width:200px;height:200px;" src='../media/images/loading.gif'/>
+        <span style="display:none;" id='pageName'>lifecycle</span> <!-- END LOADING BOX -->
+    </div>
+    <script src="../src/js/mainDEV.js"></script>
     <py-config>
         [[fetch]]
         files=['./main.py']
@@ -26,22 +17,30 @@
     <script type='py'>
         import main # import our main python page
         import js # necessary to display rendered html properly, as pyscript decodes it
+        
         from js import document as Doc # get the webpage as a document object
         from js import storedText as this_content # import page's content variable
         from js import filename # import filename variable
 
-        print("PAGE FILENAME: "+filename) # testing
-        if not ("." in filename): # causes error otherwise as github allows directories to refer to their index.html when just directory is entered
-        # ex: /dev/ can bring /dev/index.html's content
-            print("NO DOT in filename[%s]" % filename)
-            fileName = 'index'
+        from js import tempHeader
+        from js import tempContent
+        from js import tempFooter
 
-        thisPage = Doc.getElementById('writePageBox') # get the element where we will write this text
+        dynamicTemplate = True
+        
+        #print("HEADER STUFF:\n %s" % tempHeader)
+        #print("CONTENT TEMPLATE:\n %s" % tempContent)
+        #print("FOOTER STUFF:\n%s" % tempFooter)
+        #this_content = js.storedText
+        thisPage = js.document.getElementById('writePageBox') # get the element where we will write this text
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
-            thisPage.innerHTML = main.pageFromContent(this_content,fileName)
+            if dynamicTemplate == True:    
+                thisPage.innerHTML = main.pageFromContent(this_content,filename,tempHeader,tempContent,tempFooter)
+            else:
+                thisPage.innerHTML = main.pageFromContent(this_content,filename) # creates a page from default static template embedded in python file
         else: # if the page's contents were null
-            thisPage.innerHTML = main.getPage() # retreives a default page content;
+            thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
     </script>
 </body>
 </html>
