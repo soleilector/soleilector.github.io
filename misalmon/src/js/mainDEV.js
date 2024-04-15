@@ -62,11 +62,24 @@ fetch(TEMPLATE_FOOTER_URL)
   });
 });
 
+pageContentBox = document.getElementById('writePageBox') // get box where we write page content
+// allows us to monitor changes in innerhtml
+var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+var observer = new MutationObserver(onPageContentWritten);
+observer.observe(pageContentBox, {
+  childList: true
+});
+
+function onPageContentWritten(){ // when the page content has been written
+  setInnerHtml(scriptsDiv,scriptsText) // run this script
+}
+
 fetch(SCRIPTS_URL)
 .then(function(response) {
   response.text().then(function(fetchedScripts) {
     console.log("SCRIPTS: "+fetchedScripts)
-    setInnerHtml(scriptsDiv,fetchedScripts)
+    scriptsText = fetchedScripts
+    //setInnerHtml(scriptsDiv,fetchedScripts)
   });
 });
 
