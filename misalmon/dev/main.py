@@ -94,24 +94,24 @@ def transformPathKeys(str): # substitutes pathkeys with their associated paths
     newStr = str
     
     for pathName in paths:
-    pathKey = "{"+pathName+"}"
-
-    while pathKey in newStr: # continues to replace path keys of this value while it exists in this string
-        pos = newStr.find(pathKey)
-        
-        # print(subKey)
-        # print(pos)
-        # print(newStr[pos:])
-        
-        beginning = newStr[:pos]  # # text before the path to be replaced
-        ending = newStr[pos + len(pathKey):]  # text after the path to be replaced
-        
-        # print(beginning)
-        # print(ending)
-
-        fullPath = paths[root] + paths[pathName]
-        newStr = beginning + fullPath + ending  # reform string with replaced path
-        #print(newStr)
+        pathKey = "{"+pathName+"}"
+    
+        while pathKey in newStr: # continues to replace path keys of this value while it exists in this string
+            pos = newStr.find(pathKey)
+            
+            # print(subKey)
+            # print(pos)
+            # print(newStr[pos:])
+            
+            beginning = newStr[:pos]  # # text before the path to be replaced
+            ending = newStr[pos + len(pathKey):]  # text after the path to be replaced
+            
+            # print(beginning)
+            # print(ending)
+    
+            fullPath = paths[root] + paths[pathName]
+            newStr = beginning + fullPath + ending  # reform string with replaced path
+            #print(newStr)
     
     return newStr
 
