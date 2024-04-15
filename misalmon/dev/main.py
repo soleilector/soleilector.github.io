@@ -78,8 +78,8 @@ paths = {
     "videos" : "media/videos/",
     "content" : "content/",
     "root" : "https://soleilector.github.io/misalmon/",
-    "scripts" : "src/js",
-    "styling" : "src/css",
+    "scripts" : "src/js/",
+    "styling" : "src/css/",
     "url" : "https://soleilector.github.io/misalmon/dev/"
 }
 
