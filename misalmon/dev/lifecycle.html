@@ -26,6 +26,16 @@
         from js import tempContent
         from js import tempFooter
 
+        function setInnerHtml(elm, html) { # allows <script> tags to be inserted into innerHtml and actually execute
+          elm.innerHTML = html;
+          Array.from(elm.querySelectorAll("script")).forEach(oldScript => {
+            const newScript = document.createElement("script");
+            Array.from(oldScript.attributes)
+              .forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+          });
+
         dynamicTemplate = True
         
         #print("HEADER STUFF:\n %s" % tempHeader)
@@ -36,11 +46,14 @@
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
             if dynamicTemplate == True:    
-                thisPage.innerHTML = main.pageFromContent(this_content,filename,tempHeader,tempContent,tempFooter)
+                #thisPage.innerHTML = main.pageFromContent(this_content,filename,tempHeader,tempContent,tempFooter)
+                setInnerHtml(thisPage)
             else:
-                thisPage.innerHTML = main.pageFromContent(this_content,filename) # creates a page from default static template embedded in python file
+                #thisPage.innerHTML = main.pageFromContent(this_content,filename) # creates a page from default static template embedded in python file
+                setInnerHtml(thisPage)
         else: # if the page's contents were null
-            thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
+            #thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
+            setInnerHtml(thisPage)
     </script>
 </body>
 </html>
