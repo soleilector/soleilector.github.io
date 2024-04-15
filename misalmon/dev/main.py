@@ -141,7 +141,7 @@ def getContent(pgName): # get the contents of a page
         )
 
     # begin changes
-        contentFormatted = transformPathKeys(contentFormatted) + getScripts()
+    contentFormatted = transformPathKeys(contentFormatted) + getScripts()
     # end changes
         
     return contentFormatted
@@ -154,7 +154,7 @@ def getHeader(temp_header=HEADER):
     )
 
     # begin changes
-        headerFormatted = transformPathKeys(headerFormatted)
+    headerFormatted = transformPathKeys(headerFormatted)
     # end changes
 
     return headerFormatted
@@ -162,8 +162,10 @@ def getHeader(temp_header=HEADER):
 def getFooter(temp_footer=FOOTER):
     footer_formatted = temp_footer.format(text="This is a footer")
 
+    # begin changes
     footer_formatted = transformPathKeys(footerFormatted)
-
+    # end changes
+    
     return footer_formatted
 
 def getNavLinks(): # note: change to read from list later
