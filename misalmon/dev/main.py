@@ -78,6 +78,8 @@ paths = {
     "videos" : "media/videos/",
     "content" : "content/",
     "root" : "https://soleilector.github.io/misalmon/",
+    "scripts" : "src/js",
+    "styling" : "src/css",
     "url" : "https://soleilector.github.io/misalmon/dev/"
 }
 
@@ -119,6 +121,9 @@ def formLink(page_name):
 def getStyling():
     return STYLING
 
+def getScripts():
+    return transformPathKeys("<script src='{scripts}dynamicPage.js'></script>")
+
 def getContent(pgName): # get the contents of a page
     contentFormatted = ""
     
@@ -136,7 +141,7 @@ def getContent(pgName): # get the contents of a page
         )
 
     # begin changes
-        contentFormatted = transformPathKeys(contentFormatted)
+        contentFormatted = transformPathKeys(contentFormatted) + getScripts()
     # end changes
         
     return contentFormatted
