@@ -11,6 +11,7 @@
     </div>
     <script src="../src/js/mainDEV.js"></script>
     <py-config>
+        packages = ["js"]
         [[fetch]]
         files=['./main.py']
     </py-config>
@@ -24,7 +25,7 @@
 
         from js import tempHeader
         from js import tempContent
-        from js import tempFooter            
+        from js import tempFooter
 
         dynamicTemplate = True
         
@@ -36,17 +37,11 @@
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
             if dynamicTemplate == True:    
-                #thisPage.innerHTML = main.pageFromContent(this_content,filename,tempHeader,tempContent,tempFooter)
-                setInnerHtml(thisPage)
+                thisPage.innerHTML = main.pageFromContent(this_content,filename,tempHeader,tempContent,tempFooter)
             else:
-                #thisPage.innerHTML = main.pageFromContent(this_content,filename) # creates a page from default static template embedded in python file
-                setInnerHtml(thisPage)
+                thisPage.innerHTML = main.pageFromContent(this_content,filename) # creates a page from default static template embedded in python file
         else: # if the page's contents were null
-            #thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
-            setInnerHtml(thisPage)
+            thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
     </script>
-    <div id="scripts" style="display:none;">
-        
-    </div>
 </body>
 </html>
