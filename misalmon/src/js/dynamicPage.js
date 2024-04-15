@@ -255,6 +255,8 @@ function initSlideShows(){
 
     }
 
+    console.log("NUM OF INDEXED SLIDESHOWS: "+Object.keys(slideObjects).length)
+
     // activate slides
     for (ssId = 0; ssId < getNumSlideObjects(); ssId++) {
         this_slideShowObject = slideObjects[ssId]
