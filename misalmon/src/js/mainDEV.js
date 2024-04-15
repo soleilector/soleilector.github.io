@@ -70,7 +70,8 @@ observer.observe(pageContentBox, {
   childList: true
 });
 
-function onPageContentWritten(){ // when the page content has been written
+function onPageContentWritten(e){ // when the page content has been written
+  console.log("Page Contents Changed")
   setInnerHtml(scriptsDiv,scriptsText) // run this script
 }
 
