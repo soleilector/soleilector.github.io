@@ -1,5 +1,5 @@
 window.addEventListener('load', function () {
-
+    console.log("LOADED AND RUNNING....")
     /* BEGIN tabbed Boxes *///** catalogs and navigates tabbed boxes on webpage
     let tabBoxes = {}
     let foundTabbedBoxes = document.getElementsByClassName("tabInfoContainer")
