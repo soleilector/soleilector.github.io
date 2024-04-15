@@ -1,8 +1,21 @@
 window.addEventListener('load', function () {
     console.log("LOADED AND RUNNING....")
+    let charts = {}
+    let foundCharts;
+
+    function initCharts(){
+        foundCharts = document.getElementsByClassName("chartContainer");
+        
+        for (chartId=0;chartId < foundCharts.length;charts++) {
+            
+        }
+    }
+
+    /* END chart */
+
     /* BEGIN tabbed Boxes *///** catalogs and navigates tabbed boxes on webpage
     let tabBoxes = {}
-    let foundTabbedBoxes = document.getElementsByClassName("tabInfoContainer")
+    let foundTabbedBoxes;
 
     function myClickHandler(e) {
         let name = e.target.name;
@@ -51,64 +64,70 @@ window.addEventListener('load', function () {
         }
     }
 
-    //** catalog all found tabbed boxes with relevant info
-    for (boxId=0; boxId < foundTabbedBoxes.length; boxId++) {
-        let thisTabbedBox = foundTabbedBoxes[boxId] // get tabbed box object
+
+    function initTabbedBoxes(){
+        foundTabbedBoxes = document.getElementsByClassName("tabInfoContainer");
         
-        let thisBoxTabs = thisTabbedBox.getElementsByClassName("tab") // get tabs for tabbed box object
-        let thisBoxTabInfo = thisTabbedBox.getElementsByClassName("tabInfo") // get tab info for tabbed box object
+        //** catalog all found tabbed boxes with relevant info
+        for (boxId=0; boxId < foundTabbedBoxes.length; boxId++) {
+            let thisTabbedBox = foundTabbedBoxes[boxId] // get tabbed box object
+            
+            let thisBoxTabs = thisTabbedBox.getElementsByClassName("tab") // get tabs for tabbed box object
+            let thisBoxTabInfo = thisTabbedBox.getElementsByClassName("tabInfo") // get tab info for tabbed box object
+            
+            // catalog all tab info boxes by their id's
+            catalogued_tabBoxes = {}
+            for (infoId = 0; infoId < thisBoxTabInfo.length; infoId++) {
+                this_tabInfo = thisBoxTabInfo[infoId]
+                tabId = this_tabInfo.id
+                
+                catalogued_tabBoxes[tabId] = this_tabInfo
+                
+                if (infoId == 0) {
+                    this_tabInfo.style.display = "block"
+                } else {
+                    this_tabInfo.style.display = "none"
+                }
+            }
+            
+            // define dictionary for this tab Box
+            tabBoxInfo = {
+                "currentTab" : Object.keys(catalogued_tabBoxes)[0], // specify current tab to be first cataloged tab Id
+                "box" : thisTabbedBox, // get this tabbed box
+                "tabs" : thisBoxTabs, // get the navigation tabs for this tab box, if possible
+                "tabInfo" : catalogued_tabBoxes //
+            }
+            
+            tabBoxes[boxId] = tabBoxInfo
+            //COMMENT console.log("CATALOGUED BOXES: "+tabBoxes[boxId]["tabInfo"])
+        }
         
-        // catalog all tab info boxes by their id's
-        catalogued_tabBoxes = {}
-        for (infoId = 0; infoId < thisBoxTabInfo.length; infoId++) {
-            this_tabInfo = thisBoxTabInfo[infoId]
-            tabId = this_tabInfo.id
+        //** show tab based on url
+        pageLink = window.location.href
+        //console.log("HREF: "+pageLink)
+        hashPos = pageLink.search("#") // are we navigating to a part of the webpage
+        if (hashPos > -1) { // we found the hashtag
+            console.log("HASH HREF EXISTS")
             
-            catalogued_tabBoxes[tabId] = this_tabInfo
+            tabInfo_name = pageLink.substring(hashPos) // grab the name of the tabInfo
+            tabInfo_Id = "#tab" + tabInfo_name
             
-            if (infoId == 0) {
-                this_tabInfo.style.display = "block"
-            } else {
-                this_tabInfo.style.display = "none"
+            console.log(tabInfo_Id)
+            
+            tabInfoObject = document.getElementById(tabInfo_Id) // we got the element
+            if (tabInfoObject != null && tabInfoObject != undefined) { // only if we have a corresponding tab element do we show the tab
+                showTab_External(tabInfo_Id)
             }
         }
-        
-        // define dictionary for this tab Box
-        tabBoxInfo = {
-            "currentTab" : Object.keys(catalogued_tabBoxes)[0], // specify current tab to be first cataloged tab Id
-            "box" : thisTabbedBox, // get this tabbed box
-            "tabs" : thisBoxTabs, // get the navigation tabs for this tab box, if possible
-            "tabInfo" : catalogued_tabBoxes //
-        }
-        
-        tabBoxes[boxId] = tabBoxInfo
-        //COMMENT console.log("CATALOGUED BOXES: "+tabBoxes[boxId]["tabInfo"])
     }
-
     //** set click handler for clicking tabs of a tabbed box 
     document.onclick = myClickHandler; 
-    //** show tab based on url
-    pageLink = window.location.href
-    //console.log("HREF: "+pageLink)
-    hashPos = pageLink.search("#") // are we navigating to a part of the webpage
-    if (hashPos > -1) { // we found the hashtag
-        console.log("HASH HREF EXISTS")
-        
-        tabInfo_name = pageLink.substring(hashPos) // grab the name of the tabInfo
-        tabInfo_Id = "#tab" + tabInfo_name
-        
-        console.log(tabInfo_Id)
-        
-        tabInfoObject = document.getElementById(tabInfo_Id) // we got the element
-        if (tabInfoObject != null && tabInfoObject != undefined) { // only if we have a corresponding tab element do we show the tab
-            showTab_External(tabInfo_Id)
-        }
-    }
 
     /* END tabbed boxes */
 
     /* BEGIN auto slideshow detection and configuration */
     let slideObjects = {}
+    let slideShows;
 
     // get number of slideshow objects in document
     function getNumSlideObjects(){                    
@@ -215,31 +234,34 @@ window.addEventListener('load', function () {
             },5000)
     }
 
+
+    function initSlideShows(){
     // get all slideshows defined within webpage
-    let slideShows = document.getElementsByClassName("slideshowContainer")
+        slideShows = document.getElementsByClassName("slideshowContainer")
 
-    // catalog all slideshows in webpage with relevant information
-    for (ssId = 0; ssId < slideShows.length; ssId++) { // for each slideshow container found...
-        let slideShowObject = slideShows[ssId]
-        
-        slideShowInfo = {
-            "container" : slideShowObject,
-            "slides" : slideShowObject.getElementsByClassName("slideshow"),
-            "currentSID" : 0,
-            "enabled" : true
+        // catalog all slideshows in webpage with relevant information
+        for (ssId = 0; ssId < slideShows.length; ssId++) { // for each slideshow container found...
+            let slideShowObject = slideShows[ssId]
+            
+            slideShowInfo = {
+                "container" : slideShowObject,
+                "slides" : slideShowObject.getElementsByClassName("slideshow"),
+                "currentSID" : 0,
+                "enabled" : true
+            }
+            
+            slideObjects[getNumSlideObjects()] = slideShowInfo
+            console.log(slideObjects[0]["currentSID"])
+            console.log(getNumSlideObjects())
+
         }
-        
-        slideObjects[getNumSlideObjects()] = slideShowInfo
-        console.log(slideObjects[0]["currentSID"])
-        console.log(getNumSlideObjects())
 
+        // activate slides
+        for (ssId = 0; ssId < getNumSlideObjects(); ssId++) {
+            this_slideShowObject = slideObjects[ssId]
+            
+            reloadSlides(ssId)
+            autoSlide(ssId)
+        }
     }
-
-    // activate slides
-    for (ssId = 0; ssId < getNumSlideObjects(); ssId++) {
-        this_slideShowObject = slideObjects[ssId]
-        
-        reloadSlides(ssId)
-        autoSlide(ssId)
-    }
-})
+}
