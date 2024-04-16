@@ -115,8 +115,9 @@ def transformPathKeys(str): # substitutes pathkeys with their associated paths
     
     return newStr
 
-def formLink(page_name):
-    return (page_name + WEBPAGE_EXTENSION)
+navigation = {}
+def setNav(navDict):
+    navigation = navDict
 
 def getStyling():
     return STYLING
