@@ -194,9 +194,9 @@ def getNavLinks(): # note: change to read from list later
     return navHTML
     
     """
-    return """<li><a href='#'>Home</a></li>
+    return <li><a href='#'>Home</a></li>
                     <li><a href='#'>Lifecycle</a></li>
-                    <li><a href='#'>Conservation</a></li>"""  # DEFAULT 4 TESTING """
+                    <li><a href='#'>Conservation</a></li>  # DEFAULT 4 TESTING """
 
 
 def getHeaderImage():
