@@ -1,0 +1,14 @@
+{
+  "Home" : {
+    "priority" : 0,
+    "addr" : "index.html"
+  },
+  "Lifecycle" : {
+    "priority" : 1,
+    "addr" : "index.html"
+  },
+  "Conservation" : {
+    "priority" : 2,
+    "addr" : "conservation.html"
+  }
+}
