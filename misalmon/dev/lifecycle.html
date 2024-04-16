@@ -33,7 +33,7 @@
         from js import navLinksText
         import json
         
-        navLinks = json.loads(navLinksText)
+        navLinks = json.loads(str(navLinksText))
         print("PYTHON_NAV: "+str(navLinksText))
         print("PYTHON_NAV: "+str(navLinksText["Home"]))
 
