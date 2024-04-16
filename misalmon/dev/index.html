@@ -3,12 +3,16 @@
 <head>
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <div id="scripts" style="display:none;">
+        
+    </div>
 </head>
 <body id="writePageBox">
     <div style="display:flex;justify-content:center;height:100vh;"> <!-- BEGIN LOADING BOX -->
         <img style="width:200px;height:200px;" src='../media/images/loading.gif'/>
         <span style="display:none;" id='pageName'>index</span> <!-- END LOADING BOX -->
     </div>
+</body>
     <script src="../src/js/mainDEV.js"></script>
     <py-config>
         [[fetch]]
@@ -42,5 +46,4 @@
         else: # if the page's contents were null
             thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
     </script>
-</body>
 </html>
