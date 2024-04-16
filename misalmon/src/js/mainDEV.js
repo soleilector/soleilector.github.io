@@ -2,22 +2,22 @@ var url = window.location.pathname; // Get url of current webpage
 var filename = url.substring(url.lastIndexOf('/')+1,url.lastIndexOf('.')) // Get filename of current webpage
 
 if (filename.includes("/")){ // this page was found through a url with a directory only (/misalmon/dev/) instead of with page filename (/misalmon/dev/index.html)
-filename = document.getElementById("pageName").innerHTML
+  filename = document.getElementById("pageName").innerHTML
 }
 
 var SCRIPTS_URL = "../content/scripts.txt"
+var NAV_URL = "../content/navigation.txt"
 var TEMPLATE_HEADER_URL = '../template/header.txt'
 var TEMPLATE_CONTENT_URL = '../template/content.txt'
 var TEMPLATE_FOOTER_URL = '../template/footer.txt'
 var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
 
+var navLinksText;
 var scriptsText; // stores scripts to be called
 var tempHeader; // stores template for header section
 var tempFooter; // stores template for footer section
 var tempContent; // stores template for content section
 var storedText; // to store the page's contents as text
-
-let scriptsDiv = document.getElementById("scripts")
 
 //console.log("FILENAME JS: "+filename)
 
@@ -32,6 +32,7 @@ function setInnerHtml(elm, html) { // allows scripts tags to be set to inner htm
   });
 }
 
+/* BEGIN fetch content */
 fetch(CONTENT_URL)
 .then(function(response) {
   response.text().then(function(text) {
@@ -61,8 +62,22 @@ fetch(TEMPLATE_FOOTER_URL)
     tempFooter = footerText;
   });
 });
+/* END fetch content */
 
-pageContentBox = document.getElementById('writePageBox') // get box where we write page content
+/* BEGIN fetch navigation */
+fetch(NAV_URL)
+.then(function(response) {
+  response.text().then(function(fetchedNav) {
+    console.log("NAV: "+fetchedNav)
+    navLinksText = fetchedNav
+  });
+});
+/* END fetch navigation */
+
+/* BEGIN ensures dynamicPage.js runs after page content has loaded */
+let scriptsDiv = document.getElementById("scripts")
+let pageContentBox = document.getElementById('writePageBox') // get box where we write page content
+
 // allows us to monitor changes in innerhtml
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 var observer = new MutationObserver(onPageContentWritten);
@@ -78,10 +93,10 @@ function onPageContentWritten(e){ // when the page content has been written
 fetch(SCRIPTS_URL)
 .then(function(response) {
   response.text().then(function(fetchedScripts) {
-    console.log("SCRIPTS: "+fetchedScripts)
+    //console.log("SCRIPTS: "+fetchedScripts)
     scriptsText = fetchedScripts
-    //setInnerHtml(scriptsDiv,fetchedScripts)
   });
 });
+/* END after-page load dynamicPage.js */
 
 //console.log("JAVASCRIPT_HEADER2:"+tempHeader)
