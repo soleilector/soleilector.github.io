@@ -176,12 +176,15 @@ def getNavLinks(): # note: change to read from list later
     navInfo = getNav()
 
     navLinkArray = list(range(0,len(navInfo))) # make array the size of possible entries
+    print("NUM_NAV_ENTRIES: "+str(len(navInfo)))
     for linkName in navInfo: # for each link name
         linkInfo = navInfo[linkName] # get link info
         linkAddr = linkInfo["addr"] # get link address
         linkPriority = linkInfo["priority"] # get link priority
-        
-        linkHTML = "<li><a href='{devRoot}%s'>%s</a></li>" % (linkAddr, linkName) # generate link HTML prefab
+
+        linkHref = transformPathKeys("{devRoot}%s" % linkAddr)
+        print("LINK[linkName]: "+linkHref)
+        linkHTML = "<li><a href='%s'>%s</a></li>" % (linkHref, linkName) # generate link HTML prefab
         finalLinkHTML = transformPathKeys(linkHTML) # transform pathkeys in prefab
         navLinkArray[linkPriority] = finalLinkHTML # insert into its proper place
 
