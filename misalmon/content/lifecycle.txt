@@ -119,22 +119,22 @@
             <!-- timeline items -->
             <div class="item"> <!-- parr -->
                 <a href="#showParr">
-                    <img name="#tab#showParr" src="lifecycle/a.jpg"/>
+                    <img name="#tab#showParr" src="{images}lifecycle/a.jpg"/>
                 </a>
             </div>
             <div class="item"> <!-- smolt -->
                 <a href="#showSmolt">
-                    <img name="#tab#showSmolt" src="lifecycle/b.jpg"/>
+                    <img name="#tab#showSmolt" src="{images}lifecycle/b.jpg"/>
                 </a>
             </div>
             <div class="item"> <!-- adult -->
                 <a href="#showAdult">
-                    <img name="#tab#showAdult" src="lifecycle/c.jpg"/>
+                    <img name="#tab#showAdult" src="{images}lifecycle/c.jpg"/>
                 </a>
             </div>
             <div class="item">
                 <a href="#showSpawn">
-                    <img name="#tab#showSpawn" src="lifecycle/d.jpg"/>
+                    <img name="#tab#showSpawn" src="{images}lifecycle/d.jpg"/>
                 </a>
             </div>
         </div>
