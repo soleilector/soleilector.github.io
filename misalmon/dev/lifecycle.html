@@ -15,6 +15,7 @@
 </body>
     <script src="../src/js/mainDEV.js"></script>
     <py-config>
+        packages=['json']
         [[fetch]]
         files=['./main.py']
     </py-config>
@@ -31,7 +32,11 @@
         from js import tempFooter
 
         from js import navLinksText
-        print("PYTHON_NAV: "+str(navLinksText)+"======>"+str(navLinksText["Home"]))
+        import json
+        
+        navLinks = json.loads(navLinksText)
+        print("PYTHON_NAV: "+str(navLinksText))
+        print("PYTHON_NAV: "+str(navLinksText["Home"]))
 
         dynamicTemplate = True
         
