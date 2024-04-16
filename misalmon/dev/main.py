@@ -80,7 +80,7 @@ paths = {
     "root" : "https://soleilector.github.io/misalmon/",
     "scripts" : "src/js/",
     "styling" : "src/css/",
-    "url" : "https://soleilector.github.io/misalmon/dev/"
+    "devRoot" : "https://soleilector.github.io/misalmon/dev/"
 }
 
 def setPath(pathName,pathPath):
@@ -118,6 +118,9 @@ def transformPathKeys(str): # substitutes pathkeys with their associated paths
 navigation = {}
 def setNav(navDict):
     navigation = navDict
+
+def getNav():
+    return navigation or {"Home" : { "priority" : 0, "addr" : "index.html" }}
 
 def getStyling():
     return STYLING
@@ -170,15 +173,30 @@ def getFooter(temp_footer=FOOTER):
     return footerFormatted
 
 def getNavLinks(): # note: change to read from list later
-    str = ""
+    navInfo = getNav()
 
-    for linkName in NAV_LINKS:
-        str += "LINK STRING STUFF"
-    str += ""
+    navLinkArray = list(range(0,len(navInfo))) # make array the size of possible entries
+    for linkName in navInfo: # for each link name
+        linkInfo = navInfo[linkName] # get link info
+        linkAddr = linkInfo["addr"] # get link address
+        linkPriority = linkInfo["priority"] # get link priority
+        
+        linkHTML = "<li><a href='{devRoot}%s'>%s</a></li>" % (linkAddr, linkName) # generate link HTML prefab
+        finalLinkHTML = transformPathKeys(linkHTML) # transform pathkeys in prefab
+        navLinkArray.insert(linkPriority,finalLinkHTML) # insert into its proper place
 
+    navHTML = "" # empty string to hold nav's HTML
+    
+    for linkHTML in navLinkArray): # for each link Id listed in 
+        navHTML += linkHTML # add link's HTML to navigation string
+    print("NAVHTML: "+navHTML) # print final navigation HTML
+    
+    return navHTML
+    
+    """
     return """<li><a href='#'>Home</a></li>
                     <li><a href='#'>Lifecycle</a></li>
-                    <li><a href='#'>Conservation</a></li>"""  # DEFAULT 4 TESTING
+                    <li><a href='#'>Conservation</a></li>"""  # DEFAULT 4 TESTING """
 
 
 def getHeaderImage():
