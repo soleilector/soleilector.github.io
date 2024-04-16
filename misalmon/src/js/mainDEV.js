@@ -69,7 +69,7 @@ fetch(NAV_URL)
 .then(function(response) {
   response.text().then(function(fetchedNav) {
     console.log("NAV: "+fetchedNav)
-    navLinksText = JSON.parse(fetchedNav);
+    navLinksText = fetchedNav;
   });
 });
 /* END fetch navigation */
