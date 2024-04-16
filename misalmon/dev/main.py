@@ -187,7 +187,7 @@ def getNavLinks(): # note: change to read from list later
 
     navHTML = "" # empty string to hold nav's HTML
     
-    for linkHTML in navLinkArray): # for each link Id listed in 
+    for linkHTML in navLinkArray: # for each link Id listed in 
         navHTML += linkHTML # add link's HTML to navigation string
     print("NAVHTML: "+navHTML) # print final navigation HTML
     
