@@ -175,7 +175,7 @@ def getFooter(temp_footer=FOOTER):
 def getNavLinks(): # note: change to read from list later
     navInfo = getNav()
 
-    navLinkArray = list(range(0,len(navInfo) # make array the size of possible entries
+    navLinkArray = list(range(0,len(navInfo))) # make array the size of possible entries
     for linkName in navInfo: # for each link name
         linkInfo = navInfo[linkName] # get link info
         linkAddr = linkInfo["addr"] # get link address
