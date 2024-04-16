@@ -183,7 +183,7 @@ def getNavLinks(): # note: change to read from list later
         
         linkHTML = "<li><a href='{devRoot}%s'>%s</a></li>" % (linkAddr, linkName) # generate link HTML prefab
         finalLinkHTML = transformPathKeys(linkHTML) # transform pathkeys in prefab
-        navLinkArray.insert(linkPriority,finalLinkHTML) # insert into its proper place
+        navLinkArray[linkPriority] = finalLinkHTML # insert into its proper place
 
     navHTML = "" # empty string to hold nav's HTML
     
