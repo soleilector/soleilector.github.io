@@ -1,7 +1,7 @@
 <h2>the chinook salmon</h2>
 <div class='header_video'> <!-- BEGIN header video -->
     <video style='width:100%;' autoplay muted loop>
-        <source src="video/homepage_video_final.mp4" type="video/mp4">
+        <source src="{videos}homepage_video_final.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div> <!-- END header video -->
