@@ -34,8 +34,8 @@
         import json
         
         navLinks = json.loads(str(navLinksText))
-        print("PYTHON_NAV: "+str(navLinksText))
-        print("PYTHON_NAV: "+str(navLinksText["Home"]))
+        print("PYTHON_NAV: "+str(navLinks))
+        print("PYTHON_NAV2: "+str(navLinks["Home"]))
 
         dynamicTemplate = True
         
@@ -47,6 +47,7 @@
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
             if dynamicTemplate == True:    
+                main.setNav(navLinks)
                 thisPage.innerHTML = main.pageFromContent(this_content,filename,tempHeader,tempContent,tempFooter)
             else:
                 thisPage.innerHTML = main.pageFromContent(this_content,filename) # creates a page from default static template embedded in python file
