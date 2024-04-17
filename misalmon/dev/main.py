@@ -184,7 +184,7 @@ def getNavLinks(): # note: change to read from list later
 
         linkHref = transformPathKeys("{devRoot}%s" % linkAddr)
         print("LINK_HREF["+linkName+"]: "+linkHref)
-        print("LINK_ADDR["+linkName+"]":+linkAddr)
+        print("LINK_ADDR["+linkName+"]: "+linkAddr)
         linkHref = transformPathKeys("{devRoot}") + linkAddr
         print("LINK_HREF["+linkName+"]: "+linkHref)
         finalLinkHTML = "<li><a href='%s'>%s</a></li>" % (linkHref, linkName) # generate link HTML prefab
