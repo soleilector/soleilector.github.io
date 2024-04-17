@@ -119,8 +119,8 @@ navigation = {
     "Home" : { "priority" : 0, "addr" : "index.html" }
 }
 def setNav(navDict):
+    global navigation
     navigation = navDict
-    print("SETTING_NAV: "+str(navDict))
 
 def getNav():
     return navigation
