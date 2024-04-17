@@ -123,7 +123,10 @@
     }
     div.info_box.video div.media video {
         width:100%;
-        /*clip-path:circle(26%); */
+        clip-path:circle(26%);
+    }
+    div.tabInfo div.info_box.video div.media video {
+        clip-path:none;
         border-radius:35%;
     }
     
@@ -421,6 +424,15 @@
       display: none;
     }
     
+    /* CHARTS */
+    .chartValue { display:none; }
+    .chartType { display:none; }
+    .chartYRange { display:none; }
+    .chartDefaultClr { display:none; }
+    .chart p { font-style:italic;text-align:center; }
+    div.row.circle ul { list-style-type:none; }
+    div.row.circle ul li::before { content: "🐟 ️";}
+    
     /* Fading animation */
     .fade {
       animation-name: fade;
@@ -448,7 +460,8 @@
         padding:50px;
     }
     
-    @media all and (max-width: 800px) { /* mobile version */
+    /* @media all and (max-width: 800px) { /* for testing mobile layout on desktop */
+    @media only screen and (max-device-width: 480px) {
         /* slideshows for mobile */
         .slideInfo {
             position:static;
