@@ -115,13 +115,15 @@ def transformPathKeys(str): # substitutes pathkeys with their associated paths
     
     return newStr
 
-navigation = {}
+navigation = {
+    "Home" : { "priority" : 0, "addr" : "index.html" }
+}
 def setNav(navDict):
     navigation = navDict
     print("SETTING_NAV: "+str(navDict))
 
 def getNav():
-    return navigation or {"Home" : { "priority" : 0, "addr" : "index.html" }}
+    return navigation
 
 def getStyling():
     return STYLING
@@ -178,6 +180,7 @@ def getNavLinks(): # note: change to read from list later
 
     navLinkArray = list(range(0,len(navInfo))) # make array the size of possible entries
     print("NUM_NAV_ENTRIES: "+str(len(navInfo)))
+    print("NAVINFO: "+str(navInfo))
     for linkName in navInfo: # for each link name
         linkInfo = navInfo[linkName] # get link info
         linkAddr = linkInfo["addr"] # get link address
