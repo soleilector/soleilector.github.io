@@ -118,6 +118,7 @@ def transformPathKeys(str): # substitutes pathkeys with their associated paths
 navigation = {}
 def setNav(navDict):
     navigation = navDict
+    print("SETTING_NAV: "+navDict)
 
 def getNav():
     return navigation or {"Home" : { "priority" : 0, "addr" : "index.html" }}
