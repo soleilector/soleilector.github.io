@@ -5,7 +5,7 @@
   },
   "Lifecycle" : {
     "priority" : 1,
-    "addr" : "index.html"
+    "addr" : "lifecycle.html"
   },
   "Conservation" : {
     "priority" : 2,
