@@ -21,6 +21,7 @@
     <script type='py'>
         import main # import our main python page
         import js # necessary to display rendered html properly, as pyscript decodes it
+        import json # needed to parse config settings
         
         from js import document as Doc # get the webpage as a document object
         from js import storedText as this_content # import page's content variable
@@ -31,14 +32,18 @@
         from js import tempFooter
 
         from js import navLinksText
-        print("PYTHON_NAV: "+str(navLinksText))
+        
+        navLinks = json.loads(str(navLinksText))
+        main.setNav(navLinks)
+        #print("PYTHON_NAV: "+str(navLinks))
+        #print("PYTHON_NAV2: "+str(navLinks["Home"]))
 
         dynamicTemplate = True
         
         #print("HEADER STUFF:\n %s" % tempHeader)
         #print("CONTENT TEMPLATE:\n %s" % tempContent)
         #print("FOOTER STUFF:\n%s" % tempFooter)
-        #this_content = js.storedText
+        
         thisPage = js.document.getElementById('writePageBox') # get the element where we will write this text
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
