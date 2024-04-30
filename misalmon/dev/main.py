@@ -154,14 +154,14 @@ def getContent(pgName): # get the contents of a page
     return contentFormatted
 
 def getHeader(temp_header=HEADER):
-    headerFormatted = temp_header.format(
+    headerFormatted = transformPathKeys(temp_header).format(
         nav_links=getNavLinks(),
         header_image=getHeaderImage(),
         website_title=getWebsiteTitle()
     )
 
     # begin changes
-    headerFormatted = transformPathKeys(headerFormatted)
+    # headerFormatted = transformPathKeys(headerFormatted)
     # end changes
 
     return headerFormatted
