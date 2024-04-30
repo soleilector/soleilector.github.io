@@ -2,7 +2,7 @@
 <div class="info_box video"> <!-- BEGIN info box -->
     <div class="media">
         <video autoplay muted loop>
-            <source src="{videos}lifecycle_header.mp4" type="video/mp4">
+            <source src="media/video/lifecycle_header.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -15,13 +15,13 @@
                  After which, they make the perilous journey back to the waters of their birth to spawn.
             </i>
         </p>
-        <a href="index.html"><button>General Information</button></a>
+        <a href="conservation.html"><button>Learn about Their Unnatural Threats</button></a>
     </div>
 </div>
 <h2 class="no_und">Predators</h2>
 <div id="slideshowContainer" class="slideshowContainer"> <!-- BEGIN slideshow container -->
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="{images}predators/seal.jpg">
+        <img src="media/images/predators/seal.jpg">
         <div class='slideInfo fade'>
             <p>
                 Sea lions consume approximately 13,000 salmon for every 100 seals within an area. These predators often find them by hunting in tributuaries and lowland rivers.
@@ -33,7 +33,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="{images}predators/orca.jpg">
+        <img src="media/images/predators/orca.jpg">
         <div class='slideInfo fade'>
             <p>
                 For southern resident killer whales, Chinook salmon make up 80% of their diet. As the largest salmon of the Pacific species,
@@ -46,7 +46,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="{images}predators/humans.jpg">
+        <img src="media/images/predators/humans.jpg">
         <div class='slideInfo fade'>
             <p>
                 Humans have endangered the Chinook salmon populations through various behaviors, including overfishing and habitat destruction 
@@ -58,7 +58,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="{images}predators/fish.jpg">
+        <img src="media/images/predators/fish.jpg">
         <div class='slideInfo fade'>
             <p>
                 As a keystone species, the Chinook salmon is responsible for feeding a wide variety of wildlife throughout the stages of their lifecycle.
@@ -76,21 +76,21 @@
     <h2 class="no_und">prey</h2>
     <div class="row">
         <div>
-            <img src="{images}prey/amphipod.jpg"/>
+            <img src="media/images/prey/amphipod.jpg"/>
             <h3>crustaceans</h3>
             <p>
                 <i>gammarus roselli; scud</i>
             </p>
         </div>
         <div>
-            <img src="{images}prey/herring.jpg"/>
+            <img src="media/images/prey/herring.jpg"/>
             <h3>other fish</h3>
             <p>
                 <i>herring </i>
             </p>
         </div>
         <div>
-            <img src="{images}prey/squid.jpg"/>
+            <img src="media/images/prey/squid.jpg"/>
             <h3>squid</h3>
             <p>
                 <i>master armhook squid </i>
@@ -119,22 +119,22 @@
             <!-- timeline items -->
             <div class="item"> <!-- parr -->
                 <a href="#showParr">
-                    <img name="#tab#showParr" src="{images}lifecycle/a.jpg"/>
+                    <img name="#tab#showParr" src="media/images/lifecycle/a.jpg"/>
                 </a>
             </div>
             <div class="item"> <!-- smolt -->
                 <a href="#showSmolt">
-                    <img name="#tab#showSmolt" src="{images}lifecycle/b.jpg"/>
+                    <img name="#tab#showSmolt" src="media/images/lifecycle/b.jpg"/>
                 </a>
             </div>
             <div class="item"> <!-- adult -->
                 <a href="#showAdult">
-                    <img name="#tab#showAdult" src="{images}lifecycle/c.jpg"/>
+                    <img name="#tab#showAdult" src="media/images/lifecycle/c.jpg"/>
                 </a>
             </div>
             <div class="item">
                 <a href="#showSpawn">
-                    <img name="#tab#showSpawn" src="{images}lifecycle/d.jpg"/>
+                    <img name="#tab#showSpawn" src="media/images/lifecycle/d.jpg"/>
                 </a>
             </div>
         </div>
@@ -159,7 +159,7 @@
                 </div>
                 <div class="media"> <!-- BEGIN HEADER VIDEO -->
                     <video autoplay muted loop>
-                        <source src="{videos}lifecycle_parr.mp4" type="video/mp4">
+                        <source src="media/video/lifecycle_parr.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -182,7 +182,7 @@
                 </div>
                 <div class="media"> <!-- BEGIN HEADER VIDEO -->
                     <video autoplay muted loop>
-                        <source src="{videos}lifecycle_smolt.mp4" type="video/mp4">
+                        <source src="media/video/lifecycle_smolt.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -197,14 +197,14 @@
                         <i>
                             During spawning season, salmon begin to migrate back to the freshwater sources in which they were born, traversing rivers
                              and climbing waterfalls. Their colors shift from brown to a bright red over time as thousands of eggs are laid and covered
-                             with a layer of gravel. They begin to rot alive, as the stressful journey abrupt lack of salt begin to take their toll.
+                             with a layer of gravel. They begin to rot alive as the stressful journey and abrupt lack of salt begin to take their toll.
                         </i>
                     </p>
                     <!-- <a href="index.html"><button>General Information</button></a> -->
                 </div>
                 <div class="media"> <!-- BEGIN HEADER VIDEO -->
                     <video autoplay muted loop>
-                        <source src="{videos}lifecycle_spawn.mp4" type="video/mp4">
+                        <source src="media/video/lifecycle_spawn.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -218,7 +218,7 @@
                     <p>
                         <i>
                             In a period of 1 - 7 years, the salmon reach sexual maturity, becoming adults capable of reproduction.
-                             This new diet of the salmon, consisting of smaller species of fish and squid, supplies the salmon with the nutrients they
+                             This new diet of the salmon, consisting of smaller species of fish and squid supplies the salmon with the nutrients they
                              require to grow and sustain the ecosystems that depend on them for survival.
                         </i>
                     </p>
@@ -226,11 +226,19 @@
                 </div>
                 <div class="media"> <!-- BEGIN HEADER VIDEO -->
                     <video autoplay muted loop>
-                        <source src="{videos}lifecycle_adult.mp4" type="video/mp4">
+                        <source src="media/video/lifecycle_adult.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
         </div> <!-- END tabInfo -->
+    </div>
+</div>
+<h2 class="no_und"><i>our numbers are declining...</i></h2>
+<div class='info_box' style='width:90%;'> <!-- BEGIN info box -->
+        <p>Populations are being threatened on numerous fronts, putting entire ecosystems at risk of collapse...</p>
+        <a href='conservation.html'>
+            <button>Learn more</button>
+        </a>
     </div>
 </div>
