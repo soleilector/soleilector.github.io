@@ -554,8 +554,8 @@
         padding:50px;
     }
     
-     @media all and (max-width: 800px) { /* for testing mobile layout on desktop */
-    /* @media only screen and (max-device-width: 480px) { */
+    /* @media all and (max-width: 800px) { /* for testing mobile layout on desktop */
+     @media only screen and (max-device-width: 480px) {
         /* slideshows for mobile */
         .slideInfo {
             position:static;
