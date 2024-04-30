@@ -1,0 +1,625 @@
+/* NOTE TO SELF
+    Setting width to 100%, then setting padding or margin of that object will extend it that size beyond 100%
+        instead of setting padding inside to 50px!!!
+    Display:flex, jutisfy-content:center only works with padding set!
+    img is inline by default, has space after it.
+        set to display:block to get rid of
+
+*/
+    /* STRUCTURAL CSS */
+    *, html {
+        margin:0;
+        padding:0;
+    }
+    html, body {
+        background:white;
+    }
+    body {
+        width:100%;
+    }
+    a {
+        text-decoration:none;
+        color:orange;
+    }
+    
+    /* LOADING AND LOADER ELEMENTS */
+    div.loading {
+        width:100%;
+        height:100%;
+        display:flex;
+        justify-content:center;
+        padding:25%;
+    }
+    span#pageName {
+           visibility: hidden;
+    }
+    
+    /* HEADER STUFF */
+    header {
+        width:100%;
+        text-align:center;
+        margin:0;
+        padding:0;
+    }
+    header div.header { 
+        margin:0px;
+        padding:px;
+        width:100%;
+        background:darkslategray;
+    }
+    header div.header div.headerImg {
+        width:100%;
+        background:green;
+    }
+    header div.header div.headerImg img {
+        background:gray;
+        width:100%;
+    }
+    header div.header div.logo {
+        background:darkslategray;
+        padding-top:10px;
+        padding-bottom:10px;
+        display:inline-block;
+        text-transform:lowercase;
+    }
+    header div.header div.logo h1 {
+        font-weight:bold;
+        color:white;
+    }
+    div.logo h1 a {
+        color:white;
+    }
+    /** HEADER VIDEO & OVERLAY OVERWRITE **/
+    header div.header div.headerImg {
+        position:relative;
+    }
+    header div.header div.headerImg video {
+        width:100%;
+    }
+    header div.header div.headerImg div.headerOverlay {
+        background:rgba(0,0,0,0.5);
+        z-index:4;
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0;
+    }
+    header div.header div.headerImg div.headerImgText {
+        position:absolute;
+        z-index:5;
+        bottom:40%;left:50%;
+        width:40%;
+        max-width:100%;
+        font-size:xxx-large;
+        padding:10px;
+        font-weight:bold;
+        color:white;
+        overflow:hidden;
+    }
+    header div.header div.headerImg img {
+        display:none;
+    }
+    
+    /* NAVIGATION */
+    div.header div.nav {
+       width:100%;
+    }
+    
+    div.header div.nav ul.nav {
+        list-style-type:none; # prevents styling
+        margin:0px;
+        width:100%;
+        display:inline-block; /* keeps from overflowing */
+        background:black;
+    }
+    div.header div.nav ul.nav li {
+        display:inline-block; /* Horizontally aligns list elemenets */
+        font-weight:bold;
+    }
+    div.header div.nav ul.nav li a {
+        display:block;
+        color:black;
+        text-align:center; 
+        padding:10px;
+        background:black;
+        color:white;
+        text-align:center;
+    }
+    div.header div.nav ul.nav li a:hover {
+        background:cadetblue;
+    }
+    
+    /* CONTENT */
+    div.page_content blockquote { /* BLOCKQUOTE STYLING */
+        padding:10px;
+        width:50%;
+        margin:auto;
+    }
+    
+    div.page_content div.header_video { /* HEADER VIDEO */
+        width:90%;
+        margin:auto;
+    }
+    
+    div.info_box { /* INFORMATION BOXES */
+        width:75%;
+        margin:5px;
+        margin:auto;
+        display:flex;
+        justify-content:center;
+    }
+    
+    div.info_box.video div.media {
+        display:inline;
+        /* centers video */
+        justify-content:center;
+        display:flex;
+    }
+    div.info_box.video div.media video {
+        width:100%;
+        clip-path:circle(26%);
+    }
+    div.tabInfo div.info_box.video div.media video {
+        clip-path:none;
+        border-radius:35%;
+    }
+    
+    div.info_box.img_block {
+        width:75%;
+        margin:auto;
+        display:block;
+        justify-content:normal;
+        background:red;
+        position:relative;
+    }    
+    div.info_box.img_block img {
+        width:100%;
+    }
+    
+    div.info_box.img_block div.text {
+        position:absolute;
+        background:darkslategray;
+        color:white;
+        font-weigt: bold;
+        bottom:40%;
+        left:15%;
+        width:30%;
+        border-radius:5%;
+        overflow:auto;
+        height:40%;
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    
+    div.info_box.wide {
+        width:100%;
+        max-height:300px;
+    }
+    div.overlayContainer {
+        /* background:purple; /* debugging */
+        width:100%;
+        height:100%;
+        max-width:300px;
+        max-height:300px;
+        position:relative;
+    }
+    div.overlayContainer div.overlay {
+        width:100%;
+        height:100%;
+        color:white;
+        position:absolute;
+        z-index:3;
+        top:0;
+        left:0;
+        /* background:radial-gradient(rgb(0,0,0,0), rgb(0,0,0,1) 75%); */
+    }
+    div.overlayContainer div.overlay.fade_black {
+        background:radial-gradient(rgb(0,0,0,0), rgb(0,0,0,1) 75%);
+    }
+    div.overlayContainer div.overlay.fade_transparent {
+        background:radial-gradient(rgb(0,0,0,0), rgb(0,0,0,1) 75%);
+    }
+    div.overlayContainer img {
+        width:100%;
+        height:100%;
+    }
+    div.info_box.wide div.media img {
+        width:100%;
+        height:100%;
+    }
+    div.info_box.wide div.media {
+        /*background:black; /*debugging */
+        width:50%;
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+    }
+    div.info_box.wide div.text {
+        /*background:red; /* debugging */
+        padding-left:10px;
+        width:100%;
+    }
+    
+    div.row { /* ITEMS IN A ROW */
+        display:flex;
+        justify-content:space-around;
+        margin-top:30px;
+        margin-bottom:30px;
+    }
+    div.row div {
+        min-width:100px;
+        width:10%;
+    }
+    
+    div.row div img {
+        width:100%;
+        min-height:125px;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+    div.row.circle img {
+        clip-path:circle(45%)
+    }
+    div.row.big div {
+        width:15%;
+    }
+    
+    div.content div.breadcrumbs { /* BREADCRUMBS */
+        font-weight:bold;
+        color:cadetblue;
+        padding-left:20px;
+    }
+    
+    div.page_content { /* GENERAL */
+        min-height:600px;
+        width:100%;
+        background:white;
+        padding-bottom:30px;
+    }
+    
+    div.content {
+        padding-top:10px;
+        paddng-bottom:10px;
+        width:100%;
+    }
+    
+    /* COMMON ELEMENTS */
+    div.content div.page_content h2 { /* BEGIN HEADERS */
+        width:80%;
+        margin:auto;
+        padding-top:20px;
+        margin-bottom:20px;
+        text-align:center;
+        color:darkslategray;
+        text-transform:lowercase;
+        border-bottom:5px solid darkslategray;
+    }
+    div.content div.page_content h2.no_und {
+        border:0px;
+    }
+    div.content div.page_content h2.left {
+        margin:0;
+        text-align:left;
+        padding-left:30px;
+    }
+    div.content div.page_content h3 { /* END HEADERS */
+        padding-left:10px;
+        padding-top:20px;
+        padding-bottom:10px;
+        text-transform:lowercase;
+        color:darkslategray;
+    }
+    div.content div.page_content h3.overlay {
+        background:rgba(0,0,0,0.65);
+        text-align:center;
+        padding:10px;
+        border-radius:10%;
+    }
+    div.content div.page_content p {
+        padding-left:20px;
+        padding-right:20px;
+        padding-bottom:10px;
+        padding-top:10px;
+        line-height:1.25;
+    }
+    
+    /* BUTTONS */
+    div.content div.page_content button {
+        border-radius:5%;
+        background:darkslategray;
+        color:white;
+        padding:20px;
+        text-align:center;
+        margin:10px;
+        font-weight:bold;
+        border:0px;
+    }
+    div.content div.page_content button a {
+        color:white;
+    }
+    div.content div.page_content p button {
+        padding:10px;
+        margin: 5px;
+    }
+    div.content div.page_content button:hover {
+        background:olive;
+        color:white;
+    }
+    div.content div.page_content div.btnCntr {
+        width:80%;
+        margin:auto;
+        
+        /* BEGIN_A use this instead of display:block to center items in a row */
+        display:flex;
+        justify-content: center; /* center, space-around, space-between */
+        /* END_A */
+    }
+    
+    div.timelineContainer { /* TIMELINES */
+        position:relative;
+    }
+    div.timelineContainer div.reserve {
+        min-height:150px;
+        align-items:center;
+        justify-content:center;
+        display:flex;
+    }
+    div.timelineContainer div.reserve div.bar {
+        width:100%;
+        height:30px;
+        /* background:purple; */
+        background: rgb(252,170,153);
+        background: linear-gradient(90deg, rgba(252,170,153,1) 0%, rgba(255,230,135,1) 50%, rgba(66,156,116,1) 100%);
+    }
+    div.timelineContainer div.itemContainer {
+        z-index:1;
+        position:absolute;
+        bottom:11%;
+        display:flex;
+        justify-content:space-evenly;
+        width:100%;
+        min-height:100px;
+        max-height:150px;
+    }
+    div.timelineContainer div.item {
+        min-height:50px;
+        max-height:120px;
+        min-width:100px;
+        width:120px;
+    }
+    div.timelineContainer div.item img {
+        width:100%;
+        height:100%;
+        clip-path:circle(45%);
+    }
+    
+    div.timelineContainer div.item button { /* overrides default button styling */
+        width:100%;
+        height:100%;
+        background:opaque;
+        clip-path:circle(45%);
+        padding:0;
+        border-radius:0px;
+        margin:0px;
+    }
+    div.timelineContainer div.item button img {
+        width:100%;
+        height:100%;
+        clip-path:none;
+    }
+    
+    /* TABBED BOXES */
+    div.tabInfoContainer {
+        height:300px;
+    }
+    
+    /* TOOLTIPS */
+    .tooltip:not(button) { /* underlining would ruin button aesthetic */
+        border-bottom: dotted 3px darkslategray; 
+    }
+    .tooltip .tooltipText {
+        visibility:hidden;
+        background:black;
+        color:white;
+        position:absolute;
+        z-index:1;
+        min-width:200px;
+        width:auto;
+        left:-40%; /* positions on x axis relative to wrapper */
+        bottom:30px; /* raises it */
+        right:0; /* idk, but it is essential */
+        padding:10px;
+        text-align:center;
+        border-radius: 8%;
+        font-weight:normal;
+        line-height:1.25;
+    }
+    button.tooltip .tooltipText {
+        visibility:hidden;
+        background:black;
+        color:white;
+        position:absolute;
+        z-index:1;
+        width:auto;
+        left:-0%; /* positions on x axis relative to wrapper */
+        bottom:50px; /* raises it */
+        right:0; /* idk, but it is essential */
+        padding:10px;
+        text-align:center;
+        border-radius: 8%;
+    }
+    .tooltip {
+        position:relative; /* essential for making children relatively positioned */
+    }
+    .tooltip:hover .tooltipText {
+        visibility:visible;
+    }
+    
+    /* page content MISC */
+    cite::before {
+        content: "— ";
+    }
+
+       /* TABLES */
+    table.general {
+        background:white;
+        margin:20px;
+    }
+    table.general th {
+        border-bottom:gray dotted 2px;
+        min-width:300px;
+        text-align:left;
+        padding:10px;
+        font-style:italic;
+    }
+    table.general td {
+        padding:10px;
+    }
+    
+    /* SLIDESHOWS */
+    .slideshowContainer {
+        width:85%;
+        margin:auto;
+        background-position:center;
+        background-size:contain;
+    }
+    .slideshow img {
+        width:100%;
+        height:100%;
+        display:block;
+    }
+    .slideshow.fade {
+        position:relative;
+    }
+    .slideInfo {
+        width:25%;
+        position:absolute;
+        z-index:1;
+        left:65%;
+        bottom:15%;
+        width:30%;
+        min-width:150px;
+        max-width:400px;
+        height:30%;
+        background:black;
+        color:white;
+        border-radius:3%;
+        overflow:auto;
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .slideInfo::-webkit-scrollbar div.info_box.img_block div.text::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* CHARTS */
+    .chartValue { display:none; }
+    .chartType { display:none; }
+    .chartYRange { display:none; }
+    .chartDefaultClr { display:none; }
+    .chart p { font-style:italic;text-align:center; }
+    div.row.circle ul { list-style-type:none; }
+    div.row.circle ul li::before { content: "➤ ";}
+    ul.noPtr li::before { content: "" !important }
+    ul.noPtr li button { width:100%; }
+    
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 3s;
+    }
+    .fade.quick {
+        animation-duration:500ms;
+    }
+
+    @keyframes fade {
+      from {opacity: 0} /* from transparent to full opacity */
+      to {opacity: 1}
+    }
+        
+    /* FOOTER STUFF */
+    footer {
+        width:100%;
+        text-align:center;
+        background:black;
+        color:white;
+        font-weight:bold;
+        margin:0px;
+    }
+    footer p {
+        padding:50px;
+    }
+    
+     @media all and (max-width: 800px) { /* for testing mobile layout on desktop */
+    /* @media only screen and (max-device-width: 480px) { */
+        /* slideshows for mobile */
+        .slideInfo {
+            position:static;
+            width:100%;
+            max-width:100vh;
+            min-height:150px;
+            border-radius:0%;
+        }
+        
+        div.info_box.img_block div.text {
+            position:static;
+            display:block;
+            width:100%;
+            border-radius:0%;
+        }
+        /* TEMPORARY
+        div.info_box {
+            display:block;
+        } */
+        
+        .slideshowContainer {
+            background-size:cover;
+            width:100%;
+        }
+        /* page content */
+        div.info_box.video {
+            display:block;
+        }
+        div.tabInfoContainer {
+            height:600px;
+        }
+        div.info_box.video div.media video {
+            clip-path:circle(26%);
+        }
+        /* 
+        .tabInfo size set to not change to fit CONTENT
+            so this makes the display flexible so that it fits
+            given size
+        
+        div.tabInfo div.info_box.video { 
+            display:flex;
+        }
+        div.tabInfo div.info_box.video div.media {
+            clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+            background:linear-gradient(90deg, rgba(47,79,79,1) 0%, rgba(255,255,255,1) 100%);
+        }
+        */
+        
+            /* clip-path:inset(100px 50px); for rectangles */
+        
+        /** HEADER VIDEO & OVERLAY OVERWRITE **/
+        header div.header div.headerImg {
+           
+        }
+        header div.header div.headerImg video {
+            display:none;
+        }
+        header div.header div.headerImg div.headerOverlay {
+            display:none;
+        }
+        header div.header div.headerImg div.headerImgText {
+            display:none;
+        }
+        header div.header div.headerImg img {
+            display:block;
+        }
+    }
