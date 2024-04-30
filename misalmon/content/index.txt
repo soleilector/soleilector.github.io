@@ -1,7 +1,7 @@
 <h2>the chinook salmon</h2>
 <div class='header_video'> <!-- BEGIN header video -->
     <video style='width:100%;' autoplay muted loop>
-        <source src="{videos}homepage_video_final.mp4" type="video/mp4">
+        <source src="media/video/homepage_video_final.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div> <!-- END header video -->
@@ -10,7 +10,7 @@
     thousands of other numerous species, find sustenance and prosperity. This ecological treasure is now an endangered species, with only 473,000 adult salmon left in the entire world (US EPA).</p>
 <h3 style='text-align:center;width:90%;margin:auto;'>Fast Facts</h3>
 <div class='info_box'> <!-- BEGIN info box -->
-    <img src='lifecycle.webp' style='width:25%;height:50%;'/>
+    <img src='media/images/lifecycle.webp' style='width:25%;height:50%;'/>
     <p> <!-- Information text -->
         <i>The largest of all salmon species...</i><br>
         <b>Other names:</b> King salmon, Black mouth salmon<br>
@@ -19,7 +19,7 @@
         <b>Length:</b> 3 to 4.9 feet<br>
         <b>Weight:</b> 3 to 130 lbs<br>
         <b>Habitat:</b> Freshwater streams, estuaries, wetlands, oceans<br><br>
-        <button><a href='lifecycle.html'>Learn more!</a></button>
+        <a href='lifecycle.html'><button>Lifecycle</button></a>
     </p>
 </div> <!-- END info box -->
 
@@ -52,6 +52,28 @@
         </tr>
     </table>
 </p> <!-- END paragraph -->
+<h2 class="no_und">links to learn more </h2>
+<div class="row circle big">
+    <div>
+        <a href='lifecycle.html'>
+            <img src="media/images/lifecycle/a.jpg"/>
+            <h3>lifecycle</h3>
+        </a>
+    </div>
+    <div style="min-width:25%;">
+        <p style="width:100%;text-align:center;">🌿🤝🌿</p>
+        <p style="width:100%;padding:0;margin:0;">
+            Begin the path toward education on the habits of chinook salmon, the threats they face, and how you can help.
+        </p>
+    </div>
+    <div>
+        <a href='conservation.html'>
+            <img src="media/images/lifecycle/c.jpg"/>
+            <h3>conservation efforts</h3>
+        </a>
+    </div>
+</div>
+
 <h3><i class="bi bi-shield"></i> contact the united states environment protection agency (e.p.a.)</h3>
 <p> <!-- BEGIN paragraph -->
     Report sightings of chinook salmon in your era to help track populations and boost conservation efforts.
@@ -68,5 +90,5 @@
             <button>US EPA Website</button>
         </a>
     </div>
-    <img src='reportepa2.jpg' style='width:25%;height:50%;clip-path:circle(33%);'/>
-</div> <!-- END info box -->
+    <img src='media/images/reportepa2.jpg' style='width:25%;height:50%;clip-path:circle(33%);'/>
+</div> 
