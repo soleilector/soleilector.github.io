@@ -1,0 +1,220 @@
+<h2>conservation</h2> <!-- here is the header -->
+<div class="info_box img_block">
+    <div class="media">
+        <img src="media/images/conservation/deadfish.jpg" style="display:block;" />
+    </div>
+    <div class="text">
+        <p>
+            Chinook salmon were once abundant, their population numbering millions. These numbers provided an important foundation upon which
+             other ecosystems could flourish, both freshwater and saltwater. It is only recently that they have become endangered, largely due to human efforts.
+        </p>
+    </div>
+</div>
+<div>
+    <h3>threats to salmon populations</h3>
+    <div class="row circle">
+        <div>
+            <img src="media/images/conservation/threats/infection.webp"/>
+            <h3>infections</h3>
+            <ul>
+                <li>Ichtyophonus</li>
+                <li>Ceratomyxa shasta</li>
+                <li>Tuberculosis</li>
+            </ul>
+        </div>
+        <div>
+            <img src="media/images/conservation/threats/habitatLoss.jpg"/>
+            <h3>habitat destruction</h3>
+            <ul>
+                <li>Overuse of water</li>
+                <li>Dams</li>
+                <li>Land development</li>
+            </ul>
+        </div>
+        <div>
+            <img src="media/images/conservation/threats/pollution.webp"/>
+            <h3>pollution</h3>
+            <ul>
+                <li>Runoff</li>
+                <li>Toxic waste</li>
+                <li>Plastics</li>
+                <li>PFAs</li>
+            </ul>
+        </div>
+        <div>
+            <img src="media/images/conservation/threats/overfishing.jpg"/>
+            <h3>overfishing</h3>
+            <ul>
+                <li>Less reproducers</li>
+                <li>Loss of genetic variability</li>
+                <li>Slower population recovery</li>
+            </ul>
+        </div>
+    </div>
+    <!-- reposition to better spot
+    <cite>NOAA Fisheries, Columbia River Fish and Wildlife Conservation Office</cite>
+    -->
+</div>
+<div> <!-- charts container -->
+    <h2 class='no_und'><i>our numbers are quickly declining...</i></h2>
+    <div class='chart chartTheme_Basic' style='width:60%;margin:auto;'>
+        <input class="chartValue color1" value='1984,1100000'>
+        <input class="chartValue color1" value='1990,900000'>
+        <input class="chartValue color1" value='2004,700000'>
+        <input class="chartValue color1" value='2010,600000' style="color:red;">
+        <input class="chartType" value="bar">
+        <input min=0 max=1200000 class="chartYRange">
+        <input class="chartDefaultClr" value="darkslategray">
+        <canvas id='populationChart' class='chartCanvas' style='width:100%;'></canvas>
+        <p>
+            <i class="bi bi-graph-down"></i>
+            The populations of Chinook salmon have plummeted by 60% since 1984...
+        </p>
+    </div>
+</div>
+<br>
+<div style="display:block;min-height:500px;background:url('media/images/conservation/ucando/bg.jpg');background-size:cover;background-repeat:no-repeat;background-position: bottom;">
+    <!-- Heading -->
+    <div style="width:100%;display:block;height:200px;background: rgb(255,255,255);background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7719033232628398) 62%, rgba(255,255,255,1) 100%);">
+        &nbsp;
+    </div>
+    <div style="display:block;width:100%;">
+        <h2 class="no_und" style="font-weight:bold;color:white;background:rgba(0,0,0,0.65);font-size:56px;padding:10px;padding-top:20px;padding-bottom:20px;max-width:800px;">what we can do to help</h2>
+    </div>
+</div>
+<div style="background:black;">
+    <!-- <h2 class="no_und" style="color:white;">what you can do</h2> -->
+    <!-- Regrow habitats -->
+    <div class="info_box wide"> <!-- wide info box -->
+        <div class="media"> <!-- info box media -->
+            <div class="overlayContainer"> <!-- container for images with color overlay -->
+                <img src="media/images/conservation/ucando/forest.jpg" style="display:block;" />
+                <div class="overlay fade_black">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="text" style="color:white;">
+            <h3 style="color:white;">Flourish native habitats</h3>
+            <p>
+                Ecosystems have developed over time as a careful balancing act played by its participants.As a part of this global ecosystem, 
+                 human activities play a substantial role in the outlook of other species. The prevention of land redevelopment and consequent
+                 desertification not only benefits chinook salmon, but also our local farmers and food supply.
+            </p>
+        </div>
+    </div>
+    <!-- Free the streams -->
+    <div class="info_box wide">
+        <div class="text" style="color:white;">
+            <h3 style="color:white;">Free the streams</h3>
+            <p>
+                Where once water naturally and freely flowed, many barriers have been erected to divert and culvert water for human use to our great benefit.
+                 Unfortunately, these actions often mean the demise of both other species and, sometimes, entire food webs.
+                 Today, human have developed technological innovations that replace the need for diversion, enabling both humans and animals to fluorish without detriment to one another.
+            </p>
+        </div>
+        <div class="media">
+            <div class="overlayContainer">
+                <img src="media/images/conservation/ucando/streams_base.jpg" style="display:block;" />
+                <div class="overlay fade_black">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Reduce invasive species -->
+    <div class="info_box wide">
+        <div class="media">
+            <div class="overlayContainer">
+                <img src="media/images/conservation/ucando/invasive.jpg" style="display:block;" />
+                <div class="overlay fade_black">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="text" style="color:white;">
+            <h3 style="color:white;">Reduce invasive species</h3>
+            <p>
+                Species that lack their natural predators and other stressors that dampen the growth of their population become abundants beyond the limits
+                 that which can sustain them. This can lead to the extinction of their newfound prey, creating a butterfly effect against those
+                 that depend on that prey to survive. Never release a pet into the wild.
+            </p>
+        </div>
+    </div>
+    <!-- Educate others -->
+    <div class="info_box wide">
+        <div class="text" style="color:white;">
+            <h3 style="color:white;">Educate others</h3>
+            <p>
+                Let others know the importance that chinook salmon play. Don't worry, helping conservation efforts doesn't require you to become a messiah in the name of saving salmon.
+                 In a world of rapidly-advancing technology, simply liking and sharing information on the importance of these salmon through your social media can make a big difference.
+                 Go further by donating to conservation efforts for as little as a a few cents.
+            </p>
+        </div>
+        <div class="media">
+            <div class="overlayContainer">
+                <img src="media/images/conservation/ucando/educate.jpg" style="display:block;" />
+                <div class="overlay fade_black">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Invest in clean energy -->
+    <div class="info_box wide">
+        <div class="media">
+            <div class="overlayContainer">
+                <img src="media/images/conservation/ucando/clean_energy.jpg" style="display:block;" />
+                <div class="overlay fade_transparent">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="text" style="color:white;">
+            <h3 style="color:white;">Invest in a clean outlook</h3>
+            <p>
+                It is possible to engage in a clean living outlook with just a few changes to your lifestyle and the products you choose to use around your home.
+                 Replacing harsh chemicals with environmentally solutions, removing your support from harmful entities, and electing representatives supportive of environmentally friendly measures
+                 leads to the net benefit of us all, human or animal.
+            </p>
+        </div>
+    </div>
+</div>
+<div style="background: url('media/images/conservation/takeaction.jpg');background-size:cover;background-repeat:no-repeat;background-position: center center;">
+    <div style="width:100%;display:block;height:200px;background: rgb(0,0,0);background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7719033232628398) 62%, rgba(0,0,0,1) 100%);">
+        <br><br><br><h2 style="color:white;border-bottom:5px solid white;">take action</h2>
+    </div>
+    <div class="row circle">
+        <div>
+            <h3 class="overlay" style="color:white;">make the switch</h3>
+            <ul class="noPtr">
+                <li><a href="https://www.changeclimate.org/"><button>Climate Neutral</button></a></li>
+                <li><a href="https://greenseal.org/"><button>Green Seal</button></a></li>
+                <li><a href="https://www.leapingbunny.org/"><button>The Leaping Bunny</button></a></li>
+                <li><a href="https://www.epa.gov/greenerproducts"><button>EPA Sustainable Marketplace</button></a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="overlay" style="color:white;">contact government</h3>
+            <ul class="noPtr">
+                <li><a href="https://www.epa.gov/aboutepa/forms/contact-epa"><button>EPA</button></a></li>
+                <li><a href="https://www.fws.gov/program/endangered-species/contact-us"><button>U.S. Fish and Wildlife Service</button></a></li>
+                <li><a href="https://www.house.gov/representatives/find-your-representative"><button>Find Local House Reps</button></a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="overlay" style="color:white;">share the effort</h3>
+            <ul class="noPtr">
+                <li><a href="https://www.tiktok.com"><button>Tiktok</button></a></li>
+                <li><a href="https://www.instagram.com"><button>Instagram</button></a></li>
+                <li><a href="https://www.facebook.com"><button>Facebook</button></a></li>
+                <li><a href="https://www.whatsapp.com/"><button>WhatsApp</button></a></li>
+                <li><a href="https://www.pinterest.com"><button>Pinterest</button></a></li>
+            </ul>
+        </div>
+    </div>
+    <br><br><br>
+</div>
+<div>
+    <h3 class="no_und" style="font-size:64px;text-align:center;">your voice matters</h3>
+</div>
