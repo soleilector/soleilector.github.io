@@ -1,7 +1,7 @@
 <h2>the chinook salmon</h2>
 <div class='header_video'> <!-- BEGIN header video -->
     <video style='width:100%;' autoplay muted loop>
-        <source src="media/video/homepage_video_final.mp4" type="video/mp4">
+        <source src="{videos}homepage_video_final.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div> <!-- END header video -->
@@ -10,7 +10,7 @@
     thousands of other numerous species, find sustenance and prosperity. This ecological treasure is now an endangered species, with only 473,000 adult salmon left in the entire world (US EPA).</p>
 <h3 style='text-align:center;width:90%;margin:auto;'>Fast Facts</h3>
 <div class='info_box'> <!-- BEGIN info box -->
-    <img src='media/images/lifecycle.webp' style='width:25%;height:50%;'/>
+    <img src='{images}lifecycle.webp' style='width:25%;height:50%;'/>
     <p> <!-- Information text -->
         <i>The largest of all salmon species...</i><br>
         <b>Other names:</b> King salmon, Black mouth salmon<br>
@@ -56,7 +56,7 @@
 <div class="row circle big">
     <div>
         <a href='lifecycle.html'>
-            <img src="media/images/lifecycle/a.jpg"/>
+            <img src="{images}lifecycle/a.jpg"/>
             <h3>lifecycle</h3>
         </a>
     </div>
@@ -68,7 +68,7 @@
     </div>
     <div>
         <a href='conservation.html'>
-            <img src="media/images/lifecycle/c.jpg"/>
+            <img src="{images}lifecycle/c.jpg"/>
             <h3>conservation efforts</h3>
         </a>
     </div>
@@ -90,5 +90,5 @@
             <button>US EPA Website</button>
         </a>
     </div>
-    <img src='media/images/reportepa2.jpg' style='width:25%;height:50%;clip-path:circle(33%);'/>
+    <img src='{images}reportepa2.jpg' style='width:25%;height:50%;clip-path:circle(33%);'/>
 </div> 
