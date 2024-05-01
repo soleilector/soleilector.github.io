@@ -8,7 +8,7 @@ if (filename.includes("/")){ // this page was found through a url with a directo
 // config
 var SETTINGS_URL_GENERAL = "../config/general.txt"
 // page stuff
-var SCRIPTS_URL = "../content/scripts.txt"
+var SCRIPTS_URL = "../config/pageScripts.txt"
 var NAV_URL = "../content/navigation.txt"
 var TEMPLATE_HEADER_URL = '../template/header.txt'
 var TEMPLATE_CONTENT_URL = '../template/content.txt'
