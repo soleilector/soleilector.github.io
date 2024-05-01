@@ -20,7 +20,7 @@
             <div class="headerImgText">
                 King Salmon
             </div>
-            <img src="media/images/header.jpg"/>
+            <img src="{images}header.jpg"/>
         </div> <!-- END HEADER IMG -->
     </div>
 </header>
