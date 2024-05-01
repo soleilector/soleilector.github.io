@@ -1,7 +1,7 @@
 <h2>conservation</h2> <!-- here is the header -->
 <div class="info_box img_block">
     <div class="media">
-        <img src="{images}conservation/deadfish.jpg" style="display:block;" />
+        <img src="{images}conservation/deadfish.webp" style="display:block;" />
     </div>
     <div class="text">
         <p>
@@ -23,7 +23,7 @@
             </ul>
         </div>
         <div>
-            <img src="{images}conservation/threats/habitatLoss.jpg"/>
+            <img src="{images}conservation/threats/habitatLoss.webp"/>
             <h3>habitat destruction</h3>
             <ul>
                 <li>Overuse of water</li>
@@ -42,7 +42,7 @@
             </ul>
         </div>
         <div>
-            <img src="{images}conservation/threats/overfishing.jpg"/>
+            <img src="{images}conservation/threats/overfishing.webp"/>
             <h3>overfishing</h3>
             <ul>
                 <li>Less reproducers</li>
@@ -73,7 +73,7 @@
     </div>
 </div>
 <br>
-<div style="display:block;min-height:500px;background:url('{images}conservation/ucando/bg.jpg');background-size:cover;background-repeat:no-repeat;background-position: bottom;">
+<div style="display:block;min-height:500px;background:url('{images}conservation/ucando/bg.webp');background-size:cover;background-repeat:no-repeat;background-position: bottom;">
     <!-- Heading -->
     <div style="width:100%;display:block;height:200px;background: rgb(255,255,255);background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7719033232628398) 62%, rgba(255,255,255,1) 100%);">
         &nbsp;
@@ -88,7 +88,7 @@
     <div class="info_box wide"> <!-- wide info box -->
         <div class="media"> <!-- info box media -->
             <div class="overlayContainer"> <!-- container for images with color overlay -->
-                <img src="{images}conservation/ucando/forest.jpg" style="display:block;" />
+                <img src="{images}conservation/ucando/forest.webp" style="display:block;" />
                 <div class="overlay fade_black">
                     &nbsp;
                 </div>
@@ -115,7 +115,7 @@
         </div>
         <div class="media">
             <div class="overlayContainer">
-                <img src="{images}conservation/ucando/streams_base.jpg" style="display:block;" />
+                <img src="{images}conservation/ucando/streams_base.webp" style="display:block;" />
                 <div class="overlay fade_black">
                     &nbsp;
                 </div>
@@ -126,7 +126,7 @@
     <div class="info_box wide">
         <div class="media">
             <div class="overlayContainer">
-                <img src="{images}conservation/ucando/invasive.jpg" style="display:block;" />
+                <img src="{images}conservation/ucando/invasive.webp" style="display:block;" />
                 <div class="overlay fade_black">
                     &nbsp;
                 </div>
@@ -153,7 +153,7 @@
         </div>
         <div class="media">
             <div class="overlayContainer">
-                <img src="{images}conservation/ucando/educate.jpg" style="display:block;" />
+                <img src="{images}conservation/ucando/educate.webp" style="display:block;" />
                 <div class="overlay fade_black">
                     &nbsp;
                 </div>
@@ -164,7 +164,7 @@
     <div class="info_box wide">
         <div class="media">
             <div class="overlayContainer">
-                <img src="{images}conservation/ucando/clean_energy.jpg" style="display:block;" />
+                <img src="{images}conservation/ucando/clean_energy.webp" style="display:block;" />
                 <div class="overlay fade_transparent">
                     &nbsp;
                 </div>
@@ -180,7 +180,7 @@
         </div>
     </div>
 </div>
-<div style="background: url('{images}conservation/takeaction.jpg');background-size:cover;background-repeat:no-repeat;background-position: center center;">
+<div style="background: url('{images}conservation/takeaction.webp');background-size:cover;background-repeat:no-repeat;background-position: center center;">
     <div style="width:100%;display:block;height:200px;background: rgb(0,0,0);background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7719033232628398) 62%, rgba(0,0,0,1) 100%);">
         <br><br><br><h2 style="color:white;border-bottom:5px solid white;">take action</h2>
     </div>
