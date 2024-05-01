@@ -83,9 +83,15 @@ paths = {
     "devRoot" : "https://soleilector.github.io/misalmon/dev/"
 }
 
+navigation = {
+    "Home" : { "priority" : 0, "addr" : "index.html" }
+}
+
 config = {
     "custom_page_title" : False
 }
+
+js_scripts = "<script src='{scripts}dynamicPage.js'></script>"
 
 def setConfig(configDict):
     global config
@@ -130,9 +136,6 @@ def transformPathKeys(str): # substitutes pathkeys with their associated paths
     
     return newStr
 
-navigation = {
-    "Home" : { "priority" : 0, "addr" : "index.html" }
-}
 def setNav(navDict):
     global navigation
     navigation = navDict
@@ -143,8 +146,12 @@ def getNav():
 def getStyling():
     return STYLING
 
+def setScripts(scriptsText):
+    global js_scripts
+    js_scripts = scriptsText
+
 def getScripts():
-    return transformPathKeys("<script src='{scripts}dynamicPage.js'></script>")
+    return transformPathKeys(js_scripts)
 
 def getContent(pgName): # get the contents of a page
     contentFormatted = ""
