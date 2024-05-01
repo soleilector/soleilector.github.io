@@ -1,3 +1,17 @@
 {
-  "custom_page_title" : true
+  "custom_page_title" : true,
+  "navigation" : {
+    "Home" : {
+        "priority" : 0,
+        "addr" : "index.html"
+      },
+    "Lifecycle" : {
+        "priority" : 1,
+        "addr" : "lifecycle.html"
+      },
+    "Conservation" : {
+        "priority" : 2,
+        "addr" : "conservation.html"
+      }
+  }
 }
