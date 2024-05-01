@@ -567,8 +567,8 @@
         height:200px;
     }
     
-    /* @media all and (max-width: 800px) { /* for testing mobile layout on desktop */
-     @media only screen and (max-device-width: 800px) { /* previously 480px; changed to 800 to include responsiveness for tablets */
+     @media all and (max-width: 800px) { /* for testing mobile layout on desktop */
+     /* @media only screen and (max-device-width: 800px) { /* previously 480px; changed to 800 to include responsiveness for tablets */
         /* slideshows for mobile */
         .slideInfo {
             position:static;
