@@ -5,6 +5,9 @@ if (filename.includes("/")){ // this page was found through a url with a directo
   filename = document.getElementById("pageName").innerHTML
 }
 
+// config
+var SETTINGS_URL_GENERAL = "../config/general.txt"
+// page stuff
 var SCRIPTS_URL = "../content/scripts.txt"
 var NAV_URL = "../content/navigation.txt"
 var TEMPLATE_HEADER_URL = '../template/header.txt'
@@ -18,6 +21,8 @@ var tempHeader; // stores template for header section
 var tempFooter; // stores template for footer section
 var tempContent; // stores template for content section
 var storedText; // to store the page's contents as text
+
+var config_general; // stores config info to be converted to json
 
 //console.log("FILENAME JS: "+filename)
 
@@ -73,6 +78,16 @@ fetch(NAV_URL)
   });
 });
 /* END fetch navigation */
+
+/* BEGIN fetch settings */
+fetch(SETTINGS_URL_GENERAL)
+.then(function(response) {
+  response.text().then(function(fetchedSettings_general) {
+    console.log("SETTINGS_general: "+fetchedSettings_general)
+    config_general = fetchedSettings_general;
+  });
+});
+/* END fetch settings */
 
 /* BEGIN ensures dynamicPage.js runs after page content has loaded */
 let scriptsDiv = document.getElementById("scripts")
