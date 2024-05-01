@@ -5,9 +5,7 @@
         </div>
         <div class="nav"> <!-- BEGIN NAVIGATION HEADER -->
             <ul class="nav"> <!-- NAVIGATION LINKS -->
-                <li><a href="index.html">Home</a></li>
-                <li><a href="lifecycle.html">Lifecycle</a></li>
-                <li><a href="conservation.html">Conservation</a></li>
+                {nav_links}<!-- TESTING NAV LINKS -->
             </ul>
         </div> <!-- END NAVIGATION HEADER -->
         <div class="headerImg"> <!-- BEGIN HEADER IMG-->
