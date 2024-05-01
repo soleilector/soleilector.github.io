@@ -83,6 +83,21 @@ paths = {
     "devRoot" : "https://soleilector.github.io/misalmon/dev/"
 }
 
+config = {
+    "custom_page_title" : False
+}
+
+def setConfig(configDict):
+    global config
+    for key in configDict:
+        print("Changed config[%s]: %s => %s" % (key,str(config[key]),str(configDict[key])))
+        config[key] = configDict[key]
+
+def getConfig(key):
+    global config
+    if key in config:
+        return config[key]
+
 def setPath(pathName,pathPath):
     global paths
     paths[pathName] = pathPath
@@ -134,7 +149,7 @@ def getScripts():
 def getContent(pgName): # get the contents of a page
     contentFormatted = ""
     
-    if pgName in PAGE_CONTENT:
+    if pgName in PAGE_CONTENT: # if this page exists in our index
         thisContent = PAGE_CONTENT[pgName]
         
         contentFormatted = CONTENT.format(
@@ -240,6 +255,11 @@ def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CON
     pgName = capTitle(pgName)
     
     # generate page's html
+    config_pgTitle = getConfig("custom_page_title") # do we want custom title?
+    page_title = pgName
+    if config_pgTitle == True:
+        page_title = ""
+    
     content_formatted =  transformPathKeys(temp_content.format(page_title=pgName,page_content=pgContent)) + getScripts()
     header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
     footer_formatted = getFooter(temp_footer) # uses default static template embedded in file if no argument
