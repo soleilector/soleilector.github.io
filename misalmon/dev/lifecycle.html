@@ -32,13 +32,15 @@
         from js import tempFooter
 
         from js import navLinksText
+        from js import scriptsText
         from js import config_general
 
         print("CONFIG_PY_GENERAL: "+str(config_general))
         navLinks = json.loads(str(navLinksText)) # load navigation links
         configGeneral = json.loads(str(config_general)) # load configuration
-        main.setNav(navLinks)
-        main.setConfig(configGeneral)
+        main.setNav(navLinks) # set navigation
+        main.setScripts(scriptsText) # set javascript scripts
+        main.setConfig(configGeneral) # set configuration for pages
         #print("PYTHON_NAV: "+str(navLinks))
         #print("PYTHON_NAV2: "+str(navLinks["Home"]))
 
