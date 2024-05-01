@@ -256,14 +256,14 @@ def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CON
     
     # generate page's html
     config_pgTitle = getConfig("custom_page_title") # do we want custom title?
-    page_title = pgName
+    pageTitle = pgName
     if config_pgTitle == True:
         print("defining custom page title")
-        page_title = "<!-- predefined title removed -->"
+        pageTitle = "<!-- predefined title removed -->"
     else: # we want predetermined, auto-title
-        page_title = capTitle(pgName)
+        pageTitle = capTitle(pgName)
     
-    content_formatted =  transformPathKeys(temp_content.format(page_title=page_title,page_content=pgContent)) + getScripts()
+    content_formatted =  transformPathKeys(temp_content.format(page_title=pageTitle,page_content=pgContent)) + getScripts()
     header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
     footer_formatted = getFooter(temp_footer) # uses default static template embedded in file if no argument
     print("AAAAGH")
