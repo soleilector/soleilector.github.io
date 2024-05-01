@@ -11,14 +11,14 @@
         <div class="headerImg"> <!-- BEGIN HEADER IMG-->
             <video autoplay muted loop>
                 <source src="{videos}header_video.mp4" type="video/mp4">
-                <img src="{images}header.jpg"/> <!-- HEADER IMAGE -->
+                <img src="{images}header.webp"/> <!-- HEADER IMAGE -->
                 Your browser does not support video tags.
             </video>
             <div class="headerOverlay">&nbsp;</div>
             <div class="headerImgText">
                 King Salmon
             </div>
-            <img src="{images}header.jpg"/>
+            <img src="{images}header.webp"/>
         </div> <!-- END HEADER IMG -->
     </div>
 </header>
