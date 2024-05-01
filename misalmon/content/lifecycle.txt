@@ -21,7 +21,7 @@
 <h2 class="no_und">Predators</h2>
 <div id="slideshowContainer" class="slideshowContainer"> <!-- BEGIN slideshow container -->
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="{images}predators/seal.jpg">
+        <img src="{images}predators/seal.webp">
         <div class='slideInfo fade'>
             <p>
                 Sea lions consume approximately 13,000 salmon for every 100 seals within an area. These predators often find them by hunting in tributuaries and lowland rivers.
@@ -33,7 +33,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="{images}predators/orca.jpg">
+        <img src="{images}predators/orca.webp">
         <div class='slideInfo fade'>
             <p>
                 For southern resident killer whales, Chinook salmon make up 80% of their diet. As the largest salmon of the Pacific species,
@@ -46,7 +46,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="{images}predators/humans.jpg">
+        <img src="{images}predators/humans.webp">
         <div class='slideInfo fade'>
             <p>
                 Humans have endangered the Chinook salmon populations through various behaviors, including overfishing and habitat destruction 
@@ -58,7 +58,7 @@
     </div> <!-- END slide -->
     
     <div class="slideshow fade"> <!-- BEGIN slide -->
-        <img src="{images}predators/fish.jpg">
+        <img src="{images}predators/fish.webp">
         <div class='slideInfo fade'>
             <p>
                 As a keystone species, the Chinook salmon is responsible for feeding a wide variety of wildlife throughout the stages of their lifecycle.
@@ -76,21 +76,21 @@
     <h2 class="no_und">prey</h2>
     <div class="row">
         <div>
-            <img src="{images}prey/amphipod.jpg"/>
+            <img src="{images}prey/amphipod.webp"/>
             <h3>crustaceans</h3>
             <p>
                 <i>gammarus roselli; scud</i>
             </p>
         </div>
         <div>
-            <img src="{images}prey/herring.jpg"/>
+            <img src="{images}prey/herring.webp"/>
             <h3>other fish</h3>
             <p>
                 <i>herring </i>
             </p>
         </div>
         <div>
-            <img src="{images}prey/squid.jpg"/>
+            <img src="{images}prey/squid.webp"/>
             <h3>squid</h3>
             <p>
                 <i>master armhook squid </i>
@@ -119,22 +119,22 @@
             <!-- timeline items -->
             <div class="item"> <!-- parr -->
                 <a href="#showParr">
-                    <img name="#tab#showParr" src="{images}lifecycle/a.jpg"/>
+                    <img name="#tab#showParr" src="{images}lifecycle/a.webp"/>
                 </a>
             </div>
             <div class="item"> <!-- smolt -->
                 <a href="#showSmolt">
-                    <img name="#tab#showSmolt" src="{images}lifecycle/b.jpg"/>
+                    <img name="#tab#showSmolt" src="{images}lifecycle/b.webp"/>
                 </a>
             </div>
             <div class="item"> <!-- adult -->
                 <a href="#showAdult">
-                    <img name="#tab#showAdult" src="{images}lifecycle/c.jpg"/>
+                    <img name="#tab#showAdult" src="{images}lifecycle/c.webp"/>
                 </a>
             </div>
             <div class="item">
                 <a href="#showSpawn">
-                    <img name="#tab#showSpawn" src="{images}lifecycle/d.jpg"/>
+                    <img name="#tab#showSpawn" src="{images}lifecycle/d.webp"/>
                 </a>
             </div>
         </div>
