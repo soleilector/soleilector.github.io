@@ -167,10 +167,10 @@ def getHeader(temp_header=HEADER):
     return headerFormatted
 
 def getFooter(temp_footer=FOOTER):
-    footerFormatted = temp_footer.format(copyright="Copyright @ Soleil Ector 2024")
+    footerFormatted = transformPathKeys(temp_footer).format(copyright="Copyright @ Soleil Ector 2024")
 
     # begin changes
-    footerFormatted = transformPathKeys(footerFormatted)
+    # footerFormatted = transformPathKeys(footerFormatted)
     # end changes
     
     return footerFormatted
