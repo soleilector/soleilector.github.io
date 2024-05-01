@@ -1,22 +1,154 @@
-console.log("LOADED AND RUNNING....")
-let charts = {}
+console.log("LOADED AND RUNNING[dynamicPage.js]...")
+/* BEGIN chart */
+let charts = {} // charts catalog
 let foundCharts;
 
-function initCharts(){
-    foundCharts = document.getElementsByClassName("chartContainer");
+function separateValues(chartId){
+    chartObj = charts[chartId]
+    list = chartObj["values"]
+    defaultColor = chartObj["defaultColor"]
     
-    for (chartId=0;chartId < foundCharts.length;charts++) {
+    x_values = []
+    y_values = []
+    colors = []
+    
+    for (itemId=0;itemId<list.length;itemId++) {
+        thisItem = list[itemId] // get the obj holding this data value item
+        x_values[x_values.length] = thisItem[0]
+        y_values[y_values.length] = thisItem[1]
         
+        console.log("CL:"+colors.length+"==XL"+x_values.length)
+        
+        // set this color to its given color or the defined color, if absent
+        if (thisItem[2] == "") {
+            console.log("USED default color i#"+itemId)
+            colors[colors.length] = chartObj["defaultColor"]
+        } else {
+            console.log("USED defined color i#"+itemId)
+            colors[colors.length] = thisItem[2]
+        }
+    }
+    
+    returnData = {
+        "x" : x_values,
+        "y" : y_values,
+        "colors" : colors
+    }
+    
+    console.log("RETURNED DATA: "+returnData)
+    
+    return returnData
+}
+
+function initCharts(){ // initialize charts into catalog
+    foundCharts = document.getElementsByClassName('chart')
+    
+    for (chartId=0; chartId < foundCharts.length; chartId++) { // for each chart found
+        thisChartObj = foundCharts[chartId]
+        
+        canvas = thisChartObj.getElementsByClassName("chartCanvas")[0] // get first child of class <chartCanvas>
+        chartTypeObj = thisChartObj.getElementsByClassName('chartType')[0]
+        
+        chart_yValueRangesObj = thisChartObj.getElementsByClassName('chartYRange')[0]
+        yrange_min = parseInt(chart_yValueRangesObj.min)
+        yrange_max = parseInt(chart_yValueRangesObj.max)
+        
+        chartValues = []
+        chartValueElems = thisChartObj.getElementsByClassName("chartValue")
+        chartDefaultClrObj = thisChartObj.getElementsByClassName("chartDefaultClr")[0]
+        
+        console.log("Y-VAL range: "+chart_yValueRangesObj.min+"<=>"+chart_yValueRangesObj.max)
+        
+        if (chartValueElems.length > 0) { // if there is more than one chart element
+            // catalog the chart's values
+            for (valId=0;valId<chartValueElems.length;valId++){ // for each value element found
+                valIdObj = chartValueElems[valId]
+                valIdObj_value = valIdObj.value
+                
+                xy_values = valIdObj_value.split(",") // split xy values by ',' delimiter
+               
+                chartValues[chartValues.length] = [
+                    parseInt(xy_values[0]),
+                    parseInt(xy_values[1]),
+                    valIdObj.style.color
+                    ]
+            }
+        }
+        
+        chartInfo = { // info for this chart
+            "obj" : thisChartObj,
+            "values" : chartValues, // values associated with this chart
+            "defaultColor" : chartDefaultClrObj.value || "blue"
+        }
+        
+        console.log("VALUE INFO: \n\t"+chartInfo["values"]+"\n\t"+chartInfo["defaultColor"])
+        
+        charts[chartId] = chartInfo // add chart info to charts box
+        
+        console.log("CHART ID: "+chartId)
+        
+        drawChart(chartId)
     }
 }
 
+function reloadCharts() { // updates charts catalog with new entries and updates older/removed entries
+    
+}
+
+function drawChart(chartId){ // visually draws the chart
+    thisChartInfo = charts[chartId]
+    console.log(Object.keys(charts).length)
+    console.log(charts)
+    console.log(thisChartInfo)
+    
+    if (thisChartInfo != null && thisChartInfo != undefined) { // if this chart info exists
+        console.log("exists")
+        chartObj = thisChartInfo["obj"] // chart dom object
+        chartValues = thisChartInfo["values"]
+        
+        console.log("VALUES: "+chartValues)
+            
+        sep_XYValues = separateValues(chartId)
+        
+        console.log("SEPVALUES_X: "+sep_XYValues["x"])
+        console.log("SEPVALUES_Y: "+sep_XYValues["y"])
+        console.log("SEPVALUES_CLR: "+sep_XYValues["colors"])
+        console.log("CHART_TYPE: "+chartTypeObj.value)
+        
+        new Chart(canvas.id,{
+            "type" : chartTypeObj.value,
+            "data" : {
+                "labels" : sep_XYValues["x"],
+                "datasets" : [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor : sep_XYValues["colors"],
+                    borderColor : "rgba(0,0,255,0.1)",
+                    data : sep_XYValues["y"]
+                }]
+            },
+            "options" : {
+                legend : {display:false},
+                scales: {
+                  yAxes: [{ticks: {
+                                        min: yrange_min,
+                                        max: yrange_max
+                                    }}],
+                }
+            }
+        })
+        
+        console.log("CANVAS ID: "+canvas.id)
+    }
+}
 /* END chart */
 
-/* BEGIN tabbed Boxes *///** catalogs and navigates tabbed boxes on webpage
+/* BEGIN tabbed Boxes */
+//** catalogs and navigates tabbed boxes on webpage
 let tabBoxes = {}
 let foundTabbedBoxes;
 
-function myClickHandler(e) {
+function myClickHandler(e) { // if we happen to click on a tab...
     let name = e.target.name;
     if (name != undefined && name != null) {
         let hashPos = name.search("#tab#") // check if we clicked on something with a name that includes #tab#
@@ -63,9 +195,8 @@ function showTab_External(tabId) { // if navigation done externally, such as cli
     }
 }
 
-
 function initTabbedBoxes(){
-    foundTabbedBoxes = document.getElementsByClassName("tabInfoContainer");
+    foundTabbedBoxes = document.getElementsByClassName("tabInfoContainer")
     
     //** catalog all found tabbed boxes with relevant info
     for (boxId=0; boxId < foundTabbedBoxes.length; boxId++) {
@@ -118,9 +249,10 @@ function initTabbedBoxes(){
             showTab_External(tabInfo_Id)
         }
     }
+    
+    //** set click handler for clicking tabs of a tabbed box 
+    document.onclick = myClickHandler;
 }
-//** set click handler for clicking tabs of a tabbed box 
-document.onclick = myClickHandler; 
 
 /* END tabbed boxes */
 
@@ -233,9 +365,8 @@ function autoSlide(ssId){
         },5000)
 }
 
-
 function initSlideShows(){
-// get all slideshows defined within webpage
+    // get all slideshows defined within webpage
     slideShows = document.getElementsByClassName("slideshowContainer")
 
     // catalog all slideshows in webpage with relevant information
@@ -255,8 +386,6 @@ function initSlideShows(){
 
     }
 
-    console.log("NUM OF INDEXED SLIDESHOWS: "+Object.keys(slideObjects).length)
-
     // activate slides
     for (ssId = 0; ssId < getNumSlideObjects(); ssId++) {
         this_slideShowObject = slideObjects[ssId]
@@ -265,6 +394,9 @@ function initSlideShows(){
         autoSlide(ssId)
     }
 }
+/* END slideShows */
 
+/* initialize everything */
+initCharts()
 initTabbedBoxes()
 initSlideShows()
