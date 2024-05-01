@@ -553,6 +553,18 @@
     footer p {
         padding:50px;
     }
+
+/* LOADING BOX */
+div.loadingBox {
+    display:flex;
+    justify-content:center;
+    height:100vh;
+    align-items:center;
+}
+div.loadingBox img {
+    width:200px;
+    height:200px;
+}
     
     /* @media all and (max-width: 800px) { /* for testing mobile layout on desktop */
      @media only screen and (max-device-width: 800px) { /* previously 480px; changed to 800 to include responsiveness for tablets */
