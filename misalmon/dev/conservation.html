@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <div id="scripts" style="display:none;">
+        
+    </div>
+</head>
+<body id="writePageBox">
+    <div class="loadingBox"> <!-- BEGIN LOADING BOX -->
+        <img src='../media/images/loading.gif'/>
+        <span style="display:none;" id='pageName'>conservation</span> <!-- END LOADING BOX -->
+    </div>
+</body>
+    <script src="../src/js/mainDEV.js"></script>
+    <py-config>
+        [[fetch]]
+        files=['./main.py']
+    </py-config>
+    <script type='py'>
+        import main # import our main python page
+        import js # necessary to display rendered html properly, as pyscript decodes it
+        import json # needed to parse config settings
+        
+        from js import document as Doc # get the webpage as a document object
+        from js import storedText as this_content # import page's content variable
+        from js import filename # import filename variable
+
+        from js import tempHeader
+        from js import tempContent
+        from js import tempFooter
+
+        from js import navLinksText
+        from js import config_general
+
+        print("CONFIG_PY_GENERAL: "+str(config_general))
+        navLinks = json.loads(str(navLinksText)) # load navigation links
+        configGeneral = json.loads(str(config_general)) # load configuration
+        main.setNav(navLinks)
+        main.setConfig(configGeneral)
+        #print("PYTHON_NAV: "+str(navLinks))
+        #print("PYTHON_NAV2: "+str(navLinks["Home"]))
+
+        dynamicTemplate = True
+        
+        #print("HEADER STUFF:\n %s" % tempHeader)
+        #print("CONTENT TEMPLATE:\n %s" % tempContent)
+        #print("FOOTER STUFF:\n%s" % tempFooter)
+        
+        thisPage = js.document.getElementById('writePageBox') # get the element where we will write this text
+        
+        if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
+            if dynamicTemplate == True:    
+                thisPage.innerHTML = main.pageFromContent(this_content,filename,tempHeader,tempContent,tempFooter)
+            else:
+                thisPage.innerHTML = main.pageFromContent(this_content,filename) # creates a page from default static template embedded in python file
+        else: # if the page's contents were null
+            thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
+    </script>
+</html>
