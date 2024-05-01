@@ -261,7 +261,7 @@ def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CON
         print("defining custom page title")
         pageTitle = "<!-- predefined title removed -->"
     else: # we want predetermined, auto-title
-        pageTitle = capTitle(pgName)
+        pageTitle = "<h2>"+capTitle(pgName)+"</h2>"
     
     content_formatted =  transformPathKeys(temp_content.format(page_title=pageTitle,page_content=pgContent)) + getScripts()
     header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
