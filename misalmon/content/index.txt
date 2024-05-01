@@ -56,7 +56,7 @@
 <div class="row circle big">
     <div>
         <a href='lifecycle.html'>
-            <img src="{images}lifecycle/a.jpg"/>
+            <img src="{images}lifecycle/a.webp"/>
             <h3>lifecycle</h3>
         </a>
     </div>
@@ -68,7 +68,7 @@
     </div>
     <div>
         <a href='conservation.html'>
-            <img src="{images}lifecycle/c.jpg"/>
+            <img src="{images}lifecycle/c.webp"/>
             <h3>conservation efforts</h3>
         </a>
     </div>
@@ -90,5 +90,5 @@
             <button>US EPA Website</button>
         </a>
     </div>
-    <img src='{images}reportepa2.jpg' style='width:25%;height:50%;clip-path:circle(33%);'/>
+    <img src='{images}reportepa2.webp' style='width:25%;height:50%;clip-path:circle(33%);'/>
 </div> 
