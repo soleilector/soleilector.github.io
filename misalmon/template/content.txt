@@ -3,7 +3,7 @@
       <p>Index / Lifecycle</p>
   </div>
   <div class="page_content">
-      <h2>{page_title}</h2>
+      {page_title}
       {page_content}
   </div>
 </div>
