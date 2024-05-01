@@ -12,7 +12,7 @@
         </div> <!-- END NAVIGATION HEADER -->
         <div class="headerImg"> <!-- BEGIN HEADER IMG-->
             <video autoplay muted loop>
-                <source src={videos}header_video.mp4" type="video/mp4">
+                <source src="{videos}header_video.mp4" type="video/mp4">
                 <img src="{images}header.jpg"/> <!-- HEADER IMAGE -->
                 Your browser does not support video tags.
             </video>
