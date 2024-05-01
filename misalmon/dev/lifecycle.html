@@ -33,7 +33,8 @@
 
         from js import navLinksText
         from js import config_general
-        
+
+        print("CONFIG_PY_GENERAL: "+str(config_general))
         navLinks = json.loads(str(navLinksText)) # load navigation links
         configGeneral = json.loads(str(config_general)) # load configuration
         main.setNav(navLinks)
