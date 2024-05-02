@@ -2,7 +2,7 @@ import pyscript
 
 STYLING = """
 <!-- TEMPLATE CSS -->
-    <link rel="stylesheet" href="styling.css"> <!-- Template stylesheet-->
+    <link rel="stylesheet" href="../styling.css"> <!-- Template stylesheet-->
     <!-- Bootstrap Icon CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     """
@@ -75,11 +75,34 @@ ROOT = "https://soleilector.github.io/misalmon"
 paths = {
     "media" : "media/",
     "images" : "media/images/",
-    "videos" : "media/videos/",
+    "videos" : "media/video/",
     "content" : "content/",
     "root" : "https://soleilector.github.io/misalmon/",
-    "url" : "https://soleilector.github.io/misalmon/dev/"
+    "scripts" : "src/js/",
+    "styling" : "src/css/",
+    "devRoot" : "https://soleilector.github.io/misalmon/dev/"
 }
+
+navigation = {
+    "Home" : { "priority" : 0, "addr" : "index.html" }
+}
+
+config = {
+    "custom_page_title" : False
+}
+
+js_scripts = "<script src='{scripts}dynamicPage.js'></script>"
+
+def setConfig(configDict):
+    global config
+    for key in configDict:
+        print("Changed config[%s]: %s => %s" % (key,str(config[key]),str(configDict[key])))
+        config[key] = configDict[key]
+
+def getConfig(key):
+    global config
+    if key in config:
+        return config[key]
 
 def setPath(pathName,pathPath):
     global paths
@@ -88,16 +111,52 @@ def setPath(pathName,pathPath):
 def getFileUrl(fileName,pathFolderName):
     return paths["root"] + paths[pathFolderName] + fileName
 
-def formLink(page_name):
-    return (page_name + WEBPAGE_EXTENSION)
+def transformPathKeys(str): # substitutes pathkeys with their associated paths
+    newStr = str
+    
+    for pathName in paths:
+        pathKey = "{"+pathName+"}"
+    
+        while pathKey in newStr: # continues to replace path keys of this value while it exists in this string
+            pos = newStr.find(pathKey)
+            
+            # print(subKey)
+            # print(pos)
+            # print(newStr[pos:])
+            
+            beginning = newStr[:pos]  # # text before the path to be replaced
+            ending = newStr[pos + len(pathKey):]  # text after the path to be replaced
+            
+            # print(beginning)
+            # print(ending)
+    
+            fullPath = paths["root"] + paths[pathName]
+            newStr = beginning + fullPath + ending  # reform string with replaced path
+            #print(newStr)
+    
+    return newStr
+
+def setNav(navDict):
+    global navigation
+    navigation = navDict
+
+def getNav():
+    return navigation
 
 def getStyling():
     return STYLING
 
+def setScripts(scriptsText):
+    global js_scripts
+    js_scripts = scriptsText
+
+def getScripts():
+    return transformPathKeys(js_scripts)
+
 def getContent(pgName): # get the contents of a page
     contentFormatted = ""
     
-    if pgName in PAGE_CONTENT:
+    if pgName in PAGE_CONTENT: # if this page exists in our index
         thisContent = PAGE_CONTENT[pgName]
         
         contentFormatted = CONTENT.format(
@@ -109,37 +168,65 @@ def getContent(pgName): # get the contents of a page
             page_title = pgName,
             page_content = "<p>Nothing is written here</p>"
         )
+
+    # begin changes
+    contentFormatted = transformPathKeys(contentFormatted) + getScripts()
+    # end changes
         
     return contentFormatted
 
 def getHeader(temp_header=HEADER):
-    headerFormatted = temp_header.format(
+    headerFormatted = transformPathKeys(temp_header).format(
         nav_links=getNavLinks(),
         header_image=getHeaderImage(),
         website_title=getWebsiteTitle()
     )
 
+    # begin changes
+    # headerFormatted = transformPathKeys(headerFormatted)
+    # end changes
+
     return headerFormatted
 
 def getFooter(temp_footer=FOOTER):
-    footer_formatted = temp_footer.format(text="This is a footer")
+    footerFormatted = transformPathKeys(temp_footer).format(copyright="Copyright @ Soleil Ector 2024")
 
-    return footer_formatted
+    # begin changes
+    # footerFormatted = transformPathKeys(footerFormatted)
+    # end changes
+    
+    return footerFormatted
 
-def getNavLinks():
-    str = ""
+def getNavLinks(): # note: change to read from list later
+    navInfo = getNav()
 
-    for linkName in NAV_LINKS:
-        str += "LINK STRING STUFF"
-    str += ""
+    navLinkArray = list(range(0,len(navInfo))) # make array the size of possible entries
+    print("NUM_NAV_ENTRIES: "+str(len(navInfo)))
+    print("NAVINFO: "+str(navInfo))
+    for linkName in navInfo: # for each link name
+        linkInfo = navInfo[linkName] # get link info
+        linkAddr = linkInfo["addr"] # get link address
+        linkPriority = linkInfo["priority"] # get link priority
 
-    return """<li><a href='#'>Home</a></li>
+        finalLinkHTML = "<li><a href='%s'>%s</a></li>" % (linkAddr, linkName) # generate link HTML prefab
+        navLinkArray[linkPriority] = finalLinkHTML # insert into its proper place
+
+    navHTML = "" # empty string to hold nav's HTML
+    
+    for linkHTML in navLinkArray: # for each link Id listed in 
+        navHTML += linkHTML # add link's HTML to navigation string
+    print("NAVHTML: "+navHTML) # print final navigation HTML
+    
+    return navHTML
+    
+    """
+    return <li><a href='#'>Home</a></li>
                     <li><a href='#'>Lifecycle</a></li>
-                    <li><a href='#'>Conservation</a></li>"""  # DEFAULT 4 TESTING
+                    <li><a href='#'>Conservation</a></li>  # DEFAULT 4 TESTING """
 
 
 def getHeaderImage():
-    #return "media/images/header.jpg"
+    #return "../media/images/header.jpg"
     return getFileUrl("header.jpg","images")
 
 
@@ -172,10 +259,18 @@ def getPage(pgName='Not Found'): #getpagename, argument based on ending of page
 
 def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CONTENT,temp_footer=FOOTER):
     # capitalize first letter of page's name
-    pgName = capTitle(pgName)
+    # pgName = capTitle(pgName)
     
     # generate page's html
-    content_formatted = temp_content.format(page_title=pgName,page_content=pgContent)
+    config_pgTitle = getConfig("custom_page_title") # do we want custom title?
+    pageTitle = pgName
+    if config_pgTitle == True:
+        print("defining custom page title")
+        pageTitle = "<!-- predefined title removed -->"
+    else: # we want predetermined, auto-title
+        pageTitle = "<h2>"+capTitle(pgName)+"</h2>"
+    
+    content_formatted =  transformPathKeys(temp_content.format(page_title=pageTitle,page_content=pgContent)) + getScripts()
     header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
     footer_formatted = getFooter(temp_footer) # uses default static template embedded in file if no argument
     print("AAAAGH")
