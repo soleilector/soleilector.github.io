@@ -3,13 +3,18 @@
 <head>
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <div id="scripts" style="display:none;">
+        
+    </div>
 </head>
 <body id="writePageBox">
-    <div style="display:flex;justify-content:center;height:100vh;"> <!-- BEGIN LOADING BOX -->
-        <img style="width:200px;height:200px;" src='media/images/loading.gif'/>
+    <div class="loadingBox"> <!-- BEGIN LOADING BOX -->
+        <img src='../media/images/loading.gif'/>
         <span style="display:none;" id='pageName'>index</span> <!-- END LOADING BOX -->
     </div>
-    <script src="src/js/main.js"></script>
+</body>
+    <script src="../src/js/mainDEV.js"></script>
     <py-config>
         [[fetch]]
         files=['./main.py']
@@ -17,6 +22,7 @@
     <script type='py'>
         import main # import our main python page
         import js # necessary to display rendered html properly, as pyscript decodes it
+        import json # needed to parse config settings
         
         from js import document as Doc # get the webpage as a document object
         from js import storedText as this_content # import page's content variable
@@ -26,12 +32,25 @@
         from js import tempContent
         from js import tempFooter
 
+        from js import navLinksText
+        from js import scriptsText
+        from js import config_general
+
+        print("CONFIG_PY_GENERAL: "+str(config_general))
+        navLinks = json.loads(str(navLinksText)) # load navigation links
+        configGeneral = json.loads(str(config_general)) # load configuration
+        main.setNav(navLinks) # set navigation
+        main.setScripts(scriptsText) # set javascript scripts
+        main.setConfig(configGeneral) # set configuration for pages
+        #print("PYTHON_NAV: "+str(navLinks))
+        #print("PYTHON_NAV2: "+str(navLinks["Home"]))
+
         dynamicTemplate = True
         
         #print("HEADER STUFF:\n %s" % tempHeader)
         #print("CONTENT TEMPLATE:\n %s" % tempContent)
         #print("FOOTER STUFF:\n%s" % tempFooter)
-        #this_content = js.storedText
+        
         thisPage = js.document.getElementById('writePageBox') # get the element where we will write this text
         
         if this_content != None and not ("404" in this_content): # if the contents of this variable is not null and the page was found
@@ -42,5 +61,4 @@
         else: # if the page's contents were null
             thisPage.innerHTML = main.getPage() # retreives a default page content with default static template embedded in python;
     </script>
-</body>
 </html>
