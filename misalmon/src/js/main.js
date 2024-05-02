@@ -5,15 +5,17 @@ if (filename.includes("/")){ // this page was found through a url with a directo
   filename = document.getElementById("pageName").innerHTML
 }
 
+let sitePath = "https://soleilector.github.io/misalmon/"
+
 // config
-var SETTINGS_URL_GENERAL = "../config/general.txt"
+var SETTINGS_URL_GENERAL = "config/general.txt"
 // page stuff
-var SCRIPTS_URL = "../config/pageScripts.txt"
-var NAV_URL = "../config/navigation.txt"
-var TEMPLATE_HEADER_URL = '../template/header.txt'
-var TEMPLATE_CONTENT_URL = '../template/content.txt'
-var TEMPLATE_FOOTER_URL = '../template/footer.txt'
-var CONTENT_URL = '../content/' + filename + ".txt"; // Get the content for this webpage
+var SCRIPTS_URL = "config/pageScripts.txt"
+var NAV_URL = "config/navigation.txt"
+var TEMPLATE_HEADER_URL = 'template/header.txt'
+var TEMPLATE_CONTENT_URL = 'template/content.txt'
+var TEMPLATE_FOOTER_URL = 'template/footer.txt'
+var CONTENT_URL = 'content/' + filename + ".txt"; // Get the content for this webpage
 
 var navLinksText;
 var scriptsText; // stores scripts to be called
@@ -38,14 +40,14 @@ function setInnerHtml(elm, html) { // allows scripts tags to be set to inner htm
 }
 
 /* BEGIN fetch content */
-fetch(CONTENT_URL)
+fetch(sitePath+CONTENT_URL)
 .then(function(response) {
   response.text().then(function(text) {
     storedText = text;
   });
 });
 
-fetch(TEMPLATE_HEADER_URL)
+fetch(sitePath+TEMPLATE_HEADER_URL)
 .then(function(response) {
   console.log("RESPONSE:"+response)
   console.log("RESPONSE TEXT: "+response.text)
@@ -54,14 +56,14 @@ fetch(TEMPLATE_HEADER_URL)
   });
 });
 
-fetch(TEMPLATE_CONTENT_URL)
+fetch(sitePath+TEMPLATE_CONTENT_URL)
 .then(function(response) {
   response.text().then(function(contentText) {
     tempContent = contentText;
   });
 });
 
-fetch(TEMPLATE_FOOTER_URL)
+fetch(sitePath+TEMPLATE_FOOTER_URL)
 .then(function(response) {
   response.text().then(function(footerText) {
     tempFooter = footerText;
@@ -70,7 +72,7 @@ fetch(TEMPLATE_FOOTER_URL)
 /* END fetch content */
 
 /* BEGIN fetch navigation */
-fetch(NAV_URL)
+fetch(sitePath+NAV_URL)
 .then(function(response) {
   response.text().then(function(fetchedNav) {
     console.log("NAV: "+fetchedNav)
@@ -80,7 +82,7 @@ fetch(NAV_URL)
 /* END fetch navigation */
 
 /* BEGIN fetch settings */
-fetch(SETTINGS_URL_GENERAL)
+fetch(sitePath+SETTINGS_URL_GENERAL)
 .then(function(response) {
   response.text().then(function(fetchedSettings_general) {
     console.log("SETTINGS_general: "+fetchedSettings_general)
@@ -105,7 +107,7 @@ function onPageContentWritten(e){ // when the page content has been written
   setInnerHtml(scriptsDiv,scriptsText) // run this script
 }
 
-fetch(SCRIPTS_URL)
+fetch(sitePath+SCRIPTS_URL)
 .then(function(response) {
   response.text().then(function(fetchedScripts) {
     //console.log("SCRIPTS: "+fetchedScripts)
