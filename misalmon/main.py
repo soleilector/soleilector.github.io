@@ -1,11 +1,5 @@
 import pyscript
 
-STYLING = """
-<!-- TEMPLATE CSS -->
-    <link rel="stylesheet" href="../styling.css"> <!-- Template stylesheet-->
-    <!-- Bootstrap Icon CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    """
 HEADER = """<header>
         <div class='header'> <!-- HEADER DIV -->
             <div class='logo'> <!-- LOGO -->
@@ -91,6 +85,13 @@ config = {
     "custom_page_title" : False
 }
 
+styling = """
+<!-- TEMPLATE CSS -->
+    <link rel="stylesheet" href="{styling}styling.css"> <!-- Template stylesheet-->
+    <!-- Bootstrap Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    """
+
 js_scripts = "<script src='{scripts}dynamicPage.js'></script>"
 
 def setConfig(configDict):
@@ -144,7 +145,7 @@ def getNav():
     return navigation
 
 def getStyling():
-    return STYLING
+    return transformPathKeys(styling)
 
 def setScripts(scriptsText):
     global js_scripts
