@@ -270,7 +270,7 @@ def pageFromContent(pgContent,pgName='index',temp_header=HEADER,temp_content=CON
     else: # we want predetermined, auto-title
         pageTitle = "<h2>"+capTitle(pgName)+"</h2>"
     
-    content_formatted =  transformPathKeys(temp_content.format(page_title=pageTitle,page_content=pgContent)) + getScripts()
+    content_formatted =  transformPathKeys(temp_content.format(page_name=capTitle(pgName),page_title=pageTitle,page_content=pgContent)) + getScripts()
     header_formatted = getHeader(temp_header) # uses default static template embedded in file if no argument
     footer_formatted = getFooter(temp_footer) # uses default static template embedded in file if no argument
     print("AAAAGH")
