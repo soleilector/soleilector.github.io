@@ -1,6 +1,6 @@
 <div class="content"> <!-- BEGIN CONTENT -->
   <div class="breadcrumbs">
-      <p>Index / Lifecycle</p>
+      <p>Index / {page_name}</p>
   </div>
   <div class="page_content">
       {page_title}
